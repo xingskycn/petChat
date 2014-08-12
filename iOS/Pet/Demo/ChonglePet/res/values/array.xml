@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="planets_array">
+        <item>全部</item>
+        <item>猫</item>
+        <item>狗</item>
+    </string-array>
+</resources>

@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+     >
+	   
+    	<Button 
+	        android:layout_width="300dp"
+	        android:layout_height="wrap_content"
+	        android:text="@string/look_head"
+	        android:id="@+id/look_head_button"
+	        />
+	    <Button 
+	        android:layout_width="300dp"
+	        android:layout_height="wrap_content"
+	        android:text="@string/scene_photo"
+	        android:id="@+id/scene_photo_button"
+        />
+        <Button 
+	        android:layout_width="300dp"
+	        android:layout_height="wrap_content"
+	        android:text="@string/photo_choose"
+	        android:id="@+id/photo_choose_button"
+        />
+        
+</LinearLayout>

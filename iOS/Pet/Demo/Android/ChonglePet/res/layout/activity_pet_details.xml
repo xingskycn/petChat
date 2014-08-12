@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+      	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FFFFFF"
+     >
+     <LinearLayout 
+        android:layout_width="fill_parent"
+	    android:layout_height="50dp"
+	    android:id="@+id/layouthead"
+	    android:background="#000000"
+	    android:orientation="vertical"
+        >
+        <include layout="@layout/head_title" />
+    </LinearLayout>
+    
+	<ScrollView 
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_below="@+id/layouthead"
+	    >
+	    <LinearLayout  
+	        android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			>
+			 <LinearLayout 
+		        android:layout_width="fill_parent"
+			    android:layout_height="190dp"
+			    android:background="#000000"
+			    android:id="@+id/layouthead1"
+			    android:layout_below="@+id/layouthead"
+			    android:orientation="vertical"
+		        >
+		         <android.support.v4.view.ViewPager
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:id="@+id/detailViewpage"
+			        android:layout_gravity="center"
+			        >
+			    </android.support.v4.view.ViewPager>
+		    </LinearLayout>
+    		
+          	<RelativeLayout 
+	       		android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="5dp"
+		        android:layout_marginBottom="5dp"
+		        >
+	         	<LinearLayout 
+		        	android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal"
+			        android:layout_alignParentLeft="true"
+			        >
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="宠物: "/>
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:id="@+id/petName"
+			            android:text="唐宁"/>
+			    </LinearLayout>
+			    <LinearLayout 
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal"
+			        android:layout_marginRight="5dp"
+			        android:layout_alignParentRight="true"
+			        >
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_gravity="right"
+			            android:text="主人: "/>
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_gravity="right"
+			            android:id="@+id/userName"
+			            android:text="JOJO"/>
+		     	</LinearLayout>
+	      </RelativeLayout>
+	     
+          <LinearLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical"
+		        android:layout_marginTop="10dp"
+		        android:layout_marginBottom="10dp"
+	        	>
+			 <RelativeLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="5dp"
+		        android:layout_marginBottom="5dp"
+		        >
+		         <LinearLayout 
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal"
+			        android:layout_alignParentLeft="true"
+			        >
+				        <TextView android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:text="宠物种类： "/>
+				        <TextView android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:text="哈士奇"/>
+				  </LinearLayout>
+				  <LinearLayout 
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal"
+			        android:layout_marginRight="5dp"
+			        android:layout_alignParentRight="true"
+			        >
+				        <TextView android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:layout_gravity="right"
+				            android:text="宠聊号： "/>
+				        <TextView android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:layout_gravity="right"
+				            android:id="@+id/userId"
+				            android:text="123456"/>
+			      </LinearLayout>
+		     </RelativeLayout>
+			 <LinearLayout 
+			     android:layout_width="wrap_content"
+			     android:layout_height="wrap_content"
+			     android:orientation="horizontal"
+			     >
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="宠物小名："/>
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:id="@+id/petNickName"
+			            android:text="JOJO"/>
+	        </LinearLayout>
+	      </LinearLayout>
+	     
+          <TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#000000"/>
+          
+	      <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_marginTop="10dp"
+	        android:layout_marginBottom="10dp"
+	        >
+		        <TextView android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="个性签名："/>
+		        <TextView android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:id="@+id/userSign"
+		            android:text="就是喜欢哈士奇"/>
+	      </LinearLayout>
+	     
+	      <TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#000000"/>
+	      <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_marginTop="15dp"
+	        android:layout_marginBottom="15dp"
+	        >
+		       <LinearLayout 
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="vertical"
+			        >
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_marginRight="10dp"
+			            android:text="最新动态："/>
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content" 
+			            android:textSize="30dp"
+			            android:layout_marginLeft="30dp"
+			            android:text="6"/>
+		        </LinearLayout>
+		        <ImageView android:layout_width="80dp"
+		            android:layout_height="80dp"
+		            android:layout_marginRight="10dp"
+		            android:id="@+id/petImageUrl"
+		            android:scaleType="fitXY"/>
+		        <LinearLayout 
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="vertical"
+			        >
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="震撼大哈市奇纯种健康"/>
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="0.2km|10-29  >"/>
+		        </LinearLayout>
+	      </LinearLayout>
+	      
+	      <TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#000000"/>
+	      <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_margin="10dp"
+	        >
+		        <LinearLayout 
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="vertical"
+			        android:layout_marginRight="10dp"
+			        >
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="聊天喊话："/>
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:textSize="30dp"
+			            android:layout_marginLeft="30dp"
+			            android:text="6"/>
+		        </LinearLayout>
+		        <ImageView android:layout_width="80dp"
+		            android:layout_height="80dp"
+		            android:layout_marginRight="10dp"
+		            android:id="@+id/userImageUrl"
+		            android:scaleType="fitXY"
+		            />
+		        <LinearLayout 
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="vertical"
+			        >
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="最近JOJO老是掉毛，求解答。。。"/>
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="0.2km|10-29  >"/>
+		        </LinearLayout>
+	      </LinearLayout>
+	     
+	      <TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#000000"/>
+	      <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_margin="15dp"
+	        >
+		        <TextView android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="宠物爱好："/>
+		        <TextView android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="啃骨头，玩球"/>
+	      </LinearLayout>
+	     
+	      <TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#000000"/>
+	      <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_margin="15dp"
+	        >
+		        <TextView android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="活动范围："/>
+		        <TextView android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="虹桥路水城路"/>
+	      </LinearLayout>
+	     
+	      <TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#000000"/>
+	      <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_margin="15dp"
+	        >
+		        <TextView android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_marginRight="17dp"
+		            android:text="宠物群组: "/>
+		        <ImageView android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/ic_launcher"/>
+		        <TextView android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_marginLeft="10dp"
+		            android:layout_marginTop="50dp"
+		            android:text="吉贝哈士奇"/>
+	      </LinearLayout>
+	     
+	      <TextView android:layout_width="fill_parent" android:layout_height="1dp" 	android:background="#000000"/>
+	      <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_margin="5dp"
+	        >
+		        <TextView android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="聊天俱乐部："/>
+		        <ImageView android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/ic_launcher"/>
+		        <TextView android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_marginLeft="10dp"
+		            android:layout_marginTop="50dp"
+		            android:text="上海哈士奇"/>
+	     </LinearLayout>
+	     
+	     <TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#000000"/>
+	     <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_margin="20dp"
+	        >
+	        <TextView android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="更多说明：就是喜欢哈士奇"/>
+	     </LinearLayout>
+	     <TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#000000"/>
+	     <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_margin="20dp"
+	        >
+	        <TextView android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="更多说明：就是喜欢哈士奇"/>
+	     </LinearLayout>
+	     
+       </LinearLayout>
+	</ScrollView>
+</RelativeLayout>

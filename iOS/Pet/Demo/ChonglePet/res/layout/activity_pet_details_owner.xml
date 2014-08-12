@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+      	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="@drawable/detaild_backgroud"
+     >
+     	<RelativeLayout 
+	       		android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_margin="5dp"
+		        android:gravity="center_vertical"
+		        >
+	         	<LinearLayout 
+		        	android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal"
+			        android:layout_alignParentLeft="true"
+			        >
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:id="@+id/petName"
+			            android:layout_marginRight="5dp"
+			            android:textSize="20dp"
+			            android:textColor="#000000"
+			            android:textStyle="bold"
+			            android:text="JoJo"/>
+			        <ImageView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:src="@drawable/xiangqing"/>
+			    </LinearLayout>
+			    
+			    <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_alignParentRight="true"
+			            android:textColor="#000000"
+			            android:text="0.1km|2分钟前"/>
+	      </RelativeLayout>
+	      <RelativeLayout 
+	       		android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_margin="5dp"
+		        android:gravity="center_vertical"
+		        >
+	         	<LinearLayout 
+		        	android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal"
+			        android:layout_alignParentLeft="true"
+			        >
+			        <ImageView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:src="@drawable/cat_fefemale"
+			            android:layout_marginRight="5dp"/>
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:textColor="#8d8d8d"
+			            android:textSize="18dp"
+			            android:text="苏格兰呵呵"/>
+			    </LinearLayout>
+			    <LinearLayout 
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal"
+			        android:layout_marginRight="5dp"
+			        android:layout_alignParentRight="true"
+			        >
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_gravity="right"
+			            android:id="@+id/userName"
+			            android:textColor="#000000"
+			            android:textSize="20dp"
+			            android:textStyle="bold"
+			            android:layout_marginRight="5dp"
+			            android:text="JOJO"/>
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_gravity="right"
+			            android:textColor="#8d8d8d"
+			            android:textSize="18dp"
+			            android:text="23岁"/>
+			        <ImageView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_gravity="right"
+			            android:paddingTop="5dp"
+			            android:src="@drawable/woman_icon"/>
+		     	</LinearLayout>
+	      </RelativeLayout>
+	      <RelativeLayout 
+	       		android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_margin="5dp"
+		        android:gravity="center_vertical"
+		        >
+	         	<LinearLayout 
+		        	android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal"
+			        android:layout_alignParentLeft="true"
+			        >
+			       <ImageView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:src="@drawable/age_icon"
+			            android:layout_marginRight="5dp"/>
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:textColor="#8d8d8d"
+			            android:textSize="18dp"
+			            android:text="3个月"/>
+			    </LinearLayout>
+			    <LinearLayout 
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal"
+			        android:layout_marginRight="5dp"
+			        android:layout_alignParentRight="true"
+			        >
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_gravity="right"
+			            android:textColor="#8d8d8d"
+			            android:textSize="18dp"
+			            android:text="宠聊号: "/>
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_gravity="right"
+			            android:id="@+id/userName"
+			            android:textColor="#8d8d8d"
+			            android:textSize="18dp"
+			            android:text="123456"/>
+		     	</LinearLayout>
+	      </RelativeLayout>
+	      <RelativeLayout 
+	       		android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_margin="5dp"
+		        android:gravity="center_vertical"
+		        >
+	         	<LinearLayout 
+		        	android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal"
+			        android:layout_alignParentLeft="true"
+			        >
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:textColor="#000000"
+			            android:textSize="20dp"
+			            android:layout_marginRight="15dp"
+			            android:text="个性签名"/>
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:id="@+id/petName"
+			            android:textColor="#8d8d8d"
+			            android:textSize="18dp"
+			            android:text="JOJO还是很萌的，哈哈哈"/>
+			    </LinearLayout>
+			   
+	      </RelativeLayout>
+	      <RelativeLayout 
+	       		android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_margin="5dp"
+		        android:gravity="center_vertical"
+		        >
+	         	<LinearLayout 
+		        	android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal"
+			        android:layout_alignParentLeft="true"
+			        >
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:textColor="#000000"
+			            android:textSize="20dp"
+			            android:layout_marginRight="15dp"
+			            android:text="宠物爱好"/>
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:id="@+id/petName"
+			            android:textColor="#8d8d8d"
+			            android:textSize="18dp"
+			            android:text="啃骨头，玩球"/>
+			    </LinearLayout>
+			   
+	      </RelativeLayout>
+	      <RelativeLayout 
+	       		android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_margin="5dp"
+		        android:gravity="center_vertical"
+		        >
+	         	<LinearLayout 
+		        	android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal"
+			        android:layout_alignParentLeft="true"
+			        >
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:textColor="#000000"
+			            android:textSize="20dp"
+			            android:layout_marginRight="15dp"
+			            android:text="活动范围"/>
+			        <TextView android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:id="@+id/petName"
+			            android:textColor="#8d8d8d"
+			            android:textSize="18dp"
+			            android:text="虹桥路水城路"/>
+			    </LinearLayout>
+			    
+	      </RelativeLayout>
+</LinearLayout>

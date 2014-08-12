@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+      	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+     >
+	    <LinearLayout 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"	        
+	        >
+	        
+	        <TextView 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:text="剪毛粉丝组"
+	            android:textSize="20dp"
+	            android:id="@+id/pet_chat_name"
+	            android:layout_margin="5dp"
+	            android:background="@drawable/corner_border"
+	            />
+	        <TextView 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:text="剪毛粉丝组"
+	            android:id="@+id/pet_chat_description"
+	            android:layout_margin="5dp"
+	            android:background="@drawable/corner_border"
+	            />
+	        <TextView 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+				android:id="@+id/pet_chat_time"
+				android:layout_margin="5dp"
+	            />
+		</LinearLayout>
+		
+	     <LinearLayout 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"	        
+	        >
+	        <TextView 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:text="我要参加"
+	            android:textSize="20dp"
+	            android:id="@+id/pet_chat_attend"
+	            android:layout_margin="5dp"
+	            android:background="#3399FF"
+	            />
+	        <TextView 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:text="我要说话"
+	            android:id="@+id/pet_chat_comment"
+	            android:layout_margin="5dp"
+	            android:background="#3399FF"
+	            />
+		</LinearLayout>
+
+</LinearLayout>

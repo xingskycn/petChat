@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+      	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/select_backgroud"
+        android:orientation="vertical"
+     >
+     
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="1"
+	    android:orientation="vertical"
+	    >
+		<include layout="@layout/head_title"/>	   
+	  
+	</LinearLayout>
+	
+	  
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="8"
+	    android:orientation="vertical"
+	    >
+		<LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="4"
+		    android:orientation="vertical"
+		    android:background="@drawable/select_one_backgroug"
+		    android:layout_marginBottom="10dp"
+		    android:layout_marginTop="10dp"
+		    >
+			<TextView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:layout_margin="5dp"
+				    android:textColor="#748183"
+				    android:text="群搜索"/>	
+			<EditText android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:layout_marginLeft="15dp"
+				    android:layout_marginRight="15dp"
+				    android:textColor="#b0bec2"
+				    android:background="@drawable/editext_bg"
+				    android:paddingLeft="15dp"
+				    android:hint="输入群组名称或群号搜索"
+				    />	   	   
+			<TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#e1d6ce" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>
+			<TextView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:layout_margin="5dp"
+				    android:textColor="#748183"
+				    android:text="群主分类搜索"/>	
+			<EditText android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:layout_marginLeft="15dp"
+				    android:layout_marginRight="15dp"
+				    android:textColor="#b0bec2"
+				    android:background="@drawable/editext_bg"
+				    android:paddingLeft="15dp"
+				    android:hint="输入群组名称或群号搜索"
+				    />	   	   
+			<TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#e1d6ce" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>
+			<TextView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:layout_margin="5dp"
+				    android:textColor="#748183"
+				    android:text="范围搜索"/>	
+			<EditText android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:layout_marginLeft="15dp"
+				    android:layout_marginRight="15dp"
+				    android:textColor="#b0bec2"
+				    android:background="@drawable/editext_bg"
+				    android:paddingLeft="15dp"
+				    android:hint="输入群组名称或群号搜索"
+				    />	   	   
+			<TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#e1d6ce" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>
+		</LinearLayout>
+		
+		<!-- 会员专有选项 -->
+		<RelativeLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="4"
+		    android:orientation="vertical"
+			android:gravity="center_vertical|center_horizontal"
+		    >
+	    
+			<LinearLayout 
+		    	android:layout_width="match_parent"
+			    android:layout_height="fill_parent"
+			    android:orientation="horizontal"
+		   		>
+			    <LinearLayout 
+				     android:layout_width="0dp"
+				     android:layout_weight="1"
+					 android:layout_height="fill_parent"
+					 android:orientation="vertical"
+				   	>
+			    
+				</LinearLayout>
+				<LinearLayout 
+				    android:layout_width="0dp"
+				    android:layout_weight="4.5"
+					android:layout_height="fill_parent"
+					android:orientation="vertical"
+					android:background="@drawable/group_search_bottom_bg"
+				   	>
+			    
+				</LinearLayout>
+				<LinearLayout 
+				    android:layout_width="0dp"
+				    android:layout_weight="1"
+					android:layout_height="fill_parent"
+					android:orientation="vertical"
+				   	>
+				</LinearLayout>
+			</LinearLayout>
+			<TextView android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:textSize="20dp"
+			    android:textColor="#748183"
+			    android:layout_margin="5dp"
+			    android:text="热门推荐"/>	   
+			
+		</RelativeLayout>
+		</LinearLayout>
+
+		<LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+		    android:orientation="horizontal"
+			android:layout_margin="5dp"		    
+		    >
+	    
+			<Button android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:id="@+id/select_sure_button"
+			    android:background="@drawable/sure_button_select"
+			    />	   
+		</LinearLayout>
+</LinearLayout>

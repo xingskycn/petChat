@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/linearLayout1"
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	>
+	
+    <ImageView
+		android:layout_width="0dp"
+		android:layout_weight="1" 
+		android:layout_height="50dp"
+		android:src="@drawable/ic_launcher"
+		android:id="@+id/contact_title_image"
+		/>
+	<TextView 
+	    android:layout_width="0dp"
+	    android:layout_weight="4"
+		android:layout_height="fill_parent" 
+		android:textSize="20dp"
+		android:layout_margin="10dp"
+		android:textColor="#000000"
+		android:id="@+id/contacts_name">
+	</TextView>
+	
+	<TextView 
+	    android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:textSize="20dp"
+		android:layout_margin="10dp" 
+		android:visibility="gone"
+		android:textColor="#000000"
+		android:id="@+id/contacts_account">
+	</TextView>
+</LinearLayout>

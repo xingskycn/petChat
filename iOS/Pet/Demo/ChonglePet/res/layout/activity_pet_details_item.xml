@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+      	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="@drawable/other_pet_bg"
+     >
+     	 <LinearLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+		        android:background="@drawable/other_pet_bg"
+		        android:layout_margin="5dp"
+		        android:gravity="center_vertical"
+		        >
+		        <ImageView android:layout_width="60dp"
+		            android:layout_height="60dp"
+		            android:layout_margin="3dp"
+		            android:src="@drawable/pet_title_test"/>
+		        <LinearLayout 
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="vertical"
+			        android:layout_margin="5dp"
+		       		 >
+				    <TextView android:layout_width="wrap_content"
+		            	android:layout_height="wrap_content"
+		            	android:textColor="#000000"
+		            	android:text="TinTin"/>
+				     <LinearLayout 
+				        android:layout_width="fill_parent"
+				        android:layout_height="wrap_content"
+				        android:orientation="horizontal"
+				        android:layout_margin="5dp"
+			       		 >
+			       		<ImageView android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:src="@drawable/dog_male"/>
+					    <TextView android:layout_width="wrap_content"
+			            	android:layout_height="wrap_content"
+			            	android:textColor="#8d8d8d"
+			            	android:textSize="15dp"
+			            	android:text="斗牛犬"/>
+					</LinearLayout>
+				     <LinearLayout 
+				        android:layout_width="fill_parent"
+				        android:layout_height="wrap_content"
+				        android:orientation="horizontal"
+				        android:layout_margin="5dp"
+			       		 >
+					    <ImageView android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:src="@drawable/age_icon"/>
+					    <TextView android:layout_width="wrap_content"
+			          	    android:layout_height="wrap_content"
+			          	    android:textColor="#8d8d8d"
+			            	android:textSize="15dp"
+			            	android:text="11个月"/>
+					 </LinearLayout>
+				</LinearLayout>
+		</LinearLayout>
+</LinearLayout>

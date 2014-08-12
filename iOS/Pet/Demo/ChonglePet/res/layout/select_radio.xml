@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+      	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+     >
+		
+			<TextView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:layout_margin="5dp"
+				    android:textColor="#748183"
+				    android:text="@string/animal_type"/>	
+			<LinearLayout 
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="horizontal"
+			    android:layout_marginLeft="20dp"
+			    android:layout_marginRight="20dp"
+			    android:gravity="center_horizontal|center_vertical"
+			    android:layout_marginBottom="5dp"
+			    >
+				<Spinner android:layout_width="0dp"
+				    android:layout_weight="5"
+				    android:layout_height="wrap_content"
+				    android:id="@+id/select_Spinner"
+				    android:background="@drawable/spinner_select"
+				    android:paddingLeft="10dp"
+				    />	
+				<TextView android:layout_width="0dp"
+				    android:layout_weight="0.5"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:layout_margin="10dp"
+				    android:textColor="#b0bec2"
+				    android:gravity="center_horizontal|center_vertical"
+				    android:text="—"/>	   	   
+				<Spinner android:layout_width="0dp"
+				    android:layout_weight="5"
+				    android:layout_height="wrap_content"
+				    android:id="@+id/select_Spinner"
+				    android:background="@drawable/spinner_select"
+				    android:paddingLeft="10dp"
+				    />	   
+			</LinearLayout>
+			<TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#e1d6ce" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>
+			<RelativeLayout 
+			    android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:orientation="vertical"
+			    >
+		    
+				<TextView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:text="@string/animal_sex"
+				    android:textSize="20dp"
+				    android:textColor="#748183"
+				    android:layout_marginLeft="10dp"
+				    android:id="@+id/petSex"
+				    />	   
+				<LinearLayout 
+		            android:layout_width="fill_parent" 
+		            android:layout_height="wrap_content" 
+		            android:gravity="center_vertical" 
+		            android:orientation="horizontal" 
+		            android:layout_marginLeft="15dp"
+		            android:layout_marginRight="15dp"
+		            android:layout_marginTop="5dp"
+		            android:layout_below="@+id/petSex"
+		            > 
+		            
+		            <ImageView 
+		                android:layout_width="0dp"
+		                android:layout_weight="1"
+		                android:layout_height="wrap_content"
+		                android:layout_marginRight="20dp"
+		                /> 
+		            <LinearLayout 
+		                android:layout_width="0dp"
+		                android:layout_weight="1"
+		                android:layout_height="wrap_content"
+		                android:layout_marginRight="20dp"
+		                android:orientation="horizontal"
+		                android:paddingLeft="35dp"
+		                android:gravity="center_vertical"
+		                > 
+			            <ImageView 
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content"
+			                android:layout_marginRight="5dp"
+			                android:src="@drawable/man__icon"
+			                />
+			             <TextView 
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content"
+			                android:layout_marginRight="10dp"
+			                android:text="@string/animal_boye" 
+			                android:textSize="20dp"
+			                android:textColor="#000000"
+			                /> 
+			        </LinearLayout>
+			        <LinearLayout 
+		                android:layout_width="0dp"
+		                android:layout_weight="1"
+		                android:layout_height="wrap_content"
+		                android:layout_marginRight="20dp"
+		                android:orientation="horizontal"
+		                android:paddingLeft="35dp"
+		                android:gravity="center_vertical"
+		                > 
+			            <ImageView 
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content"
+			                android:layout_marginRight="5dp"
+			                android:src="@drawable/woman_icon"
+			                />
+			             <TextView 
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content"
+			                android:layout_marginRight="5dp"
+			                android:text="@string/animal_gril" 
+			                android:textSize="20dp"
+			                android:textColor="#000000"
+			                /> 
+			        </LinearLayout>
+		        </LinearLayout> 
+		        <RadioGroup 
+		            android:id="@+id/select_radio_group" 
+		            android:layout_width="fill_parent" 
+		            android:layout_height="wrap_content" 
+		            android:gravity="center_vertical" 
+		            android:orientation="horizontal" 
+		            android:layout_marginLeft="15dp"
+		            android:layout_marginRight="15dp"
+		            android:layout_below="@+id/petSex"
+		            android:layout_alignParentBottom="true" > 
+		   
+		            <RadioButton 
+		                android:id="@+id/tab_icon_total" 
+		                style="@style/main_tab_bottom" 
+		                android:background="@drawable/radio_button_select"
+		                android:checked="true" 
+		                android:layout_marginRight="20dp"
+		                android:text="@string/total" /> 
+		            <RadioButton 
+		                android:id="@+id/tab_icon_gril" 
+		                style="@style/main_tab_bottom" 
+		                android:layout_marginRight="20dp"
+		                android:background="@drawable/radio_button_select"
+		                /> 
+		            <RadioButton 
+		                android:id="@+id/tab_icon_totalssdd" 
+		                style="@style/main_tab_bottom" 
+		                android:layout_marginRight="20dp"
+		                android:background="@drawable/radio_button_select"
+		                /> 
+		        </RadioGroup> 
+		        
+			</RelativeLayout>
+			<TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#e1d6ce" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>
+			<LinearLayout 
+			    android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:orientation="vertical"
+			    >
+		    
+				<TextView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:text="@string/animal_growtime"
+				    android:textSize="20dp"
+				    android:textColor="#748183"
+				    android:layout_marginLeft="10dp"
+				    />	   
+				<RadioGroup 
+		            android:id="@+id/select_radio_group" 
+		            android:layout_width="fill_parent" 
+		            android:layout_height="wrap_content" 
+		            android:gravity="center_vertical" 
+		            android:orientation="horizontal" 
+		            android:layout_marginLeft="15dp"
+		            android:layout_marginRight="15dp"
+		            android:layout_alignParentBottom="true" > 
+		   
+		            <RadioButton 
+		                android:id="@+id/tab_icon_total" 
+		                style="@style/main_tab_bottom" 
+		                android:background="@drawable/radio_button_select"
+		                android:checked="true" 
+		                android:paddingLeft="20dp"
+		                android:text="@string/quarter" /> 
+		           <RadioButton 
+		                android:id="@+id/tab_icon_boye" 
+		                style="@style/main_tab_bottom" 
+		                android:background="@drawable/radio_button_select"
+		                android:paddingLeft="20dp"
+		                android:text="@string/hours" /> 
+		            <RadioButton 
+		                android:id="@+id/tab_icon_gril" 
+		                style="@style/main_tab_bottom" 
+		                android:background="@drawable/radio_button_select"
+		                android:text="@string/day" /> 
+		            <RadioButton 
+		                android:id="@+id/tab_icon_totalssdd" 
+		                style="@style/main_tab_bottom" 
+		                android:background="@drawable/radio_button_select"
+		                android:text="@string/threeday" /> 
+		        </RadioGroup> 
+			</LinearLayout>
+</LinearLayout>

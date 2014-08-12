@@ -1,0 +1,126 @@
+/*
+  Localizable.strings
+  Pet
+
+  Created by Evan Wu on 6/10/14.
+  Copyright (c) 2014 Pet. All rights reserved.
+*/
+
+"cancel" ="取消";
+
+"welcome_skip"="跳过";
+"welcome_error" ="出错啦！";
+"welcome_message" ="请允许我们获取您的地理位置，谢谢！";
+
+"near_title" ="附近";
+"discover_title" ="发现";
+"constact_title" ="通讯录";
+"chat_title" ="聊天";
+"setting_title" ="用户设置";
+
+//login view
+"login_btn_title"           ="登陆";
+"register_btn_title"        ="注册";
+"forget_btn_title"          ="忘记密码？";
+"password_text"             ="密码";
+"account_text"              ="账号";
+"register_view_title"       ="注册";
+
+//near view
+"near_fliter_title"         ="筛选";
+"near_fliter_all"           ="全部";
+"near_fliter_only_male"     ="只看男";
+"near_fliter_only_female"   ="只看女";
+"near_fliter_custom"        ="自定义";
+
+//7-18 vedio listView
+"vedio_list_title"          ="视频列表";
+
+//edit_information_view
+"edit_infomation_title"     ="编辑资料";
+"find_contactFriends_title" ="查找通讯录好友";
+"find_contact_shake"        ="摇一摇";
+
+//constact view
+"constact_add"              ="添加";
+"constact_addFriend"        ="添加好友";
+"contacts_group_title"      ="宠聊群组";//7-23
+"constact_createGroup_title" ="创建群组";
+
+//shake history view
+"shake_history_title"       ="摇到的历史";//7-24
+
+"group_news_title"          ="群组动态";//7-26
+"group_setup_title"         ="群组设置";//7-26
+
+
+//discover view
+"discover_news_title"       ="宠友动态";
+"discover_group_title"      ="宠聊群组";
+"discover_shout_title"      ="宠聊喊话";
+"discover_club_title"       ="宠聊俱乐部";
+"discover_game_title"       ="游戏中心";
+"discover_event_title"      ="宠聊活动";
+"news_sendNews_title"       ="发送动态";//7-29
+"shout_sendNews_title"      ="发送喊话";
+
+//search view
+"search_title"              ="群组搜索";
+"search_groupSearch"        ="群搜索";
+"search_sortSearch"         ="群组分类搜索";
+"search_distanceSearch"     ="范围搜索";
+"search_hotSearch"          ="热门推荐";
+
+//chat view
+"char_pic_btn_title"        ="图片";
+"char_photo_btn_title"      ="照片";
+"char_vedio_btn_title"      ="视频";
+"char_loc_btn_title"        ="位置";
+
+//setting view
+"vipInfo_title"             ="会员介绍";
+"bind_title"                ="绑定与认证";
+"message_title"             ="消息通知";
+"privacy_title"             ="隐私";
+"general_title"             ="通用";
+"emo_title"                 ="表情与效果商店";
+
+"cell_title"                ="手机账号";
+"mail_title"                ="邮箱账号";
+"sina_title"                ="新浪微博";
+"qqweibo_title"             ="腾讯微博";
+"renren_title"              ="人人账号";
+
+"general_password"          ="密码管理";
+"general_gps"               ="定位服务";
+"general_language"          ="多语言";
+"general_font"              ="字体大小";
+"general_chatbg"            ="聊天背景";
+"general_emo"               ="表情管理";
+"general_sound"             ="听筒模式";
+"general_share"             ="分享";
+"general_feedback"          ="意见反馈";
+"general_rank"              ="给宠聊评价";
+"general_help"              ="用户帮助";
+"general_clear"             ="清理缓存";
+
+"privacy_hide"              ="隐身模式";
+"privacy_seilent"           ="勿扰时段";
+"privacy_searchme"          ="可通过手机号搜索到我";
+"privacy_constact"          ="向我推荐通讯录朋友";
+"privacy_block"             ="通讯录黑名单";
+"privacy_news"              ="朋友动态";
+"privacy_newsblock"         ="朋友动态黑名单";
+"privacy_photoblock"        ="不看他(她)的照片";
+
+"message_sound"             ="声音";
+"message_shake"             ="震动";
+"message_message"           ="消息通知";
+"message_hello"             ="招呼通知";
+"message_shout"             ="喊话通知";
+"message_focus"             ="关注通知";
+"message_friendNews"        ="好友动态通知";
+"message_groupNews"         ="群组动态通知";
+"message_actionNews"        ="活动动态通知";
+"message_club"              ="俱乐部动态通知";
+"message_hide"              ="隐藏通知内容";

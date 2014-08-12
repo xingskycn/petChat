@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AAAEC417-CC3A-4571-9FB5-5EFB46D7B25D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Pet</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2FB79F6E-D621-43CC-8A03-7E303AEA79F2</key>
+		<string>https://github.com/Freecaca/petChat.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOS/Pet/Beta/Pet/Pet.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2FB79F6E-D621-43CC-8A03-7E303AEA79F2</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Freecaca/petChat.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2FB79F6E-D621-43CC-8A03-7E303AEA79F2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2FB79F6E-D621-43CC-8A03-7E303AEA79F2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>petChat</string>
+		</dict>
+	</array>
+</dict>
+</plist>

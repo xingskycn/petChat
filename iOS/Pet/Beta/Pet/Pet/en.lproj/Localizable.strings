@@ -1,0 +1,127 @@
+/* 
+  Localizable.strings
+  Pet
+
+  Created by Evan Wu on 6/10/14.
+  Copyright (c) 2014 Pet. All rights reserved.
+*/
+
+"cancel" ="Cancel";
+//welcom view
+"welcome_skip" ="Skip";
+"welcome_error" ="Error!";
+"welcome_message" ="Please allow us to get your location, thank you!";
+
+"near_title" ="Near";
+"discover_title" ="Discover";
+"constact_title" ="Constact";
+"chat_title" ="Chat";
+"setting_title" ="Setting";
+
+//login view
+"login_btn_title"           ="Login";
+"register_btn_title"        ="Reg";
+"forget_btn_title"          ="forget?";
+"password_text"             ="Password";
+"account_text"              ="Account";
+"register_view_title"       ="Register";
+
+//near view
+"near_fliter_title"         ="Fliter";
+"near_fliter_all"           ="All";
+"near_fliter_only_male"     ="Only male";
+"near_fliter_only_female"   ="Only Female";
+"near_fliter_custom"        ="Custom";
+
+//constact view
+"constact_add"              ="Add";
+"constact_addFriend"        ="Add Friends";
+"find_contact_shake"        ="Shake";
+"contacts_group_title"      ="Pet Chat Group";//7-23
+"constact_createGroup_title" ="Create Group";//7-23
+
+"shake_history_title"       ="shake history";//7-24
+
+"group_news_title"          ="group news";//7-26
+"group_setup_title"         ="group setting";//7-26
+
+//vedio listView   7-18
+"vedio_list_title"          ="Video list ";
+
+//edit_information_view 7-21
+"edit_infomation_title"     ="Edit Data";
+"find_contactFriends_title" ="Find contacts Friends";
+
+
+//discover view
+"discover_news_title"       ="PetChat News";
+"discover_group_title"      ="PetChat Group";
+"discover_shout_title"      ="PetChat Shout";
+"discover_club_title"       ="PetChat Club";
+"discover_game_title"       ="PetChat Game";
+"discover_event_title"      ="PetChat Event";
+"news_sendNews_title"       ="Send News";//7-29
+"shout_sendNews_title"      ="Send Shout";
+
+//search view
+"search_title"              ="Group Search";
+"search_groupSearch"        ="GroupSearch";
+"search_sortSearch"         ="SortSearch";
+"search_distanceSearch"     ="RangeSearch";
+"search_hotSearch"          ="HotSearch";
+
+//chat view
+"char_pic_btn_title"        ="Picture";
+"char_photo_btn_title"      ="Photo";
+"char_vedio_btn_title"      ="Vedio";
+"char_loc_btn_title"        ="Location";
+
+//setting view
+"vipInfo_title"             ="VIP Introduction";
+"bind_title"                ="Binding and Authentication";
+"message_title"             ="Meaasge & Notification";
+"privacy_title"             ="Privacy";
+"general_title"             ="General";
+"emo_title"                 ="Emo & Store";
+
+"cell_title"                ="Cell Phone";
+"mail_title"                ="Mail";
+"sina_title"                ="Sina Weibo";
+"qqweibo_title"             ="Tencent Weibo";
+"renren_title"              ="Renren";
+
+"general_password"          ="Password";
+"general_gps"               ="Location Server";
+"general_language"          ="Muti Language";
+"general_font"              ="Font Size";
+"general_chatbg"            ="Chat Background";
+"general_emo"               ="Emo Manager";
+"general_sound"             ="Handsets";
+"general_share"             ="Share";
+"general_feedback"          ="Feedback";
+"general_rank"              ="Rank";
+"general_help"              ="Help";
+"general_clear"             ="Cache Clear";
+
+"privacy_hide"              ="Stealth Mode";
+"privacy_seilent"           ="Disturb Time";
+"privacy_searchme"          ="Find Me With cellPhone Number";
+"privacy_constact"          ="Friends In contract";
+"privacy_block"             ="Contract Block";
+"privacy_news"              ="Friends News";
+"privacy_newsblock"         ="Friends News Block";
+"privacy_photoblock"        ="Photo Block";
+
+"message_sound"             ="Sound";
+"message_shake"             ="Shake";
+"message_message"           ="Message Notification";
+"message_hello"             ="Hello Notification";
+"message_shout"             ="Shout Notification";
+"message_focus"             ="Focus Notification";
+"message_friendNews"        ="FriendNews Notification";
+"message_groupNews"         ="GroupNews Notification";
+"message_actionNews"        ="ActionNews Notification";
+"message_club"              ="Club Notification";
+"message_hide"              ="Hide Notification";
+
+

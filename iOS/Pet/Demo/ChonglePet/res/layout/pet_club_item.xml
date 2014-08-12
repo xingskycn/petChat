@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+      	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+     >
+     <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:id="@+id/head_section"
+        android:orientation="horizontal"
+     >
+     </LinearLayout>
+     
+     <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+     >
+   
+	    <ImageView 
+			android:layout_width="80dp"
+			android:layout_height="80dp"
+			android:id="@+id/pet_chat_Image"
+			android:layout_margin="5dp"
+	        />
+	    <LinearLayout 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"	        
+	        >
+	        
+	        <TextView 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:text="剪毛粉丝组"
+	            android:textSize="20dp"
+	            android:id="@+id/pet_club_roupName"
+	            />
+	        <TextView 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:text="剪毛粉丝组"
+	            android:id="@+id/pet_club_groupSize"
+	            />
+	        <TextView 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:text="剪毛粉丝组sssssssssss"
+	            android:id="@+id/groupDescription"
+	            />
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>

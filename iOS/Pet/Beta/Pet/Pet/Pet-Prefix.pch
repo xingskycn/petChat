@@ -1,0 +1,758 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+    #import "CBExtension.h"
+    #import "UIHelper.h"
+    #import "PENetWorkingManager.h"
+    #import "PeModel.h"
+    #import "Common.h"
+    #import "PEXMPP.h"
+#endif
+
+typedef enum {
+    chatType_Single =0,
+    chatType_Room
+} chatType;
+
+#pragma mark - ***********************
+#pragma mark XMPP INFORMATION
+#define g_App ((AppDelegate*)[[UIApplication sharedApplication] delegate])
+#define xmppHOST        @"192.168.1.2"                                                                                                                                                                                                                                                                                                                                                                                          
+//#define xmppHOST        @"114.215.138.136"
+#define xmppDomain      @"chongle.com"
+
+#define TEXT_MESSAGE        @"text"
+#define IMAGE_MESSAGE       @"image"
+
+#pragma mark - ***********************
+#pragma mark DEVICE INFORMATION
+//获取设备的物理高度
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+
+//获取设备的物理宽度
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+
+//获取设备版本
+#define IS_IOS_7 ([[[UIDevice currentDevice] systemVersion] floatValue] >=7.0 ? YES : NO)
+
+#define IS_IPhone_5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define CANCEL_TITLE @"cancel"
+#define CELL_NUMBER_REGEX [NSString stringWithFormat:@"^(1(([35][0-9])|(47)|[8][0-9]))\\d{8}$"]
+
+#pragma mark - ***********************
+#pragma mark NOTIFICATION
+#define NOTIFICATION_GETINFO_SUCC               @"GET_INFO_SUCC"
+
+#pragma mark - ***********************
+#pragma mark DATABASE
+#define DB_DATABASE_NAME                        @"Pet.sqlite"
+#define DB_NEARTABLE_NAME                       @"Near_info"
+#define DB_MSG_NAME                             @"msg"
+#define DB_MSG_NEW                              @"newMsg"
+
+#define DB_COLUMN_NEAR_PETID                    @"petID"
+#define DB_COLUMN_NEAR_PETNAME                  @"petName"
+#define DB_COLUMN_NEAR_PETIMAGEURL              @"petImageUrl"
+#define DB_COLUMN_NEAR_PETSEX                   @"petSex"
+#define DB_COLUMN_NEAR_PETTYPE                  @"petType"
+#define DB_COLUMN_NEAR_PETAGE                   @"petAge"
+#define DB_COLUMN_NEAR_PETBIRTHDAY              @"petBirthday"
+#define DB_COLUMN_NEAR_PETNICKNAME              @"petNickName"
+#define DB_COLUMN_NEAR_PETSUBNAME               @"petSubName"
+#define DB_COLUMN_NEAR_PETWANTEDTYPE            @"petWantedType"
+#define DB_COLUMN_NEAR_USERID                   @"userid"
+#define DB_COLUMN_NEAR_USERNAME                 @"userName"
+#define DB_COLUMN_NEAR_USERSEX                  @"userSex"
+#define DB_COLUMN_NEAR_USERIMAGEURL             @"userImageUrl"
+#define DB_COLUMN_NEAR_USERLCATION              @"userLocation"
+#define DB_COLUMN_NEAR_USERLASTLOGIIN           @"userLastLogin"
+#define DB_COLUMN_NEAR_USERSIGN                 @"userSign"
+#define DB_COLUMN_NEAR_USERBIRTHDAY             @"userBirthday"
+#define DB_COLUMN_NEAR_HEIGHTCUT                @"heightCut"
+
+#define DB_COLUMN_MSG_FROM                      @"msgFrom"
+#define DB_COLUMN_MSG_TO                        @"msgTo"
+#define DB_COLUMN_MSG_CONTENT                   @"msgContent"
+#define DB_COLUMN_MSG_DATE                      @"msgDate"
+#define DB_COLUMN_MSG_TYPE                      @"msgType"
+#define DB_COLUMN_MSG_NICKNAME                  @"msgNickName"
+
+//news页面-解析展示的数据
+#define DB_COLUMN_NEWS_FRIENDIMAGE              @"friendImageUrl"
+
+
+#pragma mark - ***********************
+#pragma mark UI THEME
+
+#define UI_THEME                @"UITheme"
+#define UI_THEME_DEFAULT        @"_matting_blue"
+
+#pragma mark - ***********************
+#pragma mark SERVER ADDRESS
+
+//#define BASE_URL @"http://114.215.138.136/xampp/"
+#define BASE_URL @"http://192.168.1.2/xampp/"
+//#define BASE_URL @"http://173.255.221.74/xampp/"
+#define DIR_PATH @"petAPI/"
+
+#define START_APP_URL               @"startApp/ios.php"
+#define LOGIN_URL                   @"login/userLogin_ios.php"
+#define REGISTER_URL                @"settings/register_ios_file.php"//注册的url
+#define SENDCONFIRMCODE_URL         @"register_messageAPI/register_ios_key.php"  //生成验证码
+#define CONFIRMCONFIRMCODE_URL      @"register_messageAPI/register_ios_key_check.php"
+#define CONFIRMUSER_URL             @"settings/user_check.php"   //检测用户是否已经注册
+#define USERSETTING_URL             @"settings/info_main_ios.php"
+#define ADDFRIENDSBYSEARCH_URL      @"petDetails/searchby_id_ios.php"//搜索添加好友
+#define ADDFOCUS_URL                @"petFriendsMgr/focus_action_ios.php" //near详情界面添加关注url
+#define CANCELFOCUS_URL             @"petFriendsMgr/focus_cancel_ios.php"//near界面取消关注url
+#define UPLOAD_VIDEO_URL            @"videoMgr/videoUpload_ios.php"//上传视频url
+#define BLOCK_USER_URL              @"petFriendsMgr/block_action_ios.php"//near详情界面拉黑url
+#define GETVIDEOLIST_URL            @"videoMgr/getVideoList_ios.php"//获取视频列表url
+#define EDITINFOLIST_URL            @"settings/info_list_ios.php"//获取编辑资料页面数据url
+#define CANCELBLOCKUSER_URL         @"petFriendsMgr/block_cancel_ios.php"//详情界面取消拉黑url
+#define DETAILREPORTUSER_URL        @"petFriendsMgr/blocksue_action_ios.php"//详情界面拉黑并举报url
+#define CONTACTLIST_URL             @"petFriendsMgr/friends_list_ios.php"//联系人好友列表url
+#define CONTACT_FOUCUSLIST_URL      @"petFriendsMgr/focus_list_ios.php"//联系人关注列表url
+#define CONTACT_FANSLIST_URL        @"petFriendsMgr/fans_list_ios.php"//联系人页面粉丝列表url
+#define SEARCH_BYUSERNAME_URL       @"petList/filterby_name_ios.php"//按名字搜索url
+#define SHOUT_RESPONSETOCOMMENT_URL @"shoutMgr/shoutInfo_ios_return_add.php"//喊话，对评论进行回复
+#define CONTACTS_GROUP_URL          @"petFriendsMgr/myGroupList_ios.php"//联系人---群组
+#define CONTACT_CREATE_GROUP_URL    @"petGroupList/TeamInfo_add_ios.php"
+#define SHAKE_LIST_URL              @"shakeMgr/shake_info_ios.php"//摇一摇页面url
+#define SHAKE_HISTORYLIST_URL       @"shakeMgr/shaking_list_ios.php"//摇到的历史界面url
+#define SHAKE_HISTORYLIST_CLEAR_URL @"shakeMgr/shake_disable_ios.php"//摇一摇清除url
+#define SHAKE_NEWSRERSPONSETOCOMMENT_URL @"petNews/petNews_ios_return_add.php"//好友动态
+#define GROUP_MEMBERLIST_URL        @"petGroupList/petGroupMemberList_ios.php"//群成员列表
+#define EDIT_SAVEINFOMATION_URL     @"settings/infoUpdate_ios.php"//编辑资料保存信息url
+#define SHOUT_SENDNEWS_URL          @"shoutMgr/shout_add_ios.php"//发送喊话界面url
+#define EDIT_ADDPETIMAGE_URL        @"settings/add_petImages_ios.php"//
+#define NEWS_SEND_NEW_URL           @"petNews/petNewsInfo_add_ios.php"
+#define EDIT_PETSAVEINFOMATION_URL  @"settings/info_Pet_Update_ios.php"
+#define EDIT_DELETEPETIMAGES_URL    @"settings/delete_petImages_ios.php"//编辑界面删除宠物照片
+#define EDIT_CHANGEPASSWORD_URL     @"login/userChangePW_ios.php"
+#define EDIT_CHECKPASSWORD_URL      @"login/userChangePW_ios.php"
+#define NEAR_URL                    @"petList/homePage_ios.php"
+#define NEARDETAIL_URL              @"petDetails/ios.php"
+#define NEAR_FLITER_URL             @"petList/filterAll_ios.php"
+#define FLITER_DATA_URL             @"parasMgr/sort_ios.php"
+#define FLITER_SUB_DATA_URL         @"parasMgr/sort_middle_ios.php"
+#define DISCOVER_GROUP_URL          @"petGroupList/petGroupList_ios.php"
+#define DISCOVER_GROUP_SEARCH_URL   @"petGroupList/petGroupList_ios_search.php"
+#define DISCOVER_SEARCH_HOT_URL     @"petGroupList/petGroupList_search_id_type_byhotname_ios.php"
+#define DISCOVER_GROUPDETAIL_URL    @"petGroupList/petGroupDetails_ios.php"
+#define DISCOVER_CLUBDETAIL_URL     @"petClubList/petClubDetails_ios.php"
+#define DISCOVER_NEWS_URL           @"petNews/petNews_ios.php"
+#define DISCOVER_SHOUT_URL          @"shoutMgr/shoutInfo_ios.php"
+#define DISCOVER_NEWS_AGREE_URL     @"petNews/petNews_ios_agree.php"
+#define DISCOVER_NEWS_COMMENT_URL   @"petNews/petNews_ios_add.php"
+#define DISCOVER_SHOUTCOMMENT_URL   @"shoutMgr/shoutInfo_ios_add.php"
+#define DISCOVER_SHOUTAGREE_URL     @"shoutMgr/shout_agree_action_ios.php"//7-23
+#define DISCOVER_CLUB_URL           @"petClubList/petClubList_ios.php"
+
+#define CHAT_CHAT_UPLOAD_IMAGE_URL      @"chattingMgr/add_chattingImages_ios.php"
+
+#define CONTACTS_FOCUSSEARCH_URL     @"petFriendsMgr/focus_list_ios_by_search.php"
+#define CONTACTS_FRIENDSSEARCH_URL   @"petFriendsMgr/friends_list_ios_by_search.php"
+#define CONTACTS_FANSSEARCH_URL      @"petFriendsMgr/fans_list_ios_by_search.php"
+
+
+#pragma mark - ***********************
+#pragma mark SETTING KEY
+#define HAS_USED                @"hasUsed"
+#define IS_LOGINED              @"isLogined"
+
+#define ACCOUNT                 @"account"
+#define MAILACCOUNT             @"emailAddress"
+#define CELLACCOUNT             @"mobileNumber"
+#define PASSWORD                @"password"
+
+#define NETINFO_IP_IN           @"ipIn"
+#define NETINFO_IP_OUT          @"ipOut"
+#define NETINFO_PROVIDER        @"provider"
+
+#define APPINFO_VERSION         @"version"
+#define APPINFO_NAME            @"appName"
+
+#define GPS_LONGITUDE           @"longitude"
+#define GPS_LATITUDE            @"latitude"
+#define GPS_TIME                @"lbsTime"
+
+#define MOBILE_INFO_UUID        @"uuid"
+#define MOBILE_INFO_TYPE        @"type"
+#define MOBILE_INFO_OSNAME      @"osName"
+#define MOBILE_INFO_TIME        @"mobileTime"
+#define MOBILE_INFO_TIMEZONE    @"MobileTimeZone"
+
+#define APP_NAME                @"PetChat"
+
+#define USER_INFO_ID            @"userID"
+#define USER_INFO_NAME          @"userName"
+#define IS_LIST                 @"isList"
+
+#pragma mark - *********************** 
+#pragma mark HTTP REQUEST KEY
+#define HTTP_RESULTS                    @"result"
+#define HTTP_ERRORMSG                   @"errMsg"
+
+#define HTTP_NETINFO_IP_IN           @"ipIn"
+#define HTTP_NETINFO_IP_OUT          @"ipOut"
+#define HTTP_NETINFO_PROVIDER        @"networkProvider"
+
+#define HTTP_APPINFO_VERSION         @"version"
+#define HTTP_APPINFO_NAME            @"appName"
+
+#define HTTP_GPS_LONGITUDE           @"longitude"
+#define HTTP_GPS_LATITUDE            @"latitude"
+#define HTTP_GPS_TIME                @"lbsTime"
+
+#define HTTP_MOBILE_INFO_UUID        @"UUID"
+#define HTTP_MOBILE_INFO_TYPE        @"mobileType"
+#define HTTP_MOBILE_INFO_OSNAME      @"osName"
+#define HTTP_MOBILE_INFO_TIME        @"phoneTime"
+#define HTTP_MOBILE_INFO_TIMEZONE    @"timeZone"
+
+
+//by wu
+#define HTTP_USER_INFO_ID           @"userID"
+#define HTTP_LOGIN_ACCOUNT          @"mobileNumber"
+#define HTTP_LOGIN_PASSWORD         @"password"
+
+#define HTTP_NEARDTAIL_PETINFO      @"petInfo"
+#define HTTP_NEARDETAIL_USERID      @"userID"
+#define HTTP_NEARDETAIL_USERINFO    @"userInfo"
+
+#define HTTP_DISCOVER_NEWSAGREE         @"petNewsInfo"
+#define HTTP_DISCOVER_NEWSCOMMENT       @"petNewsCommentInfo"
+#define HTTP_DISCOVER_SHOUTINFO         @"shoutInfo"
+#define HTTP_DISCOVER_COMMENT           @"shoutCommentsInfo"
+
+#define HTTP_DISCOVER_GROUPINFO         @"groupInfo"
+#define HTTP_DISCOVER_CLUBINFO          @"clubInfo"
+#define HTTP_DISCOVER_SEARCH            @"filtersInfo"
+
+#pragma mark - ***********************
+#pragma mark HTTP KEY
+
+#define LBS_INFO_KEY                @"LBSInfo"
+#define API_INFO_KEY                @"apiInfo"
+#define CELLS_INFO_KEY              @"cellsInfo"
+#define MOBILE_INFO_KEY             @"mobileInfo"
+
+#define LOGIN_INFO_KEY              @"userLoginInfo"
+
+//接口的key
+#pragma mark - ***********************
+#pragma mark HTTP API KEY
+
+#define REQUEST_KEY_START_APP                   @"startApp"
+#define REQUEST_KEY_LOGIN                       @"userLogin"
+#define REQUEST_KEY_REGISTER                    @"register_info" //by wu
+#define REQUEST_KEY_REGISTER                    @"register_info" //by wu
+#define REQUEST_KEY_SENDCONFIRMCODE             @"register_key" //by wu
+#define REQUEST_KEY_CONFIRMCONFIRMCODE          @"register_key_check"//by wu
+#define REQUEST_KET_USERSETTING                 @"setting_main_info"//by wu
+#define REQUEST_KEY_SEARCHFRIENDDS              @"pet_searchby_id_Details"//搜素号码，添加好友
+#define REQUEST_KEY_ADDFOCUS                    @"focus_action"     //near详情界面，添加关注
+#define REQUEST_KEY_BLOCKUSER                   @"block_action"    //near详情界面，拉黑
+#define REQUEST_KEY_UPLOADVIDEO                 @"video_upload"  //上传视频
+#define REQUEST_KEY_CANCELFOCUS                 @"focus_cancel"    //near详情界面，取消关注
+#define REQUEST_KEY_GETVIDEOLIST                @"get_VideoList" //视频列表界面
+#define REQUEST_KEY_EDITINFOLIST                @"info_list"//编辑资料界面
+#define REQUEST_KEY_CANCELBLOCKUSER             @"block_cancel"//详情界面取消拉黑
+#define REQUEST_KEY_DETAILREPORTUSER            @"blocksue_action"//详情界面拉黑并举报
+#define REQUEST_KEY_CONTACTLIST                 @"petList_friends"//联系人好友列表
+#define REQUEST_KEY_FOUCUSLIST                  @"petList_focus" //联系人关注列表
+#define REQUEST_KEY_CONTACTFANSLIST             @"petList_fans"//联系人粉丝列表
+#define REQUEST_KEY_SEARCHBYUSERNAEM            @"petList_filterbyName"//名字搜索
+#define REQUEST_KEY_SHOUTRESPONSETOCOMMENT      @"shoutInfo_return_add"//shout喊话回复评论
+#define REQUEST_KEY_CONTACTSGROUP               @"pet_mygroup_list"//联系人---群组
+#define REQUEST_KEY_SHAKELIST                   @"shake_info"//摇一摇页面
+#define REQUEST_KEY_SHAKEHISTORY_LIST           @"shaking_info"//摇到的历史界面
+#define REQUEST_KEY_SHAKEHISTORYLIST_CLEAR      @"shake_disable"//摇一摇历史清除
+#define REQUEST_KEY_CREATE_GROUP                @"TeamInfo_add"
+#define REQUEST_KEY_CREATE_GROUP_IMAGE          @"team_images"
+#define REQUEST_KEY_CREATE_GROUP_INFO           @"chatTeamInfo"
+#define REQUEST_KEY_NEWSRESPONSETOCOMMENT       @"petNews_return_add"//好友动态页面
+#define REQUEST_KEY_GROUPMEMBERLIST             @"pet_group_member_list"//群成员列表
+#define REQUEST_KEY_EDITSAVEINFOMATION          @"settingInfo_update"//编辑资料保存信息
+#define REQUEST_KEY_SHOUT_SENNEWS               @"shout_add"  //shout发送喊话界面
+#define REQUEST_KEY_SHOUT_SENDNEWSPHOTO         @"shout_uploadUrl"//shout发送喊话界面
+#define REQUEST_KEY_NEWS_SENDPHOTO              @"news_uploadUrl"//发送动态
+#define REQUEAT_KEY_NEWS_SENDNEWS               @"petNewsInfo_add"//好友动态
+#define REQUEST_KEY_EDIT_ADDPETIMAGES           @"add_petImages"//编辑页面添加宠物
+#define REQUEST_KEY_EDITPETSAVEINFOMATION       @"settingInfo_pet_update"
+#define REQUEST_KEY_DELETE_PETIMAGES            @"delete_petImages"
+#define REQUEST_KEY_EDIT_CHANGEPWD              @"userChangePW"
+#define REQUEST_KEY_EDIT_CHECKPWD               @"userCheckPW"
+#define REQUEST_KEY_NEAR                        @"petList_homePage"	
+#define REQUEST_KEY_NEARDETAIL                  @"petDetails"
+#define REQUEST_KEY_NEAR_FLITER                 @"petList_filterAll"
+#define REQUEST_KEY_FLITER_DATA                 @"sortInfo"
+#define REQUEST_KEY_FLITER_SUB_DATA             @"sort_middle_Info"
+#define REQUEST_KEY_DISCOVER_GROUP              @"pet_group_list"
+#define REQUEST_KEY_DISCOVER_GROUP_SEARCH       @"pet_group_list_search"
+#define REQUEST_KEY_DISCOVER_GROUP_SEARCH_HOT   @"petGroupList_id_type_byhotname"
+#define REQUEST_KEY_DISCOVER_GROUPDETAIL        @"pet_group_details"
+#define REQUEST_KEY_DISCOVER_CLUB               @"pet_club_list"
+#define REQUEST_KEY_DISCOVER_CLUBDETAIL         @"pet_club_details"
+#define REQUEST_KEY_DISCOVER_NEWS               @"pet_news"
+#define REQUEST_KEY_DISCOVER_SHOUT              @"shoutInfo"
+#define REQUEST_KEY_DISCOVER_LOGIN              @"userLogin"
+#define REQUEST_KEY_CONFIRMUSER                 @"user_check" 
+#define REQUEST_KEY_DISCOVER_SHOUT_AGREE        @"shout_agree_action"
+#define REQUEST_KEY_DISCOVER_NEWS_AGREE         @"petNews_agree"
+#define REQUEST_KEY_DISCOVER_NEWS_COMMENT       @"petNewsComment_add"
+#define REQUEST_KEY_DISCOVER_SHOUT_COMMENT      @"shoutInfo_add"
+
+#define REQUEST_KEY_CHAT_ADD_IMAGE              @"add_chattingImages"
+
+#define REQUEST_CONTACTS_FOCUSSEARCH            @"petList_focus_by_search" 
+#define REQUEST_CONTACTS_FRIENDSSEARCH          @"petList_friends_by_search"
+#define REQUEST_CONTACTS_FANSSEARCH             @"petList_fans_by_search"
+
+//返回数值的key ---
+#pragma mark - ***********************
+#pragma mark HTTP DATA KEY
+
+#define REQUEST_NEAR_DATA                       @"petList"
+#define REQUEST_DISCOVER_DATA                   @"newsDetail"
+#define REQUEST_FLITER_DATA                     @"sortList"
+#define REQUEST_FLITER_SUB_DATA                 @"sortMiddleList"
+
+
+#pragma mark - ***********************
+#pragma mark WELCOME VIEW
+
+#define WEL_SKIP_BTN_TITLE          @"welcome_skip"
+#define WEL_ALERT_TITLE             @"welcome_error"
+#define WEL_ALERT_MSG               @"welcome_message"
+
+#define NEAR_TITLE                  @"near_title"
+#define NEAR_FLITER_TITLE           @"near_fliter_title"
+#define NEAR_FLITER_ALL             @"near_fliter_all"
+#define NEAR_FLITER_ONLY_MALE       @"near_fliter_only_male"
+#define NEAR_FLITER_ONLY_FEMALE     @"near_fliter_only_female"
+#define NEAR_FLITER_ONLY_CUSTOM     @"near_fliter_custom"
+
+
+#pragma mark - ***********************
+#pragma mark FLITER VIEW
+#define DID_TYPEDBTN                @"didTyped"
+#define DID_FLITER                  @"didFliter"
+#define DID_SAVE                    @"didSave"
+#define DID_ADDFRIEND               @"didAddFriend"
+#define FLITER_SUCC                 @"fliterSuccess"
+#define IS_FLITERED                 @"isFlitered"
+
+#define FLITER_USERDEFAULT          @"fliter"
+#define FLITER_ALL                  @"all"
+#define FLITER_MALE                 @"male"
+#define FLITER_FEMALE               @"female"
+#define FLITER_CUSTOM               @"custom"
+
+#define FLITER_TYPE                 @"Type"
+#define FLITER_SUBTYPE              @"subType"
+#define FLITER_PETSEX               @"Sex"
+#define FLITER_PETTIME              @"lastLogin"
+#define FLITER_PETAGE               @"petAge"
+#define FLITER_USERSEX              @"userSex"
+#define FLITER_USERAGE              @"userAge"
+#define FLITER_USERSTAR             @"userConstellation"
+#define FLITER_TIME_15M             @"15"
+#define FLITER_TIME_1H              @"60"
+#define FLITER_TIME_1D              @"1440"
+#define FLITER_TIME_3D              @"4320"
+#define FLITER_WANT_TYPE            @"wantedType"
+#define FLITER_WANT_MARRY           @"1"
+#define FLITER_WANT_ADEPT           @"2"
+#define FLITER_WANT_SAVE            @"3"
+
+#define FLITER_SORT_INFO            @"sortInfo"
+#define FLITER_SORT_MID_NAME        @"sortMiddleName"
+#define FLITER_SORT_NAME            @"sortName"
+#define FLITER_SORT_ID              @"sortID"
+#define FLITER_SORT_MID_ID          @"sortMiddleID"
+#define FLITER_SORT_SUB_LIST        @"sortList"
+
+#pragma mark - ***********************
+#pragma mark NEAR DETAIL VIEW
+#define NEAR_DETAIL_DATA            @"petList"
+#define NEAR_DETAIL_PET_ICON        @"petImageUrl"
+#define NEAR_DETAIL_IMAGE_LIST      @"petImageList"
+#define NEAR_DETAIL_PET_NAME        @"petName"
+#define NEAR_DETAIL_PET_TYPE        @"petType"
+#define NEAR_DETAIL_PET_SUBTYPE     @"petSubType"
+#define NEAR_DETAIL_PET_SUBNAME     @"petSubName"
+#define NEAR_DETAIL_PET_NICK        @"petNickName"
+#define NEAR_DETAIL_PET_SUBNAME     @"petSubName"
+#define NEAR_DETAIL_PET_AGE         @"petAge"
+#define NEAR_DETAIL_PETBIRTHDAY     @"petBirthday"
+#define NEAR_DETAIL_PET_DES         @"petDescription"
+#define NEAR_DETAIL_USER_DES        @"userDescription"
+#define NEAR_DETAIL_PET_FAV         @"petFavorite"
+#define NEAR_DETAIL_PET_SEX         @"petSex"
+#define NEAR_DETAIL_PET_SITE        @"petSite"
+#define NEAR_DETAIL_OWNER_ICON      @"userImageUrl"
+#define NEAR_DETAIL_OWNER_NAME      @"userName"
+#define NEAR_DEFAIL_USERID          @"userId"//by wu
+#define NEAR_DETAIL_OWNER_Birth     @"userBirthday"
+#define NEAR_DETAIL_OWNER_SEX       @"userSex"
+#define NEAR_DETAIL_OWNER_SIGN      @"userSign"
+#define NEAR_DETAIL_DISTANCE        @"userLocation"
+#define NEAR_DETAIL_TIME            @"userLastLogin"
+#define NEAR_DETAIL_MORE_INFO       @"petMore"
+#define NEAR_DETAIL_OTHER_PET       @"otherPetsListInfo"
+#define NEAR_DETAIL_PET_ID          @"petID"
+#define NEAR_DETAIL_GROUP_LIST      @"groupList"
+#define NEAR_DETAIL_GROUP_ID        @"groupID"
+#define NEAR_DETAIL_GROUP_NAME      @"groupName"
+#define NEAR_DETAIL_GROUP_IMAGE_URL @"groupImageUrl"
+
+//20140809 by wu
+#define NEAR_DETAIL_USER_FOCUS      @"hasFocus"
+#define NEAR_DETAIL_USER_HAVEFRIEND @"hasFriend"
+#define NEAR_DETAIL_USER_HAVEFOCUSED @"hasFocused"
+#define NEAR_DETAIL_USER_BLOCK      @"hasBlock"
+#define NEAR_DETAIL_VEDIO_NAME      @"videoName"
+#define NEAR_DETAIL_VEDIO_URL       @"mainVideoUrl"
+#define NEAR_DETAIL_VEDIO_COUNT     @"count"
+#define NEAR_DETAIL_VEDIO_LIST      @"videoInfo"
+#define NEAR_DETAIL_SHOUT_INFOLIST  @"shoutInfo"
+#define NEAR_DETAIL_NEWSINFO_INFOLIST @"newsInfo"
+#define NEAR_DETAIL_NEWSINFO_NEWSCOUNT @"newsCount"
+#define NEAR_DETAIL_NEWSINFO_IMAGEURL @"imageUrl"
+#define NEAR_DETAIL_NEWSINFO_CONTENT @"content"
+#define NEAR_DETAIL_SHOUTINFO_COUNT @"shoutCount"
+#define NEAR_DETAIL_SHOUTINFO_IMAGEURL @"imageUrl"
+#define NEAR_DETAIL_SHOUTINFO_CONTENT @"content"
+
+
+//=========8-2 视频列表界面key
+#pragma mark -
+#pragma mark -VEDIOLIST VIEW
+#define REQUEST_COUNT_DATA                      @"count"
+#define REQUEST_VIDEOLIST_DATA                  @"videoList"
+#define VIDEO_LIST_PET_IMAGE                    @"petImage"
+#define VIDEO_LIST_USER_IMAGE                   @"userImage"
+#define VIDIO_LIST_USER_NAME                    @"userName"
+#define VIDEO_LIST_VIDEO_TIME                   @"videoTime"
+#define VIDEO_LIST_AGREE_COUNT                  @"agreeCount"
+#define VIDEO_LIST_VIDEO_ID                     @"videoID"
+#define VIDEO_LIST_USER_IMAGE                   @"userImage"
+#define VIDEO_LIST_NEWS_DETAIL                  @"newsDetail"
+#define VIDEO_LIST_VIDEO_URL                    @"videoUrl"
+#define VIDEO_LIST_VEDEOLIST_INFO               @"videoListInfo"
+#define VIDEO_LIST_USERSIGN                     @"userSign"
+#define VIDEO_LIST_COMMENTS                     @"comments"
+#define VIDEO_LIST_VIDEONAME                    @"videoName"
+#define VIDEO_LIST_AGREESTATUS                  @"agreeStatus"
+
+
+//7-21 编辑资料界面key
+#pragma mark -
+#pragma mark - EDITINFOMATION VIEW
+#define EDIT_INFO_PETIMAGE_URL                  @"petImageUrl"
+#define EDIT_INFO_USERIMAGE_URL                 @"userImageUrl"
+#define EDIT_INFO_USERNAME                      @"userName"
+#define EDIT_INFO_USER_BIRTHDAY                 @"userBirthday"
+#define EDIT_INFO_USER_SIGN                     @"userSign"
+#define EDIT_INFO_USER_DESCRIPTION              @"description"
+#define EDIT_INFO_USER_SEX                      @"userSex"
+#define EDIT_INFO_PETS_LIST                     @"petsList"
+#define EDIT_INFO_PETID                         @"petID"
+#define EDIT_INFO_PETNAME                       @"petName"
+#define EDIT_INFO_PETNICKNAME                   @"petNickName"
+#define EDIT_INFO_PET_BIRTHDAY                  @"petBirthday"
+#define EDIT_INFO_PET_SEX                       @"petSex"
+#define EDIT_INFO_PETTYPE                       @"petType"
+#define EDIT_INFO_PETSUBTYPE                    @"petSubType"
+#define EDIT_INFO_PETSUBNAME                    @"petSubName"
+#define EDIT_INFO_PETWANTEDTYPE                 @"petWantedType"
+#define EDIT_INFO_PETFAVORITE                   @"petFavorite"
+#define EDIT_INFO_PETSITE                       @"petSite"
+#define EDIT_INFO_PETIMAGELIST                  @"petImageList"
+#define EDIT_INFO_PETIMAGEURL                   @"petImageUrl"
+#define EDIT_INFO_PETIMAGEID                    @"petImageID"
+#define EDIT_INFO_PETOTHERIMAGEURL              @"petOtherImageUrl"
+#define EDIT_INFO_PETOTHERIMAGEID               @"petOtherImageID"
+
+//7-24
+#pragma mark - ***********************
+#pragma mark - SHAKE VIEW
+#define SHAKE_USERNAME             @"userName"
+#define SHAKE_USERIMAGE            @"userImage"
+#define SHAKE_PETSEX               @"petSex"
+#define SHAKE_USERSEX              @"userSex"
+#define SHAKE_PETTYPE              @"petType"
+#define SHAKE_PETSUBTYPE           @"petSubType"
+#define SHAKE_LASTLOCATION         @"lastLocation"
+#define SHAKE_PETIMAGE             @"petImage"
+
+#pragma mark - ***********************
+#pragma mark CONSTACT VIEW
+#define CONSTACT_TITLE              @"constact_title"
+#define CONSTACT_ADD                @"constact_add"
+#define CONSTACT_ADDFFRIEND_TITLE   @"constact_addFriend"
+#define CONSTACT_GROUP_TITLE        @"contacts_group_title"//7-23
+#define CONSTACT_CREATE_GROUP_TITLE @"constact_createGroup_title"//7-23
+
+#pragma mark -
+#pragma mark CONSTACT STIING KEY
+#define CREATE_GROUP_SITE             @"create_group_site"
+#define CREATE_GROUP_SUCC             @"create_group_succ"
+
+#pragma mark - ***********************
+#pragma mark DISCOVER VIEW
+#define DISCOVER_TITLE              @"discover_title"
+#define DISCOVER_NEWS               @"discover_news_title"
+#define DISCOVER_GROUP              @"discover_group_title"
+#define DISCOVER_SHOUT              @"discover_shout_title"
+#define DISCOVER_CLUB               @"discover_club_title"
+#define DISCOVER_GAME               @"discover_game_title"
+#define DISCOVER_EVENT              @"discover_event_title"
+//by wu
+#pragma mark -
+#pragma mark NEWS VIEW
+#define NEWS_PHOTO_TITLE            @"news_photo_title"
+
+//7-18
+#pragma mark -
+#pragma mark VIDEOLIST VIEW
+#define VEDIO_LIST_TITLE           @"vedio_list_title"
+#define VEDIO_LIST_DETAIL          @"videoList"
+#define VEDIO_LIST_USERSIGN        @"userSign"
+
+#pragma mark - ***********************
+#pragma mark DISCOVER NEWS VIEW
+#define DISCOVER_NEWS_TEMPUSERNAME  @"userName"
+#define DISCOVER_NEWS_USERIMAGE     @"userImage"
+#define DISCOVER_NEWS_AGREECOUNT    @"agreeCount"
+#define DISCOVER_NEWS_DETAIL        @"newsDetail"
+#define DISCOVER_NEWS_IMAGE         @"newsImage"
+#define DISCOVER_NEWS_TIME          @"newsTime"
+#define DISCOVER_NEWS_USERICON      @"userImage"
+#define DISCOVER_NEWS_USERNAME      @"userName"
+#define DISCOVER_NEWS_NEWSID        @"newsID"
+#define DISCOVER_NEWS_PETNEWSCOMMENTUSERNAME @"petNewsCommentUserName"
+#define DISCOVER_NEWS_COMMENTUSERIMAGE @"petNewsCommentUserImageUrl"
+#define DISCIVER_NEWS_REPLYUSERIMAGE   @"imageUrl"
+#define DISCOVER_NEWS_NEWSIMAGE_LIST    @"newsImageList"
+#define DISCOVER_NEWS_SENDNEWS_TITLE @"news_sendNews_title"
+
+
+#define DISCOVER_NEWS_SENDNEWS_TITLE @"news_sendNews_title"
+#define DISCOVER_SHOUTE_SENDNEWS_TITLE @"shout_sendNews_title"
+
+#pragma mark - ***********************
+#pragma mark DISCOVER SHOUT VIEW
+#define DISCOVER_SHOUT_TYPE             @"shoutTypeInfo"
+#define DISCOVER_SHOUT_LIST             @"petList"
+#define DISCOVER_SHOUT_PETNAME          @"petName"
+#define DISCOVER_SHOUT_PETAGE           @"petAge"
+#define DIVCOVER_SHOUT_PETBIRTHDAY      @"petBirthday"
+#define DISCOVER_SHOUT_DETAIL           @"shoutContent"
+#define DISCOVER_SHOUT_IMAGE            @"petImageUrl"
+#define DISCOVER_SHOUT_TIME             @"userLastLocation"
+#define DISCOVER_SHOUT_DATE             @"shoutTime"
+#define DISCOVER_SHOUT_AGREE            @"shoutAgreeCount"
+#define DISCOVER_SHOUT_COUNT            @"userImage"
+#define DISCOVER_SHOUT_ID               @"shoutID"
+#define DISCOVER_SHOUT_COMMENT          @"userImage"
+#define DISCOVER_SHOUT_COMMNETUSERIMAGE @"shoutCommentImageUrl"
+#define DISCOVER_SHOUT_REPLYUSERIMAGE   @"imageUrl"
+#define DISCOVER_SHOUT_SHOUTCOMMENTNAME @"shoutCommentName"
+#define DISCOVER_SHOUT_PETSEX           @"petSex"
+#define DISCOVER_SHOUT_AGREESTATUS      @"agreeStatus"
+
+
+#pragma mark - ***********************
+#pragma mark DISCOVER CLUB VIEW
+#define DISCOVER_CLUB_DATA              @"data"
+#define DISCOVER_CLUB_LIST              @"petGroups"
+#define DISCOVER_CLUB_DES               @"clubDescription"
+#define DISCOVER_CLUB_IMAGE             @"clubImageUrl"
+#define DISCOVER_CLUB_NAME              @"clubName"
+#define DISCOVER_CLUB_RANK              @"clubRank"
+#define DISCOVER_CLUB_SIZE              @"clubSize"
+#define DISCOVER_CLUB_LOCATION          @"lastLocation"
+#define DISCOVER_CLUB_TYPENAME          @"clubTypeName"
+
+#define DISCOVER_CLUBDETAIL_CREATETIME                 @"clubCreateTime"
+#define DISCOVER_CLUBDETAIL_DES                        @"clubDescription"
+#define DISCOVER_CLUBDETAIL_LOCATION                   @"clubFrequentLocation"
+#define DISCOVER_CLUBDETAIL_ID                         @"clubID"
+#define DISCOVER_CLUBDETAIL_DISTANCE                   @"clubLastLocation"
+#define DISCOVER_CLUBDETAIL_NAME                       @"clubName"
+#define DISCOVER_CLUBDETAIL_RANK                       @"clubRank"
+#define DISCOVER_CLUBDETAIL_RANKDES                    @"clubRankDescription"
+#define DISCOVER_CLUBDETAIL_COMMENTCOUNT               @"clubSpaceCommentsCount"
+#define DISCOVER_CLUBDETAIL_SPACEID                    @"clubSpaceID"
+#define DISCOVER_CLUBDETAIL_ACTIONDES                  @"clubSpaceLastActionDescription"
+#define DISCOVER_CLUBDETAIL_PETIMAGE                   @"clubSpaceLastPetImage"
+#define DISCOVER_CLUBDETAIL_SHORTCONTENT               @"clubSpaceShortContent"
+#define DISCOVER_CLUBDETAIL_TOTALMEMBER                @"clubTotalMember"
+#define DISCOVER_CLUBDETAIL_PETLIST                    @"petList"
+#define DISCOVER_CLUBDETAIL_PETLIST_PETID              @"petID"
+#define DISCOVER_CLUBDETAIL_PETLIST_PETNAME            @"petName"
+#define DISCOVER_CLUBDETAIL_PETLIST_PETIAMGEURL        @"petImageUrl"
+#define DISCOVER_CLUBDETAIL_IMAGELIST                  @"imageList"
+#define DISCOVER_CLUBDETAIL_IMAGELIST_CLUBIMGURL       @"clubImageUrl"
+
+#pragma mark - ***********************
+#pragma mark DISCOVER GROUP VIEW
+#define DISCOVER_GROUP_DATA             @"data"
+#define DISCOVER_GROUP_LIST             @"petGroups"
+#define CONTACTS_GROUP_GROUPLIST        @"myGroupLists"//7-23
+#define DISCOVER_GROUP_DES              @"groupDescription"
+#define DISCOVER_GROUP_IMAGE            @"groupImageUrl"
+#define DISCOVER_GROUP_NAME             @"groupName"
+#define DISCOVER_GROUP_RANK             @"groupRank"
+#define DISCOVER_GROUP_SIZE             @"groupSize"
+#define DISCOVER_GROUP_ID               @"groupID"
+#define DISCOVER_GROUP_LOCATION         @"lastLocation"
+#define DISCOVER_GROUP_REGIONNAME       @"regionName"
+#define CONTACTS_GROUPPEOPLE_COUNT      @"count"//7-23
+
+#define DISCOVER_GROUPDETAIL_CREATETIME                 @"groupCreateTime"
+#define DISCOVER_GROUPDETAIL_DES                        @"groupDescription"
+#define DISCOVER_GROUPDETAIL_LOCATION                   @"groupFrequentLocation"
+#define DISCOVER_GROUPDETAIL_ID                         @"groupID"
+#define DISCOVER_GROUPDETAIL_DISTANCE                   @"groupLastLocation"
+#define DISCOVER_GROUPDETAIL_NAME                       @"groupName"
+#define DISCOVER_GROUPDETAIL_RANK                       @"groupRank"
+#define DISCOVER_GROUPDETAIL_RANKDES                    @"groupRankDescription"
+#define DISCOVER_GROUPDETAIL_COMMENTCOUNT               @"groupSpaceCommentsCount"
+#define DISCOVER_GROUPDETAIL_SPACEID                    @"groupSpaceID"
+#define DISCOVER_GROUPDETAIL_ACTIONDES                  @"groupSpaceLastActionDescription"
+#define DISCOVER_GROUPDETAIL_PETIMAGE                   @"groupSpaceLastPetImage"
+#define DISCOVER_GROUPDETAIL_SHORTCONTENT               @"groupSpaceShortContent"
+#define DISCOVER_GROUPDETAIL_TOTALMEMBER                @"groupTotalMember"
+#define DISCOVER_GROUPDETAIL_PETLIST                    @"petList"
+#define DISCOVER_GROUPDETAIL_PETLIST_PETID              @"petID"
+#define DISCOVER_GROUPDETAIL_PETLIST_PETNAME            @"petName"
+#define DISCOVER_GROUPDETAIL_PETLIST_PETIAMGEURL        @"petImageUrl"
+#define DISCOVER_GROUPDETAIL_IMAGELIST                  @"imageList"
+#define DISCOVER_GROUPDETAIL_IMAGELIST_GROUPIMGURL      @"groupImageUrl"
+
+#pragma mark - ***********************
+#pragma mark SEARCH VIEW
+#define SEARCH_TITLE                @"search_title"
+#define SEARCH_GROUP_SEARCH         @"search_groupSearch"
+#define SEARCH_SORT_SEARCH          @"search_sortSearch"
+#define SEARCH_DISTANCE_SEARCH      @"search_distanceSearch"
+#define SEARCH_HOT_SEARCH           @"search_hotSearch"
+
+#define SEARCH_FINISHED             @"search_finished"
+#define SEARCH_GROUP_ID             @"search_group_id"
+#define SEARCH_GROUP_NAME           @"search_group_name"
+#define SEARCH_KIND                 @"search_kind"
+#define SEARCH_SORT                 @"search_sort"
+#define SEARCH_DISTANCE             @"search_distance"
+
+#pragma mark - ***********************
+#pragma mark CHAT VIEW
+#define CHAT_TITLE                  @"chat_title"
+#define CHAT_PICBTN_TITLE           @"char_pic_btn_title"
+#define CHAT_PHOTOBTN_TITLE         @"char_photo_btn_title"
+#define CHAT_VEDIOBTN_TITLE         @"char_vedio_btn_title"
+#define CHAT_LOCBTN_TITLE           @"char_loc_btn_title"
+#define CHAT_RECEIVE                @"RECEIVE_MSG"
+#define GROUP_RECEIVE               @"RECEIVE_GROUP_MSG"
+#define CHAT_ROSTER_RECEIVE         @"RECEIVE_ROSTER"
+
+#pragma mark - ***********************
+#pragma mark SETTING VIEW
+#define SETTING_TITLE               @"setting_title"
+#define SETTING_VIPINFO_TITLE       @"vipInfo_title"
+#define SETTING_BIND_TITLE          @"bind_title"
+#define SETTING_MSG_TITLE           @"message_title"
+#define SETTING_PRIVACY_TITLE       @"privacy_title"
+#define SETTING_GENERAL_TITLE       @"general_title"
+#define SETTING_EMO_TITLE           @"emo_title"
+
+//用户设置
+#define SETTING_USER_NAME           @"userName"
+#define SETTING_USER_HEADIMAG       @"userImageUrl"
+
+//7-21
+#define EDIT_INFOMATION_TITLE       @"edit_infomation_title"
+#define FIND_CONTACTFRIENDS_TITLE   @"find_contactFriends_title"
+#define FIND_CONTACT_SHAKE          @"find_contact_shake"
+//7-24
+#define SHAKE_HISTORY_TITLE         @"shake_history_title"
+
+//7-26 群组动态标题
+#define GROUP_NEWS_TITLE            @"group_news_title"
+#define GROUP_SETUP_TITLE           @"group_setup_title"
+
+#pragma mark SETTING BIND
+#define SETTING_BIND_CELL_TITLE     @"cell_title"
+#define SETTING_BIND_MAIL_TITLE     @"mail_title"
+#define SETTING_BIND_SINA_TITLE     @"sina_title"
+#define SETTING_BIND_QQWEIBO_TITLE  @"qqweibo_title"
+#define SETTING_BIND_RENREN_TITLE   @"renren_title"
+
+#define SETTING_GENERAL_PASSWORD    @"general_password"
+#define SETTING_GENERAL_GPS         @"general_gps"
+#define SETTING_GENERAL_LANGUAGE    @"general_language"
+#define SETTING_GENERAL_FONT        @"general_font"
+#define SETTING_GENERAL_CHATBG      @"general_chatbg"
+#define SETTING_GENERAL_EMO         @"general_emo"
+#define SETTING_GENERAL_SOUND       @"general_sound"
+#define SETTING_GENERAL_SHARE       @"general_share"
+#define SETTING_GENERAL_FEEDBACK    @"general_feedback"
+#define SETTING_GENERAL_RANK        @"general_rank"
+#define SETTING_GENERAL_HELP        @"general_help"
+#define SETTING_GENERAL_CLEAR       @"general_clear"
+
+#define SETTING_PRIVACY_HIDE            @"privacy_hide"
+#define SETTING_PRIVACY_SEILENT         @"privacy_seilent"
+#define SETTING_PRIVACY_SEARCHME        @"privacy_searchme"
+#define SETTING_PRIVACY_CONSTACT        @"privacy_constact"
+#define SETTING_PRIVACY_BLOCK           @"privacy_block"
+#define SETTING_PRIVACY_NEWS            @"privacy_news"
+#define SETTING_PRIVACY_NEWSBLOCK       @"privacy_newsblock"
+#define SETTING_PRIVACY_PHOTOBLOCK      @"privacy_photoblock"
+
+#define SETTING_MESSAGE_SOUND               @"message_sound"
+#define SETTING_MESSAGE_SHAKE               @"message_shake"
+#define SETTING_MESSAGE_MSGNOTI             @"message_message"
+#define SETTING_MESSAGE_HELLONOTI           @"message_hello"
+#define SETTING_MESSAGE_SHOUTNOTI           @"message_shout"
+#define SETTING_MESSAGE_FOCUSNOTI           @"message_focus"
+#define SETTING_MESSAGE_FIRENDNEWSNOTI      @"message_friendNews"
+#define SETTING_MESSAGE_GROUPNEWSNOTI       @"message_groupNews"
+#define SETTING_MESSAGE_ACTIONNEWSNOTI      @"message_actionNews"
+#define SETTING_MESSAGE_CLUBNOTI            @"message_club"
+#define SETTING_MESSAGE_HIDENOTI            @"message_hide"
+
+//注册登录界面
+#pragma mark - ***********************
+#pragma mark LOGIN VIEW
+#define LOGIN_BTN_TITLE             @"login_btn_title"
+#define REGISTER_BTN_TITLE          @"register_btn_title"
+#define FORGET_BTN_TITLE            @"forget_btn_title"
+#define ACCOUNT_TEXT                @"account_text"
+#define PASSWORD_TEXT               @"password_text"
+
+#define REGISTER_VIEW_TITLE         @"register_view_title"
+
+//6-27 by wu
+#pragma mark -
+#pragma mark BUTTON BASE TAG
+#define ButtonBaseTag                 100;
+

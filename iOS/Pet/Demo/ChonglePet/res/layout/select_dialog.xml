@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+      	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/select_dialog_bg"
+        android:orientation="vertical"
+     >
+		<RelativeLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+		    android:gravity="center_horizontal|center_vertical"
+		    >
+			<TextView android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:textSize="22dp"
+			    android:textColor="#818181"
+			    android:layout_marginLeft="15dp"
+			    android:layout_alignParentLeft="true"
+			    android:text="@string/select"/>	   
+		
+			<Button 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:background="@drawable/close"
+			    android:layout_marginRight="15dp"
+			    android:layout_alignParentRight="true"
+			    android:id="@+id/close"
+			    />
+		</RelativeLayout>
+		<TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#d0cfcf" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/> 
+	    <TextView android:layout_width="fill_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+		    android:textSize="20dp"
+		    android:textColor="#499ed7"
+		    android:paddingLeft="5dp"
+		    android:gravity="center_horizontal|center_vertical"
+		    android:text="@string/total"/>	 
+		<TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#d0cfcf" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>	 
+	    <TextView android:layout_width="fill_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+		    android:textSize="20dp"
+		    android:textColor="#499ed7"
+		    android:paddingLeft="5dp"
+		    android:gravity="center_horizontal|center_vertical"
+		    android:text="@string/onlylookman"/>
+		<TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#d0cfcf" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/> 
+		<TextView android:layout_width="fill_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+		    android:textSize="20dp"
+		    android:textColor="#499ed7"
+		    android:gravity="center_horizontal|center_vertical"
+		    android:paddingLeft="5dp"
+		    android:text="@string/onlylookwoman"/>	 
+		<TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#d0cfcf" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>	 
+		<TextView android:layout_width="fill_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+		    android:textSize="20dp"
+		    android:textColor="#499ed7"
+		    android:gravity="center_horizontal|center_vertical"
+		    android:paddingLeft="5dp"
+		    android:text="@string/zidingyi"/>	 
+</LinearLayout>

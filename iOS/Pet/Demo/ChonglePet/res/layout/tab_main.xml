@@ -1,0 +1,116 @@
+<!-- Tab导航 最新版 --> 
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:id="@android:id/tabhost" 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent" > 
+    <RelativeLayout 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="vertical"> 
+        <FrameLayout 
+            android:id="@android:id/tabcontent" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:background="#FFF" > 
+   
+        </FrameLayout> 
+   
+        <!-- TabWidget管理所有的选项卡，id名是android指定的 --> 
+        <TabWidget 
+            android:id="@android:id/tabs" 
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent" 
+            android:visibility="gone" /> 
+   
+        <!-- Frame下放置单选群组替代TAB效果 --> 
+        <RadioGroup 
+            android:id="@+id/main_radio" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+            android:background="@drawable/tabbar_buttom" 
+            android:gravity="center_vertical" 
+            android:orientation="horizontal" 
+            android:layout_alignParentBottom="true" > 
+   
+           <!--  <RadioButton 
+                android:id="@+id/tab_icon_fujin" 
+                style="@style/main_tab_bottom" 
+                android:checked="true" 
+                android:drawable="@drawable/radiobutton_center" 
+                />  -->
+                
+              <RadioButton android:layout_height="fill_parent" 
+	                android:layout_width="0dp"
+	                android:layout_weight="1" 
+	                android:id="@+id/tab_icon_fujin" 
+	                android:button="@drawable/slide_select" 
+	                android:checked="true"
+                />
+   
+              <RadioButton android:layout_height="fill_parent" 
+                 android:layout_width="0dp"
+                android:layout_weight="1" 
+                android:id="@+id/tab_icon_find" 
+                android:button="@drawable/find_select" 
+                />
+   
+              <RadioButton android:layout_height="fill_parent" 
+                    android:layout_width="0dp"
+	                android:layout_weight="1" 
+	                android:id="@+id/tab_icon_chat" 
+	                android:button="@drawable/chat_select" 
+                />
+   
+               <RadioButton android:layout_height="fill_parent" 
+	                android:layout_width="0dp"
+	                android:layout_weight="1" 
+	                android:id="@+id/tab_icon_contact" 
+	                android:button="@drawable/contacts_select" 
+                />
+                <RadioButton 
+	                android:id="@+id/tab_icon_set" 
+	                android:layout_height="fill_parent" 
+	                android:layout_width="0dp"
+	                android:layout_weight="1" 
+	                android:button="@drawable/set_select" 
+                /> 
+   
+               <!--  <RadioButton android:layout_height="fill_parent" 
+	                android:layout_width="0dp"
+	                android:layout_weight="1" 
+	                android:id="@+id/tab_icon_shop" 
+	                android:button="@drawable/contacts_select" 
+                /> -->
+   
+           <!--  <RadioButton 
+                android:id="@+id/tab_icon_find" 
+                style="@style/main_tab_bottom" 
+                android:checked="false" 
+                android:drawable="@drawable/find" 
+                /> 
+   
+            <RadioButton 
+                android:id="@+id/tab_icon_chat" 
+                style="@style/main_tab_bottom" 
+                android:drawable="@drawable/chat" 
+                /> 
+   
+            <RadioButton 
+                android:id="@+id/tab_icon_contact" 
+                style="@style/main_tab_bottom" 
+                android:drawable="@drawable/contacts" 
+                /> 
+            <RadioButton 
+                android:id="@+id/tab_icon_set" 
+                style="@style/main_tab_bottom" 
+                android:drawable="@drawable/set" 
+                /> 
+   
+            <RadioButton 
+                android:id="@+id/tab_icon_shop" 
+                style="@style/main_tab_bottom" 
+                android:drawable="@drawable/contacts" 
+                />  -->
+        </RadioGroup> 
+    </RelativeLayout> 
+</TabHost>

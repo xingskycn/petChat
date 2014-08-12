@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+      	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+     >
+   	<LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FFFFFF"
+        android:id="@+id/head_section"
+        android:orientation="horizontal"
+     >
+     </LinearLayout>
+     
+     <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+     >
+	    <ImageView 
+			android:layout_width="80dp"
+			android:layout_height="80dp"
+			android:id="@+id/pet_chat_Image"
+			android:layout_margin="5dp"
+	        />
+	    <LinearLayout 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"	        
+	        >
+	        
+	        <TextView 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:textSize="20dp"
+	            android:id="@+id/pet_chat_textView"
+	            />
+	        <TextView 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:id="@+id/groupSize"
+	            />
+	        <TextView 
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:id="@+id/groupDescription"
+	            />
+		</LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

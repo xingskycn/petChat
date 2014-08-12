@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- 渐变透明度动画效果           起始时透明度 -->
+   <!--  <alpha android:fromAlpha="0.0" android:toAlpha="1.0" 
+        android:duration="500"/>  -->
+	 <!-- 画面转换位置移动动画效果        画起始时，X、Y坐标上的伸缩尺寸-->
+    <translate android:fromXDelta="0%" android:toXDelta="0%p" 
+        android:duration="200"/>
+     <!-- 画面转移旋转动画效果    duration为动画持续时间，ms单位
+    <rotate android:fromDegrees="50" android:toDegrees="+360" android:pivotX="50%p"
+        android:pivotY="50%p" android:duration="2000"/> -->
+        
+       
+        
+</set>

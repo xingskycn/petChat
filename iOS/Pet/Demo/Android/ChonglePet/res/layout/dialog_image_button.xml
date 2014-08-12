@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+     >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addImage"
+        android:text="添加照片" />
+    
+    <Button
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"
+        android:id="@+id/button_photo_select"
+        android:text="从相册中选择" />
+    
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_paizhao"
+        android:text="现场拍照" />
+     <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_Camera"
+        android:text="现场摄像" />
+</LinearLayout>

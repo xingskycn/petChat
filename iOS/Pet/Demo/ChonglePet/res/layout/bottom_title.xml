@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/tabbar_buttom"
+    android:orientation="horizontal"
+     >
+
+   	   <Button 
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/head_left_button"
+	        android:visibility="visible"
+	        android:background="@drawable/send_button_select"
+            />
+	    <Button
+	        android:layout_width="0dp"
+            android:layout_weight="1"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:textColor="#FFFFFF"
+	        android:id="@+id/head_center_textview"
+	        android:visibility="visible"
+	        android:background="@drawable/add_attention_select"
+	        />
+	    
+	    <Button 
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/head_right_button"
+	        android:visibility="visible"
+	        android:background="@drawable/defriend_button_select"
+            />
+    
+</LinearLayout>

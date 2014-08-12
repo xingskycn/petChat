@@ -1,0 +1,110 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+     >
+
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        
+        <include layout="@layout/head_title"/>
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+       	android:orientation="vertical"
+        >
+        
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="1"
+	        android:orientation="horizontal"
+	        >
+	        
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:id="@+id/owner_textview"
+		        android:textColor="#000000"
+		        android:textSize="20dp"
+		        android:layout_margin="10dp"
+		        android:text="@string/owner" />
+		    <ImageView
+		        android:layout_width="200dp"
+		        android:layout_height="200dp"
+		        android:id="@+id/owner_iamgeview"
+		        android:src="@drawable/ic_launcher" />
+		    
+		</LinearLayout>
+		<LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="1"
+	        android:orientation="horizontal"
+	        >
+	        
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:id="@+id/pet_textview"
+		        android:textColor="#000000"
+		        android:textSize="20dp"
+		        android:layout_margin="10dp"
+		        android:text="@string/pet" />
+		    <ImageView
+		        android:layout_width="200dp"
+		        android:layout_height="200dp"
+		        android:id="@+id/pet_iamgeview"
+		        android:src="@drawable/ic_launcher" />
+		    
+		</LinearLayout>
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+        
+        <Button android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/set_image_vedio_button"
+            android:text="@string/vedio"
+            />
+        <Button android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/set_image_upload_button"
+            android:text="@string/upload"
+            />
+         <Button android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/set_image_player_button"
+            android:text="@string/player"
+            />
+         <Button android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/set_image_update_button"
+            android:text="@string/update"
+            />
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+    </LinearLayout>
+</LinearLayout>

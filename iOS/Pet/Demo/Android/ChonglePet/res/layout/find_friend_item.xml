@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+      	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+     >
+     
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:background="#FFFFFF"
+	    >
+		<include layout="@layout/find_friend_item_title"/>
+	  
+	</LinearLayout>
+	
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:background="#FFFFFF"
+	    >
+		<com.chonglepet.android.view.ExpandedListView
+	        android:id="@+id/expandedListView1"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_marginLeft="50dp"
+	        android:divider="#00000000"
+	         >
+   		 </com.chonglepet.android.view.ExpandedListView>
+	    
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:background="#FF6699"
+	    >
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="1小时前"
+	        android:textSize="20dp"
+	        android:id="@+id/find_friend_textView_time"
+	        android:layout_gravity="bottom|right"
+	        />
+	    <Button 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/welcome"
+			android:text="评论"
+			android:id="@+id/friend_comment_button"
+	       />
+	</LinearLayout>
+</LinearLayout>

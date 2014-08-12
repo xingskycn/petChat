@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+      	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/select_backgroud"
+        android:orientation="vertical"
+     >
+     
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="1"
+	    android:orientation="vertical"
+	    >
+		<include layout="@layout/head_title"/>	   
+	  
+	</LinearLayout>
+	
+	  
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="8"
+	    android:orientation="vertical"
+	    >
+		<LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="4"
+		    android:orientation="vertical"
+		    android:background="@drawable/select_one_backgroug"
+		    android:layout_marginBottom="10dp"
+		    android:layout_marginTop="10dp"
+		    >
+			<include layout="@layout/select_radio"/>
+		</LinearLayout>
+		
+		<!-- 会员专有选项 -->
+		<LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="4"
+		    android:orientation="vertical"
+		    android:background="@drawable/select_one_backgroug"
+		    >
+	    
+			<TextView android:layout_width="fill_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:textSize="20dp"
+			    android:textColor="#748183"
+			    android:layout_margin="5dp"
+			    android:text="@string/animal_viproot"/>	   
+		
+		
+			<TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#e1d6ce" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/> 
+		
+			<RelativeLayout 
+			    android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center_vertical"
+			    android:layout_margin="5dp"
+			    >
+		    
+			    <TextView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:textColor="#000000"
+				    android:layout_alignParentLeft="true"
+				    android:paddingLeft="5dp"
+				    android:text="@string/animal_age"/>	 
+				<ImageView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentRight="true"
+				    android:id="@+id/aaa"
+				    android:layout_marginRight="5dp"
+				    android:layout_marginTop="5dp"
+				    android:src="@drawable/arrow_rigth"
+				    />	
+				<TextView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:textColor="#89837f"
+				    android:layout_toLeftOf="@+id/aaa"
+				    android:layout_marginRight="10dp"
+				    android:text="不限"/>	   
+			</RelativeLayout>
+			<TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#e1d6ce" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>	 
+			<RelativeLayout 
+			    android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:orientation="vertical"
+			    android:layout_margin="5dp"
+			    >
+		    
+			    <TextView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:textColor="#000000"
+				    android:layout_alignParentLeft="true"
+				    android:paddingLeft="5dp" 
+				    android:text="@string/owner_sex_select"/>
+				<LinearLayout 
+		            android:layout_width="fill_parent" 
+		            android:layout_height="fill_parent" 
+		            android:gravity="center_vertical" 
+		            android:orientation="horizontal" 
+		            android:layout_alignParentRight="true"
+		            >  
+		            
+		            <ImageView 
+		                android:layout_width="0dp"
+		                android:layout_weight="1"
+		                android:layout_height="wrap_content"
+		                />
+		            <ImageView 
+		                android:layout_width="0dp"
+		                android:layout_weight="1"
+		                android:layout_height="wrap_content"
+		                />  
+		            <LinearLayout 
+		                android:layout_width="0dp"
+		                android:layout_weight="1"
+		                android:layout_height="wrap_content"
+		                android:orientation="horizontal"
+		                android:gravity="center_vertical"
+		                android:layout_marginRight="10dp" android:paddingLeft="20dp"
+		                > 
+			            <ImageView 
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content"
+			                android:layout_marginRight="5dp"
+			                android:src="@drawable/man__icon"
+			                />
+			             <TextView 
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content"
+			                android:layout_marginRight="10dp"
+			                android:text="@string/animal_boye" 
+			                android:textSize="20dp"
+			                android:textColor="#000000"
+			                /> 
+			        </LinearLayout>
+			        <LinearLayout 
+		                android:layout_width="0dp"
+		                android:layout_weight="1"
+		                android:layout_height="fill_parent"
+		                android:orientation="horizontal"
+		                android:gravity="center_vertical" android:paddingLeft="20dp"
+		                > 
+			            <ImageView 
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content"
+			                android:layout_marginRight="5dp"
+			                android:src="@drawable/woman_icon"
+			                />
+			             <TextView 
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content"
+			                android:layout_marginRight="5dp"
+			                android:text="@string/animal_gril" 
+			                android:textSize="20dp"
+			                android:textColor="#000000"
+			                /> 
+			        </LinearLayout>
+		        </LinearLayout> 
+		        <RadioGroup 
+		            android:id="@+id/select_radio_group" 
+		            android:layout_width="200dp" 
+		            android:layout_height="fill_parent" 
+		            android:gravity="center_vertical" 
+		            android:orientation="horizontal" 
+		            android:layout_alignParentRight="true"
+		            > 
+		           
+		            <RadioButton 
+		                android:id="@+id/tab_icon_gril" 
+		                style="@style/main_tab_bottom" 
+		                android:layout_marginRight="20dp"
+		                android:background="@drawable/radio_button_select"
+		                android:paddingTop="0dp"
+		                android:paddingBottom="0dp"
+		                /> 
+		            <RadioButton 
+		                android:id="@+id/tab_icon_totalssdd" 
+		                style="@style/main_tab_bottom" 
+		                android:layout_marginRight="20dp"
+		                android:background="@drawable/radio_button_select"
+		                /> 
+		        </RadioGroup> 
+		        
+			</RelativeLayout>
+			<TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#e1d6ce" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/> 
+			<RelativeLayout 
+			    android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center_vertical"
+			    android:layout_margin="5dp"
+			    >
+		    
+				<TextView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:textColor="#000000"
+				    android:layout_alignParentLeft="true"
+				    android:paddingLeft="5dp"
+				    android:text="@string/owner_age"/>	 
+				<!-- <TextView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:textColor="#89837f"
+				    android:layout_alignParentRight="true"
+				    android:id="@+id/aaa"
+				    android:layout_marginRight="5dp"
+				    android:text=">"/>	  -->
+				<ImageView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentRight="true"
+				    android:id="@+id/aaa"
+				    android:layout_marginRight="5dp"
+				    android:layout_marginTop="5dp"
+				    android:src="@drawable/arrow_rigth"
+				    />	 
+				<TextView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:textColor="#89837f"
+				    android:layout_toLeftOf="@+id/aaa"
+				    android:layout_marginRight="10dp"
+				    android:text="不限"/>	   
+			</RelativeLayout>
+			<TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#e1d6ce" android:layout_marginLeft="10dp" android:layout_marginRight="10dp"/>	 
+			<RelativeLayout 
+			    android:layout_width="match_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center_vertical"
+			    android:layout_margin="5dp"
+			    android:layout_gravity="center_vertical"
+			    >
+		    
+				<TextView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:textColor="#000000"
+				    android:layout_alignParentLeft="true"
+				    android:paddingLeft="5dp"
+				    android:text="@string/owner_xingzuo"/>	 
+				<ImageView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentRight="true"
+				    android:id="@+id/aaa"
+				    android:layout_marginRight="5dp"
+				    android:layout_marginTop="5dp"
+				    android:src="@drawable/arrow_rigth"
+				    />	 
+				<TextView android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:textSize="20dp"
+				    android:textColor="#89837f"
+				    android:layout_toLeftOf="@+id/aaa"
+				    android:layout_marginRight="10dp"
+				    android:text="不限"/>	   
+			</RelativeLayout>
+			<TextView android:layout_width="fill_parent" android:layout_height="1dp" android:background="#e1d6ce" android:layout_marginLeft="10dp" android:layout_marginRight="10dp" android:layout_marginBottom="6dp"/>
+		</LinearLayout>
+		<LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:layout_weight="1"
+		    android:orientation="horizontal"
+			android:layout_margin="5dp"		    
+		    >
+	    
+			<Button android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:id="@+id/select_sure_button"
+			    android:background="@drawable/sure_button_select"
+			    />	   
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>
