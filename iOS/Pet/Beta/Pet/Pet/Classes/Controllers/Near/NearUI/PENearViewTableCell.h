@@ -37,11 +37,16 @@
 //by wu
 @property (nonatomic, retain) NSString *petForward;
 @property (retain, nonatomic) UIImageView *petForwardImageV; //名字后面的Icon
+@property (nonatomic, retain) NSString *petForward2;
+@property (retain, nonatomic) UIImageView *petForwardImageV2; //名字后面的Icon
+@property (nonatomic, retain) NSString *petForward3;
+@property (retain, nonatomic) UIImageView *petForwardImageV3; //名字后面的Icon
+@property (nonatomic, retain) NSString *petForward4;
+@property (retain, nonatomic) UIImageView *petForwardImageV4; //名字后面的Icon
 @property (retain, nonatomic) UIView *headLineView;//头像之间的连线
 @property (retain, nonatomic) UIView *gapLine;
 @property (retain, nonatomic) UILabel *distanceLabel;
 @property (retain, nonatomic) UILabel *timeLabel;
-
 
 
 //- (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
