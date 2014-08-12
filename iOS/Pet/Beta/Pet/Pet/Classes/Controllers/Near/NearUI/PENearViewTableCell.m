@@ -14,7 +14,11 @@
 @synthesize imageV, petNameLbl, petSortV, petSortLbl, petAgeV, petAgeLbl, petSignLbl,petImgContent;
 @synthesize ownerAgeLbl, ownerAgeV, ownerNameLbl, ownerImageContent, ownerSexV;
 @synthesize petSort, ownerSex, petSex, ownerBirth;
-@synthesize petForwardImageV,petForward,headLineView,distanceLabel,timeLabel,gapLine;//by wu
+@synthesize petForwardImageV,petForward;
+@synthesize petForwardImageV2,petForward2;
+@synthesize petForwardImageV3,petForward3;
+@synthesize petForwardImageV4,petForward4;
+@synthesize headLineView,distanceLabel,timeLabel,gapLine;//by wu
 - (void)awakeFromNib
 {
     // Initialization code
@@ -29,7 +33,13 @@
     
     //by wu
     petForwardImageV = [[UIImageView alloc]init];
+    petForwardImageV2 = [[UIImageView alloc]init];
+    petForwardImageV3 = [[UIImageView alloc]init];
+    petForwardImageV4 = [[UIImageView alloc]init];
     petForward = [[NSString alloc]init];
+    petForward2 = [[NSString alloc]init];
+    petForward3 = [[NSString alloc]init];
+    petForward4 = [[NSString alloc]init];
     headLineView = [[UIView alloc]init];
     distanceLabel = [[UILabel alloc]init];
     timeLabel = [[UILabel alloc]init];
@@ -110,11 +120,53 @@
     CGSize sizePN = [petNameLbl.text sizeWithFont:[UIFont boldSystemFontOfSize:14.0] constrainedToSize:CGSizeMake(200, 1000) lineBreakMode:NSLineBreakByCharWrapping];
     [petNameLbl setFrame:CGRectMake(97.0f, 7.0f, sizePN.width, 15)];
     
+    int x =0;
+    int num =0;
+    
     //pet forward image -名字后面的图标 by wu
+    num ++;
     petForwardImageV.contentMode = UIViewContentModeScaleAspectFill;
     petForwardImageV.clipsToBounds = YES;
-    petForwardImageV.frame = CGRectMake(petNameLbl.frame.origin.x + sizePN.width +5, petNameLbl.frame.origin.y+2, 13.0f, 13.0f);
-    petForwardImageV.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_%@", petForward]];
+    petForwardImageV.frame = CGRectMake(petNameLbl.frame.origin.x + sizePN.width +5 +x *18.0f, petNameLbl.frame.origin.y+2, 13.0f, 13.0f);
+    if ([petForward isEqualToString:@"1"]) {
+        petForwardImageV.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_%d", num]];
+        x ++;
+    } else {
+        petForwardImageV.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_0"]];
+    }
+    
+    num ++;
+    petForwardImageV2.contentMode = UIViewContentModeScaleAspectFill;
+    petForwardImageV2.clipsToBounds = YES;
+    petForwardImageV2.frame = CGRectMake(petNameLbl.frame.origin.x + sizePN.width +5 +x *18.0f, petNameLbl.frame.origin.y+2, 13.0f, 13.0f);
+    if ([petForward2 isEqualToString:@"1"]) {
+        petForwardImageV2.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_%d", num]];
+        x ++;
+    } else {
+        petForwardImageV2.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_0"]];
+    }
+    
+    num ++;
+    petForwardImageV3.contentMode = UIViewContentModeScaleAspectFill;
+    petForwardImageV3.clipsToBounds = YES;
+    petForwardImageV3.frame = CGRectMake(petNameLbl.frame.origin.x + sizePN.width +5 +x *18.0f, petNameLbl.frame.origin.y+2, 13.0f, 13.0f);
+    if ([petForward3 isEqualToString:@"1"]) {
+        petForwardImageV3.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_%d", num]];
+        x ++;
+    } else {
+        petForwardImageV3.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_0"]];
+    }
+    
+    num ++;
+    petForwardImageV4.contentMode = UIViewContentModeScaleAspectFill;
+    petForwardImageV4.clipsToBounds = YES;
+    petForwardImageV4.frame = CGRectMake(petNameLbl.frame.origin.x + sizePN.width +5 +x *18.0f, petNameLbl.frame.origin.y+2, 13.0f, 13.0f);
+    if ([petForward4 isEqualToString:@"1"]) {
+        petForwardImageV4.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_%d", num]];
+        x ++;
+    } else {
+        petForwardImageV4.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_0"]];
+    }
     
     
     //苏格兰折耳
