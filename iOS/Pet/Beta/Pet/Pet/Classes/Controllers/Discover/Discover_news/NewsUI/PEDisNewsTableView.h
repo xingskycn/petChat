@@ -26,6 +26,8 @@
 //cell上面的回复按钮
 - (void)newsResponseToComment:(NSString *)indexPathrow AndCount:(NSInteger)count AndResponseName:(NSString *)responseName AndComentContent:(NSString *)content AndCellIndex:(NSInteger)cellIndex;
 - (void)newsPlayVideoAction:(NSString *)videoUrl;
+
+- (void)newsFriendAvaterBtnPressed:(NSDictionary *)dic;
 @end
 
 

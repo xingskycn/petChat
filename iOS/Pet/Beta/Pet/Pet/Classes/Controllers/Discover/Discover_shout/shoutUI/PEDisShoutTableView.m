@@ -422,6 +422,12 @@ static int pageIndex =0;
     NSString *tempSignString = [cellData objectForKey:DISCOVER_SHOUT_DETAIL];
    
     PEShoutTableViewCell *cell = [[PEShoutTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PEShoutTableViewCell" AndData:newsImageListArray AndString:tempSignString];
+    
+//          PEShoutTableViewCell *cell =(PEShoutTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"PEShoutTableViewCell"];
+//            if(cell == nil){
+//  
+//              cell = [[PEShoutTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PEShoutTableViewCell" AndData:newsImageListArray AndString:tempSignString];
+//         }
     //将图片点击事件的委托交到当前视图对象
     cell.newsCellButtonClickDelegate = self;
 
@@ -442,8 +448,10 @@ static int pageIndex =0;
     
     [cell.markButton addTarget:self action:@selector(commentBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
     [cell.favButton addTarget:self action:@selector(praiseBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.friendAvaterBtn addTarget:self action:@selector(friendAvaterBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
     cell.favButton.tag = indexPath.row+ButtonBaseTag;
     cell.markButton.tag = indexPath.row+ButtonBaseTag;
+    cell.friendAvaterBtn.tag = indexPath.row+ButtonBaseTag;
 
     NSString *tempNameString = [cellData objectForKey:DISCOVER_SHOUT_PETNAME];
     
@@ -727,7 +735,7 @@ static int pageIndex =0;
 }
 
 #pragma mark -
-#pragma mark - PEDisShoutDelegate (cellOne里面交出来的)
+#pragma mark - PEDisShoutDelegate (tableView委托事件和cell上的点击事件)
 - (void)shoutPlayVideo:(NSString *)videoUrl{
     
     [shoutDelegte shoutVideoPlay:videoUrl];
@@ -769,15 +777,27 @@ static int pageIndex =0;
     NSDictionary *petData = [dataArray objectAtIndex:i];
     NSString *tempPid = [petData objectForKey:DISCOVER_SHOUT_ID];
     NSString *tempAgreeStatus = [petData objectForKey:DISCOVER_SHOUT_AGREESTATUS];
-    NSLog(@"当前选项点赞状态值：%@",tempAgreeStatus);
+//    NSLog(@"当前选项点赞状态值：%@",tempAgreeStatus);
     //如果已经赞过
     if([tempAgreeStatus isEqualToString:@"0"])
     {
         return;
     }
     [self.shoutDelegte praiseButtonClick:tempPid AndAgreeStatus:tempAgreeStatus];
-    NSLog(@"aaaaaaaaaaaaa%@",tempPid);
+//    NSLog(@"aaaaaaaaaaaaa%@",tempPid);
    
+}
+
+//宠物头像点击事件
+- (void)friendAvaterBtnPressed:(UIButton *)sender{
+    BOOL  isLogin = [[NSUserDefaults standardUserDefaults]boolForKey:IS_LOGINED];
+    if(isLogin == NO){
+        [Common showAlert:@"请先登录"];
+    }
+    
+    NSInteger i = sender.tag - ButtonBaseTag;
+    NSDictionary *petData = [dataArray objectAtIndex:i];
+    [shoutDelegte shoutFriendBtnPressed:petData];  
 }
 
 

@@ -9,6 +9,7 @@
 #import "PEDisNewsViewController.h"
 #import "PEScrollPhotoViewController.h"
 #import "PESendNewsViewController.h"
+#import "PENearDetailViewController.h"
 @interface PEDisNewsViewController ()
 
 @end
@@ -463,6 +464,25 @@
     NSURL *url= [NSURL URLWithString:videoUrl];
     MPMoviePlayerViewController *playerView = [[MPMoviePlayerViewController alloc]initWithContentURL:url];
     [self.navigationController presentViewController:playerView animated:YES completion:nil];
+}
+
+//好友头像点击事件
+- (void)newsFriendAvaterBtnPressed:(NSDictionary *)dic{
+    //    NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
+    //    NSString *tempPetId = [dic objectForKey:DB_COLUMN_NEAR_PETID];
+    //    NSString *tempUserName = [dic objectForKey:DB_COLUMN_NEAR_USERNAME];
+    //    NSString *tempUserId = [dic objectForKey:DB_COLUMN_NEAR_USERID];
+    
+    PENearDetailViewController *detailView = [[PENearDetailViewController alloc]init];
+    if(navTag == 0){
+    detailView.title = [dic objectForKey:DB_COLUMN_NEAR_USERNAME];
+    detailView.petID = @"24155";
+    detailView.ownerID = @"15678";
+    }else{
+        detailView.petID = @"24155";
+        detailView.ownerID = userID;
+    }
+    [self.navigationController pushViewController:detailView animated:YES];
     
 }
 

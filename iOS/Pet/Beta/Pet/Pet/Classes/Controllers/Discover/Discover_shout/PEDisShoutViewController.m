@@ -11,7 +11,7 @@
 #import "Common.h"
 #import "PEShoutSendNewsViewController.h"
 #import "PELoginViewController.h"
-
+#import "PENearDetailViewController.h"
 typedef enum {
     type_chat =0,
     type_setting
@@ -314,10 +314,7 @@ typedef enum {
     shoutCommentId = indexPathrow;
     
     self.isShowKeyBord =!self.isShowKeyBord;
-    
-    
-    
-    
+  
 }
 
 
@@ -365,6 +362,25 @@ typedef enum {
     [commenTxtField becomeFirstResponder];//显示键盘
     self.isShowKeyBord =!self.isShowKeyBord;
     
+}
+
+//宠物头像点击事件
+- (void)shoutFriendBtnPressed:(NSDictionary *)dic{
+    //    NSDictionary *dic = [dataArray objectAtIndex:indexPath.row];
+    //    NSString *tempPetId = [dic objectForKey:DB_COLUMN_NEAR_PETID];
+    //    NSString *tempUserName = [dic objectForKey:DB_COLUMN_NEAR_USERNAME];
+    //    NSString *tempUserId = [dic objectForKey:DB_COLUMN_NEAR_USERID];
+    
+    PENearDetailViewController *detailView = [[PENearDetailViewController alloc]init];
+    if(navTag == 0){
+    detailView.title = [dic objectForKey:@"petName"];
+    detailView.petID = @"24155";
+    detailView.ownerID = @"15678";
+    }else{
+        detailView.petID = @"24155";
+        detailView.ownerID = userID;
+    }
+    [self.navigationController pushViewController:detailView animated:YES];
 }
 
 //表情button点击事件

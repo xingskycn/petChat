@@ -9,7 +9,7 @@
 #import "PEShoutTableViewCell.h"
 #import "UIHelper.h"
 @implementation PEShoutTableViewCell
-@synthesize friendAvatarImageView,passPhotoImageView,passPhotoImageViewTwo,bgImageViewUp,bgImageViewCenter,bgImageViewDown;
+@synthesize friendAvatarImageView,friendAvaterBtn,passPhotoImageView,passPhotoImageViewTwo,bgImageViewUp,bgImageViewCenter,bgImageViewDown;
 @synthesize friendLineImageViewOne,friendLineImageViewTwo;
 @synthesize friendNameLabel,signNameLabel,distanceLabel,markCountLabel,favCountLable,datalabel,one;
 @synthesize markButton,favButton;
@@ -34,6 +34,7 @@
         
         //1.好友头像
         friendAvatarImageView = [[UIImageView alloc]init];
+        friendAvaterBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         
         //2.好友名
         friendNameLabel = [[UILabel alloc]init];
@@ -95,6 +96,7 @@
         friendAvatarImageView.frame = CGRectMake(5, 3, 34, 34);
         friendAvatarImageView.layer.cornerRadius =17.0f;
         friendAvatarImageView.clipsToBounds =YES;
+        friendAvaterBtn.frame = CGRectMake(0, 0, 39, 39);
         
         friendNameLabel.backgroundColor = [UIColor clearColor];
         friendNameLabel.textColor = [UIHelper colorWithHexString:@"#000000"];
@@ -179,6 +181,7 @@
         [self addSubview:bgImageViewCenter];
         [self addSubview:bgImageViewDown];
         [self addSubview:friendAvatarImageView];
+        [self addSubview:friendAvaterBtn];
         [self addSubview:friendNameLabel];
         [self addSubview:friendAgeLabel];
         [self addSubview:friendSexImageView];
@@ -194,9 +197,7 @@
 //        [self addSubview:distanceLabel];
         [self addSubview:datalabel];
 //        [self addSubview:one];
-        
-        
-        int h = photosArray.count;
+         int h = photosArray.count;
         //显示的图片
         if(photosArray.count >=2)
         {
@@ -214,7 +215,8 @@
                     [photosImageView setImageWithURL:[NSURL URLWithString:imageString] placeholderImage:[UIHelper imageName:@""]];
                 }else{
                     photosImageView.vedioUrl = imageString;
-                    photosImageView.image = [UIHelper imageName:@"Video_test"];
+//                    photosImageView.image = [UIHelper imageName:@"Video_test"];
+                    photosImageView.image = [Common getVideoPreViewImage:imageString];
                     UIImageView *imgV =[[UIImageView alloc] initWithFrame:CGRectInset(photosImageView.bounds, 24.25f, 24.25f)];
                     imgV.image =[UIHelper imageName:@"vedio_play"];
                     imgV.userInteractionEnabled =YES;
@@ -254,7 +256,8 @@
                 [photosImageView setImageWithURL:[NSURL URLWithString:imageString] placeholderImage:[UIHelper imageName:@""]];
             }else{
                 photosImageView.vedioUrl = imageString;
-                photosImageView.image = [UIHelper imageName:@"Video_test"];
+//                photosImageView.image = [UIHelper imageName:@"Video_test"];
+                photosImageView.image = [Common getVideoPreViewImage:imageString];
                 UIImageView *imgV =[[UIImageView alloc] initWithFrame:CGRectInset(photosImageView.bounds, 24.25f, 24.25f)];
                 imgV.image =[UIHelper imageName:@"vedio_play"];
                 imgV.userInteractionEnabled =YES;
@@ -320,9 +323,7 @@
     else
     {
         friendSexImageView.image = fmaleImage;
-        
     }
-    
     if([agreeStatus isEqualToString:@"0"]){
         
         favImageView.image = [UIHelper imageName:@"news_btn_favTwo"];

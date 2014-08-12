@@ -13,7 +13,6 @@
 #import "PENetWorkingManager.h"
 #import "PEShoutTableViewCell.h"
 
-
 @protocol PEDisShoutViewDelegate <NSObject>
 //选中cell
 - (void)selectRowAtIndex:(NSInteger)cellIndex;
@@ -24,8 +23,8 @@
 - (void)praiseButtonClick:(NSString *)pid AndAgreeStatus:(NSString *)agreeStatus;
 //cell上面的回复按钮
 - (void)responseToComment:(NSString *)indexPathrow AndCount:(NSInteger)count AndResponseName:(NSString *)responseName AndComentContent:(NSString *)content;
-
 - (void)shoutVideoPlay:(NSString *)videoUrl;
+- (void)shoutFriendBtnPressed:(NSDictionary *)dic;
 @end
 
 

@@ -464,6 +464,12 @@ static int pageIndex =0;
         NSString *signString =[cellDataDict objectForKey:DISCOVER_NEWS_DETAIL];
         
         PEDisNewsViewTableCell *cell = [[PEDisNewsViewTableCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PEDisNewsViewTableCell" AndData:newsImageListArray AndString:signString];
+        
+//        PEDisNewsViewTableCell *cell =(PEDisNewsViewTableCell *)[tableView dequeueReusableCellWithIdentifier:@"PEDisNewsViewTableCell"];
+//        if(cell == nil){
+//            
+//            cell = [[PEDisNewsViewTableCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PEDisNewsViewTableCell" AndData:newsImageListArray AndString:signString];
+//        }
 
          cell.cID =indexPath.row;
          cell.newsCellButtonClickDelegate =self;
@@ -510,9 +516,11 @@ static int pageIndex =0;
         
         [cell.favButton addTarget:self action:@selector(newsFavButtonIsPressed:) forControlEvents:UIControlEventTouchUpInside];
         [cell.markButton addTarget:self action:@selector(newsMarkButtonIsPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.friendAvaterBtn addTarget:self action:@selector(friendAvaterBtnIsPressed:) forControlEvents:UIControlEventTouchUpInside];
         //便于点赞和评论时取出标识符
         cell.favButton .tag = indexPath.row -ButtonBaseTag;
         cell.markButton.tag = indexPath.row -ButtonBaseTag;
+        cell.friendAvaterBtn.tag = indexPath.row - ButtonBaseTag;
         
         cell.backgroundColor =[UIColor clearColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -533,7 +541,6 @@ static int pageIndex =0;
             
         }
         
-        
         NSLog(@"当前的height:%f",height);
         newsCommentY = height;
         newsTotalHeight = height;
@@ -546,7 +553,6 @@ static int pageIndex =0;
                 NSMutableArray *array= [[commentArray objectAtIndex:i] objectForKey:@"reList"];
                 if(array.count >0 )
                 {
-                    
                     newsReplyArray =nil;
                     newsReplyArray = [[NSMutableArray alloc]init];
                     for (int j =0; j<array.count; j++){
@@ -730,7 +736,7 @@ static int pageIndex =0;
 }
 
 #pragma mark -
-#pragma mark - newsCellButtonClickDelegate
+#pragma mark - newsCellButtonClickDelegate (tableView委托事件和cell上的点击事件)
 //播放视频
 - (void)newsPlayVideoClick:(NSString *)videoUrl{
     
@@ -828,23 +834,31 @@ static int pageIndex =0;
     }
     [self.newsTableViewDelegate newsFavButtonClick:tempPid AndString:tempAgreeStatus];
 }
-
 //点赞成功后，本地修改点赞的状态
 - (void)chanegNewsAgreeCount{
     newsAgreeCount+=1;
     [self reloadData];
     
 }
-
 //评论button点击事件
-- (void)newsMarkButtonIsPressed:(UIButton *)sender
-{
+- (void)newsMarkButtonIsPressed:(UIButton *)sender{
 
     NSInteger i = sender.tag+ButtonBaseTag;
     NSDictionary *petData = [dataArray objectAtIndex:i-1];
     NSString *tempPid = [petData objectForKey:DISCOVER_NEWS_NEWSID];//newsID
     [self.newsTableViewDelegate newsMarkButtonClick:tempPid];
     NSLog(@"news页面，评论cell的newsId%@",tempPid);
+}
+//好友头像点击
+- (void)friendAvaterBtnIsPressed:(UIButton *)sender{
+    
+    BOOL  isLogin = [[NSUserDefaults standardUserDefaults]boolForKey:IS_LOGINED];
+    if(isLogin == NO){
+        [Common showAlert:@"请先登录"];
+    }
+    NSInteger i = sender.tag +ButtonBaseTag;
+    NSDictionary *petData = [dataArray objectAtIndex:i-1];
+    [newsTableViewDelegate newsFriendAvaterBtnPressed:petData];
 }
 
 

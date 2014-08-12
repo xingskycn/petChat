@@ -30,7 +30,8 @@
 
 + (NSDateComponents *)getTempDateConponent;
 
-
+//获取视频第一帧图片
++ (UIImage*)getVideoPreViewImage:(NSString *)urlString;
 
 //md5
 + (NSString *)md5:(NSString *)str;

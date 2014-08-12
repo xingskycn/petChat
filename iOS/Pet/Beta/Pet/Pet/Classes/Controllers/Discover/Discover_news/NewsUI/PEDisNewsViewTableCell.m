@@ -15,7 +15,7 @@
 @implementation PEDisNewsViewTableCell
 
 @synthesize cID;
-@synthesize friendAvatarImageView,passPhotoImageView,passPhotoImageViewTwo,bgImageViewUp,bgImageViewCenter,bgImageViewDown;
+@synthesize friendAvatarImageView,friendAvaterBtn,passPhotoImageView,passPhotoImageViewTwo,bgImageViewUp,bgImageViewCenter,bgImageViewDown;
 @synthesize friendLineImageViewOne,friendLineImageViewTwo;
 @synthesize friendNameLabel,signNameLabel,distanceLabel,timeLabel,markCountLabel,favCountLable;
 @synthesize markButton,favButton;
@@ -38,7 +38,7 @@
         
         //1.好友头像
         friendAvatarImageView = [[UIImageView alloc]init];
-        
+        friendAvaterBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         //2.好友名
         friendNameLabel = [[UILabel alloc]init];
         
@@ -93,6 +93,10 @@
         friendAvatarImageView.frame = CGRectMake(5, 3, 34, 34);
         friendAvatarImageView.layer.cornerRadius =17.0f;
         friendAvatarImageView.clipsToBounds =YES;
+        //20140809
+        friendAvaterBtn.frame = CGRectMake(0, 0, 39, 39);
+//        [friendAvaterBtn addTarget:self action:@selector(friendAvaterBtnPressed) forControlEvents:UIControlStateNormal];
+        
         
         friendNameLabel.backgroundColor = [UIColor clearColor];
         friendNameLabel.textColor = [UIHelper colorWithHexString:@"#000000"];
@@ -107,14 +111,10 @@
         signNameLabel.lineBreakMode = NSLineBreakByCharWrapping;
         signNameLabel.numberOfLines = 0;
         
-        
-        
-    
-       
-        passPhotoImageView.tag = 1-ButtonBaseTag;
-//        [passPhotoImageView addTarget:self action:@selector(passPhotoButtonIsPressed:) forControlEvents:UIControlEventTouchUpInside];//7-28
+         passPhotoImageView.tag = 1-ButtonBaseTag;
+//      [passPhotoImageView addTarget:self action:@selector(passPhotoButtonIsPressed:) forControlEvents:UIControlEventTouchUpInside];//7-28
   
-        //        passPhotoImageViewTwo.frame = CGRectMake(62.5+5+84,passPhotoY, 84, 84);
+//      passPhotoImageViewTwo.frame = CGRectMake(62.5+5+84,passPhotoY, 84, 84);
         passPhotoImageViewTwo.tag = 2-ButtonBaseTag;
 //        [passPhotoImageViewTwo addTarget:self action:@selector(passPhotoButtonIsPressed:) forControlEvents:UIControlEventTouchUpInside];//7-28
         
@@ -177,6 +177,7 @@
         [self addSubview:bgImageViewCenter];
         [self addSubview:bgImageViewDown];
         [self addSubview:friendAvatarImageView];
+        [self addSubview:friendAvaterBtn];
         [self addSubview:friendNameLabel];
         [self addSubview:friendAgeLabel];
         [self addSubview:friendSexImageView];
@@ -210,7 +211,8 @@
                     [photosImageView setImageWithURL:[NSURL URLWithString:imageString] placeholderImage:[UIHelper imageName:@""]];
                 }else{
                     photosImageView.vedioUrl = imageString;
-                    photosImageView.image = [UIHelper imageName:@"Video_test"];
+//                    photosImageView.image = [UIHelper imageName:@"Video_test"];
+                    photosImageView.image = [Common getVideoPreViewImage:imageString];
                     UIImageView *imgV =[[UIImageView alloc] initWithFrame:CGRectInset(photosImageView.bounds, 24.25f, 24.25f)];
                     imgV.image =[UIHelper imageName:@"vedio_play"];
                     imgV.userInteractionEnabled =YES;
@@ -224,7 +226,7 @@
             }
             
             int j = (h+1)/3;
-
+            
             timeLabel.frame = CGRectMake(62,  31+sizeSN.height+9.5+78*j+20.5, 70, 15);
             favImageView.frame = CGRectMake(227, 31+sizeSN.height+9.5+78*j+20.5,14, 12);
             favButton.frame = CGRectMake(205, 31+sizeSN.height+9.5+78*j+20.5-12, 46.5, 38);
@@ -251,14 +253,14 @@
                 imgV.image =[UIHelper imageName:@"vedio_play"];
                 imgV.userInteractionEnabled =YES;
                 [photosImageView addSubview:imgV];
-                 photosImageView.image = [UIHelper imageName:@"Video_test"];
+//                 photosImageView.image = [UIHelper imageName:@"Video_test"];
+                photosImageView.image = [Common getVideoPreViewImage:imageString];
                 
                  photosImageView.delegate = self;
             }
             
             [self addSubview:photosImageView];
             
-
             timeLabel.frame = CGRectMake(62,  31+sizeSN.height+9.5+78+20.5, 70, 15);
             favImageView.frame = CGRectMake(227, 31+sizeSN.height+9.5+78+20.5,14, 12);
             favButton.frame = CGRectMake(205, 31+sizeSN.height+9.5+78+20.5-12, 46.5, 38);
@@ -268,8 +270,7 @@
             markCountLabel.Frame = CGRectMake(293, 31+sizeSN.height+9.5+78+20.5-1, 33, 12.5);
             bgImageViewDown.frame = CGRectMake(43, 49, 267+5, 31+sizeSN.height+9.5+78+20.5+12+7-49+4);//175.5-49 白色背景向下拉长
             friendLineImageViewOne.frame = CGRectMake(43/2, 36, 0.5, 31+sizeSN.height+9.5+78+20.5+12+7-36+10.5);
-            
-            
+
         }
         else if (h == 0){
             
@@ -285,7 +286,6 @@
             bgImageViewDown.frame = CGRectMake(43, 49, 267+5, 31+sizeSN.height+9.5+20.5+12+7-49+4);//175.5-49 白色背景向下拉长
             friendLineImageViewOne.frame = CGRectMake(43/2, 36, 0.5, 31+sizeSN.height+9.5+20.5+12+7-36+10.5);
         }
-
 
     }
     return self;
@@ -393,7 +393,6 @@
 //    bgImageViewDown.frame = CGRectMake(43, 49, 267+5, 31+sizeSN.height+9.5+84+20.5+12+7-49+4);//175.5-49 白色背景向下拉长
 //    friendLineImageViewOne.frame = CGRectMake(43/2, 36, 0.5, 31+sizeSN.height+9.5+84+20.5+12+7-36+10.5);
     if([agreeStatus isEqualToString:@"0"]){
-        
         favImageView.image = [UIHelper imageName:@"news_btn_favTwo"];
     }else{
         

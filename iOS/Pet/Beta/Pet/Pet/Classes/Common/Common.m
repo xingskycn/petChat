@@ -199,5 +199,26 @@
     return  s;
 }
 
++ (UIImage *)getVideoPreViewImage:(NSString *)urlString{
+    
+    if([urlString isEqualToString:@""] ||urlString == nil){
+        return [UIHelper imageName:@"Video_test"];
+    }
+    NSString *tempUrlString = urlString;
+    NSURL *videoPath = [NSURL URLWithString:tempUrlString];
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoPath options:nil];
+    AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    gen.appliesPreferredTrackTransform = YES;
+    CMTime time = CMTimeMakeWithSeconds(0.0, 600);
+    NSError *error = nil;
+    CMTime actualTime;
+    CGImageRef image = [gen copyCGImageAtTime:time actualTime:&actualTime error:&error];
+    UIImage *img = [[UIImage alloc] initWithCGImage:image];
+    if(img == nil){
+        return nil;
+    }
+    return img;
+    
+}
 
 @end

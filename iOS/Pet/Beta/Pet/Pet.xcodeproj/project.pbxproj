@@ -206,17 +206,9 @@
 		20A833F5199906EA00FF303C /* PESendNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A833BA199906EA00FF303C /* PESendNewsView.m */; };
 		20A833F6199906EA00FF303C /* PESendNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A833BC199906EA00FF303C /* PESendNewsViewController.m */; };
 		20A833F7199906EA00FF303C /* PESendNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A833BD199906EA00FF303C /* PESendNewsViewController.xib */; };
-		20A833F8199906EA00FF303C /* PEDisNewsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A833C0199906EA00FF303C /* PEDisNewsTableView.m */; };
-		20A833F9199906EA00FF303C /* PEDisNewsViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A833C2199906EA00FF303C /* PEDisNewsViewTableCell.m */; };
 		20A833FA199906EA00FF303C /* PEUIImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A833C4199906EA00FF303C /* PEUIImageView.m */; };
-		20A833FB199906EA00FF303C /* PEDisNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A833C6199906EA00FF303C /* PEDisNewsViewController.m */; };
-		20A833FC199906EA00FF303C /* PEDisNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A833C7199906EA00FF303C /* PEDisNewsViewController.xib */; };
-		20A833FD199906EA00FF303C /* PEDisShoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A833CA199906EA00FF303C /* PEDisShoutViewController.m */; };
-		20A833FE199906EA00FF303C /* PEDisShoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A833CB199906EA00FF303C /* PEDisShoutViewController.xib */; };
 		20A833FF199906EA00FF303C /* PEShoutSendNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A833CE199906EA00FF303C /* PEShoutSendNewsViewController.m */; };
 		20A83400199906EA00FF303C /* PEShoutSendNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A833CF199906EA00FF303C /* PEShoutSendNewsViewController.xib */; };
-		20A83401199906EA00FF303C /* PEDisShoutTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A833D2199906EA00FF303C /* PEDisShoutTableView.m */; };
-		20A83402199906EA00FF303C /* PEShoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A833D4199906EA00FF303C /* PEShoutTableViewCell.m */; };
 		20A83403199906EA00FF303C /* PEDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A833D6199906EA00FF303C /* PEDiscoverViewController.m */; };
 		20A83404199906EA00FF303C /* PEDiscoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A833D7199906EA00FF303C /* PEDiscoverViewController.xib */; };
 		20A83405199906EA00FF303C /* PESearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A833DA199906EA00FF303C /* PESearchViewController.m */; };
@@ -379,6 +371,14 @@
 		2EF79C03193704C2005D921C /* PEPet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF79C02193704C2005D921C /* PEPet.m */; };
 		2EF79C06193704E6005D921C /* PEShout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF79C05193704E6005D921C /* PEShout.m */; };
 		2EF79C0C19370507005D921C /* PEEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF79C0B19370507005D921C /* PEEvent.m */; };
+		E802E683199A203500B33C87 /* PEDisNewsViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E802E67F199A203500B33C87 /* PEDisNewsViewTableCell.m */; };
+		E802E684199A203500B33C87 /* PEDisNewsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E802E681199A203500B33C87 /* PEDisNewsTableView.m */; };
+		E802E688199A207700B33C87 /* PEDisNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E802E685199A207700B33C87 /* PEDisNewsViewController.xib */; };
+		E802E689199A207700B33C87 /* PEDisNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E802E686199A207700B33C87 /* PEDisNewsViewController.m */; };
+		E802E68E199A20C600B33C87 /* PEShoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E802E68A199A20C600B33C87 /* PEShoutTableViewCell.m */; };
+		E802E68F199A20C600B33C87 /* PEDisShoutTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E802E68C199A20C600B33C87 /* PEDisShoutTableView.m */; };
+		E802E693199A20ED00B33C87 /* PEDisShoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E802E690199A20ED00B33C87 /* PEDisShoutViewController.xib */; };
+		E802E694199A20ED00B33C87 /* PEDisShoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E802E691199A20ED00B33C87 /* PEDisShoutViewController.m */; };
 		E80C5C671980A056005D40F3 /* logo_29.png in Resources */ = {isa = PBXBuildFile; fileRef = E80C5C611980A056005D40F3 /* logo_29.png */; };
 		E80C5C681980A056005D40F3 /* logo_57.png in Resources */ = {isa = PBXBuildFile; fileRef = E80C5C621980A056005D40F3 /* logo_57.png */; };
 		E80C5C691980A056005D40F3 /* logo_58@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E80C5C631980A056005D40F3 /* logo_58@2x.png */; };
@@ -945,25 +945,11 @@
 		20A833BB199906EA00FF303C /* PESendNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PESendNewsViewController.h; sourceTree = "<group>"; };
 		20A833BC199906EA00FF303C /* PESendNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PESendNewsViewController.m; sourceTree = "<group>"; };
 		20A833BD199906EA00FF303C /* PESendNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PESendNewsViewController.xib; sourceTree = "<group>"; };
-		20A833BF199906EA00FF303C /* PEDisNewsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEDisNewsTableView.h; sourceTree = "<group>"; };
-		20A833C0199906EA00FF303C /* PEDisNewsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEDisNewsTableView.m; sourceTree = "<group>"; };
-		20A833C1199906EA00FF303C /* PEDisNewsViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEDisNewsViewTableCell.h; sourceTree = "<group>"; };
-		20A833C2199906EA00FF303C /* PEDisNewsViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEDisNewsViewTableCell.m; sourceTree = "<group>"; };
 		20A833C3199906EA00FF303C /* PEUIImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEUIImageView.h; sourceTree = "<group>"; };
 		20A833C4199906EA00FF303C /* PEUIImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEUIImageView.m; sourceTree = "<group>"; };
-		20A833C5199906EA00FF303C /* PEDisNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEDisNewsViewController.h; sourceTree = "<group>"; };
-		20A833C6199906EA00FF303C /* PEDisNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEDisNewsViewController.m; sourceTree = "<group>"; };
-		20A833C7199906EA00FF303C /* PEDisNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PEDisNewsViewController.xib; sourceTree = "<group>"; };
-		20A833C9199906EA00FF303C /* PEDisShoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEDisShoutViewController.h; sourceTree = "<group>"; };
-		20A833CA199906EA00FF303C /* PEDisShoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEDisShoutViewController.m; sourceTree = "<group>"; };
-		20A833CB199906EA00FF303C /* PEDisShoutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PEDisShoutViewController.xib; sourceTree = "<group>"; };
 		20A833CD199906EA00FF303C /* PEShoutSendNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEShoutSendNewsViewController.h; sourceTree = "<group>"; };
 		20A833CE199906EA00FF303C /* PEShoutSendNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEShoutSendNewsViewController.m; sourceTree = "<group>"; };
 		20A833CF199906EA00FF303C /* PEShoutSendNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PEShoutSendNewsViewController.xib; sourceTree = "<group>"; };
-		20A833D1199906EA00FF303C /* PEDisShoutTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEDisShoutTableView.h; sourceTree = "<group>"; };
-		20A833D2199906EA00FF303C /* PEDisShoutTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEDisShoutTableView.m; sourceTree = "<group>"; };
-		20A833D3199906EA00FF303C /* PEShoutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEShoutTableViewCell.h; sourceTree = "<group>"; };
-		20A833D4199906EA00FF303C /* PEShoutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEShoutTableViewCell.m; sourceTree = "<group>"; };
 		20A833D5199906EA00FF303C /* PEDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEDiscoverViewController.h; sourceTree = "<group>"; };
 		20A833D6199906EA00FF303C /* PEDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEDiscoverViewController.m; sourceTree = "<group>"; };
 		20A833D7199906EA00FF303C /* PEDiscoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PEDiscoverViewController.xib; sourceTree = "<group>"; };
@@ -1261,6 +1247,20 @@
 		2EF79C0A19370507005D921C /* PEEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEEvent.h; sourceTree = "<group>"; };
 		2EF79C0B19370507005D921C /* PEEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEEvent.m; sourceTree = "<group>"; };
 		83E9E50E1C5F4E6AA3A40443 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		E802E67F199A203500B33C87 /* PEDisNewsViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEDisNewsViewTableCell.m; sourceTree = "<group>"; };
+		E802E680199A203500B33C87 /* PEDisNewsViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEDisNewsViewTableCell.h; sourceTree = "<group>"; };
+		E802E681199A203500B33C87 /* PEDisNewsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEDisNewsTableView.m; sourceTree = "<group>"; };
+		E802E682199A203500B33C87 /* PEDisNewsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEDisNewsTableView.h; sourceTree = "<group>"; };
+		E802E685199A207700B33C87 /* PEDisNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PEDisNewsViewController.xib; sourceTree = "<group>"; };
+		E802E686199A207700B33C87 /* PEDisNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEDisNewsViewController.m; sourceTree = "<group>"; };
+		E802E687199A207700B33C87 /* PEDisNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEDisNewsViewController.h; sourceTree = "<group>"; };
+		E802E68A199A20C600B33C87 /* PEShoutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEShoutTableViewCell.m; sourceTree = "<group>"; };
+		E802E68B199A20C600B33C87 /* PEShoutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEShoutTableViewCell.h; sourceTree = "<group>"; };
+		E802E68C199A20C600B33C87 /* PEDisShoutTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEDisShoutTableView.m; sourceTree = "<group>"; };
+		E802E68D199A20C600B33C87 /* PEDisShoutTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEDisShoutTableView.h; sourceTree = "<group>"; };
+		E802E690199A20ED00B33C87 /* PEDisShoutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PEDisShoutViewController.xib; sourceTree = "<group>"; };
+		E802E691199A20ED00B33C87 /* PEDisShoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEDisShoutViewController.m; sourceTree = "<group>"; };
+		E802E692199A20ED00B33C87 /* PEDisShoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEDisShoutViewController.h; sourceTree = "<group>"; };
 		E80C5C611980A056005D40F3 /* logo_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_29.png; sourceTree = "<group>"; };
 		E80C5C621980A056005D40F3 /* logo_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_57.png; sourceTree = "<group>"; };
 		E80C5C631980A056005D40F3 /* logo_58@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_58@2x.png"; sourceTree = "<group>"; };
@@ -2338,11 +2338,11 @@
 		20A833B6199906EA00FF303C /* Discover_news */ = {
 			isa = PBXGroup;
 			children = (
+				E802E685199A207700B33C87 /* PEDisNewsViewController.xib */,
+				E802E686199A207700B33C87 /* PEDisNewsViewController.m */,
+				E802E687199A207700B33C87 /* PEDisNewsViewController.h */,
 				20A833B7199906EA00FF303C /* News_sendNewsView */,
 				20A833BE199906EA00FF303C /* NewsUI */,
-				20A833C5199906EA00FF303C /* PEDisNewsViewController.h */,
-				20A833C6199906EA00FF303C /* PEDisNewsViewController.m */,
-				20A833C7199906EA00FF303C /* PEDisNewsViewController.xib */,
 			);
 			path = Discover_news;
 			sourceTree = "<group>";
@@ -2370,10 +2370,10 @@
 		20A833BE199906EA00FF303C /* NewsUI */ = {
 			isa = PBXGroup;
 			children = (
-				20A833BF199906EA00FF303C /* PEDisNewsTableView.h */,
-				20A833C0199906EA00FF303C /* PEDisNewsTableView.m */,
-				20A833C1199906EA00FF303C /* PEDisNewsViewTableCell.h */,
-				20A833C2199906EA00FF303C /* PEDisNewsViewTableCell.m */,
+				E802E67F199A203500B33C87 /* PEDisNewsViewTableCell.m */,
+				E802E680199A203500B33C87 /* PEDisNewsViewTableCell.h */,
+				E802E681199A203500B33C87 /* PEDisNewsTableView.m */,
+				E802E682199A203500B33C87 /* PEDisNewsTableView.h */,
 				20A833C3199906EA00FF303C /* PEUIImageView.h */,
 				20A833C4199906EA00FF303C /* PEUIImageView.m */,
 			);
@@ -2383,9 +2383,9 @@
 		20A833C8199906EA00FF303C /* Discover_shout */ = {
 			isa = PBXGroup;
 			children = (
-				20A833C9199906EA00FF303C /* PEDisShoutViewController.h */,
-				20A833CA199906EA00FF303C /* PEDisShoutViewController.m */,
-				20A833CB199906EA00FF303C /* PEDisShoutViewController.xib */,
+				E802E690199A20ED00B33C87 /* PEDisShoutViewController.xib */,
+				E802E691199A20ED00B33C87 /* PEDisShoutViewController.m */,
+				E802E692199A20ED00B33C87 /* PEDisShoutViewController.h */,
 				20A833CC199906EA00FF303C /* ShoutSenNewsView */,
 				20A833D0199906EA00FF303C /* shoutUI */,
 			);
@@ -2405,10 +2405,10 @@
 		20A833D0199906EA00FF303C /* shoutUI */ = {
 			isa = PBXGroup;
 			children = (
-				20A833D1199906EA00FF303C /* PEDisShoutTableView.h */,
-				20A833D2199906EA00FF303C /* PEDisShoutTableView.m */,
-				20A833D3199906EA00FF303C /* PEShoutTableViewCell.h */,
-				20A833D4199906EA00FF303C /* PEShoutTableViewCell.m */,
+				E802E68A199A20C600B33C87 /* PEShoutTableViewCell.m */,
+				E802E68B199A20C600B33C87 /* PEShoutTableViewCell.h */,
+				E802E68C199A20C600B33C87 /* PEDisShoutTableView.m */,
+				E802E68D199A20C600B33C87 /* PEDisShoutTableView.h */,
 			);
 			path = shoutUI;
 			sourceTree = "<group>";
@@ -3678,6 +3678,7 @@
 				E84098881974ECCB00828E1B /* 114@2x.png in Resources */,
 				20A521EF1968F06C00E7E4BB /* pet0@2x.jpg in Resources */,
 				20A521F81968F06C00E7E4BB /* root_tabber_chat_btn_selected_matting_blue@2x.png in Resources */,
+				E802E693199A20ED00B33C87 /* PEDisShoutViewController.xib in Resources */,
 				E8AD539819907ACB00910259 /* discover_btn_matting_blue@2x.png in Resources */,
 				E84098711974ECCB00828E1B /* 009@2x.png in Resources */,
 				E840987A1974ECCB00828E1B /* 100@2x.png in Resources */,
@@ -3737,6 +3738,7 @@
 				20A522021968F06C00E7E4BB /* setting_bind_email_icon_matting_blue@2x.png in Resources */,
 				E8AD53AD19907ACB00910259 /* group_ownerTopBg_matting_blue@2x.png in Resources */,
 				E840988B1974ECCB00828E1B /* 117@2x.png in Resources */,
+				E802E688199A207700B33C87 /* PEDisNewsViewController.xib in Resources */,
 				20A521A11968F06C00E7E4BB /* login_account_bg_matting_blue@2x.png in Resources */,
 				20A833F7199906EA00FF303C /* PESendNewsViewController.xib in Resources */,
 				E8AD538E19907ACB00910259 /* club_openSelectedTitle_matting_blue@2x.png in Resources */,
@@ -3798,7 +3800,6 @@
 				E840988C1974ECCB00828E1B /* 200@2x.png in Resources */,
 				20A521EB1968F06C00E7E4BB /* near_water_pet_info_matting_blue@2x.png in Resources */,
 				E82DF24B197E1231003D1121 /* edit_forward_2_matting_blue@2x.png in Resources */,
-				20A833FE199906EA00FF303C /* PEDisShoutViewController.xib in Resources */,
 				20A521D31968F06C00E7E4BB /* nearDetail_photo_icon_bg_matting_blue@2x.png in Resources */,
 				20A522221968F06C00E7E4BB /* setting_general_bg_matting_blue@2x.png in Resources */,
 				20A521A41968F06C00E7E4BB /* login_logo_matting_blue@2x.png in Resources */,
@@ -3963,7 +3964,6 @@
 				20A521B61968F06C00E7E4BB /* near_cell_1_male_matting_blue@2x.png in Resources */,
 				20A522321968F06C00E7E4BB /* setting_privacy_icon_matting_blue@2x.png in Resources */,
 				E80C5C691980A056005D40F3 /* logo_58@2x.png in Resources */,
-				20A833FC199906EA00FF303C /* PEDisNewsViewController.xib in Resources */,
 				E84707CD1972754900BD8F0C /* register_male_matting_blue@2x.png in Resources */,
 				E84098B21974ECCB00828E1B /* 402@2x.png in Resources */,
 				E8AD53C619907ACB00910259 /* news_personImageBgTwo_matting_blue@2x.png in Resources */,
@@ -4059,7 +4059,7 @@
 				204E6B411946992000919C5B /* EGORefreshTableFooterView.m in Sources */,
 				20FFFA49198B93E7003C8C26 /* PENearDetailListView.m in Sources */,
 				20FFFA59198B93E7003C8C26 /* PENearViewWaterCell.m in Sources */,
-				20A83401199906EA00FF303C /* PEDisShoutTableView.m in Sources */,
+				E802E68E199A20C600B33C87 /* PEShoutTableViewCell.m in Sources */,
 				20B91D2D1991B89300E0B8CC /* PELongPress.m in Sources */,
 				20B91D2B1991B89300E0B8CC /* PEEditPhotoScrollView.m in Sources */,
 				20AE224F198B28BE00795579 /* PELoginViewController.m in Sources */,
@@ -4078,6 +4078,7 @@
 				20A833DF199906EA00FF303C /* PEDisClubViewController.m in Sources */,
 				20AD0D501987C162008FF639 /* PEContactViewTableCell.m in Sources */,
 				20AD0D3C1987C162008FF639 /* PEDisAddContactsView.m in Sources */,
+				E802E689199A207700B33C87 /* PEDisNewsViewController.m in Sources */,
 				20A833F6199906EA00FF303C /* PESendNewsViewController.m in Sources */,
 				20B91D351991B89300E0B8CC /* PEGeneralViewController.m in Sources */,
 				20FFFA54198B93E7003C8C26 /* PEDisVedioListTableView.m in Sources */,
@@ -4091,9 +4092,9 @@
 				20A8331619984D4C00FF303C /* UIHelper.m in Sources */,
 				20A8336B19984D5B00FF303C /* UIView+CBExtension.m in Sources */,
 				20A8340C1999073800FF303C /* PEDisGroupCellOne.m in Sources */,
-				20A833F9199906EA00FF303C /* PEDisNewsViewTableCell.m in Sources */,
 				20FFFA4A198B93E7003C8C26 /* PENearDetailNewsView.m in Sources */,
 				20AE224D198B28BE00795579 /* PEDisRegisterForPetViewController.m in Sources */,
+				E802E684199A203500B33C87 /* PEDisNewsTableView.m in Sources */,
 				20A8336A19984D5B00FF303C /* UIImageView+CBExtension.m in Sources */,
 				20A8336C19984D5B00FF303C /* NSObject+Runtime.m in Sources */,
 				20AD0D3F1987C162008FF639 /* PECreateGroupSiteViewController.m in Sources */,
@@ -4108,7 +4109,6 @@
 				20B91D391991B89300E0B8CC /* PESettingViewController.m in Sources */,
 				20B91D2E1991B89300E0B8CC /* PESettingEditTableCellOne.m in Sources */,
 				20AD0D471987C162008FF639 /* PEShakeHistoryTableCell.m in Sources */,
-				20A833F8199906EA00FF303C /* PEDisNewsTableView.m in Sources */,
 				20A8337719984D5B00FF303C /* PETableView.m in Sources */,
 				20A833DC199906EA00FF303C /* PEClubDeatilViewController.m in Sources */,
 				20FFFA47198B93E7003C8C26 /* PEMoreInfoView.m in Sources */,
@@ -4120,7 +4120,6 @@
 				2EF79BF71937009F005D921C /* PEMobile.m in Sources */,
 				20A8331219984D4C00FF303C /* PEFMDBManager.m in Sources */,
 				20FFFA4E198B93E7003C8C26 /* PEPhotoScrollView.m in Sources */,
-				20A833FB199906EA00FF303C /* PEDisNewsViewController.m in Sources */,
 				2EF79C06193704E6005D921C /* PEShout.m in Sources */,
 				20A833E9199906EA00FF303C /* PEGroupSetupViewController.m in Sources */,
 				2E4A0C641932DD9900101B13 /* main.m in Sources */,
@@ -4136,10 +4135,12 @@
 				20A8336819984D5B00FF303C /* NSString+Extension.m in Sources */,
 				E8AD53D219908E1800910259 /* img.m in Sources */,
 				20AE224B198B28BE00795579 /* PEDisRegisterForOwnerViewController.m in Sources */,
+				E802E683199A203500B33C87 /* PEDisNewsViewTableCell.m in Sources */,
 				20A8337319984D5B00FF303C /* PEChatListTableView.m in Sources */,
 				20A833F5199906EA00FF303C /* PESendNewsView.m in Sources */,
 				20A833EB199906EA00FF303C /* PEGroupNewsViewController.m in Sources */,
 				20A8340D1999073800FF303C /* PEDisGroupCellTwo.m in Sources */,
+				E802E68F199A20C600B33C87 /* PEDisShoutTableView.m in Sources */,
 				20FFFA57198B93E7003C8C26 /* PENearViewTableCell.m in Sources */,
 				20AD0D561987C162008FF639 /* PEDisContactsTableCell.m in Sources */,
 				20A83403199906EA00FF303C /* PEDiscoverViewController.m in Sources */,
@@ -4148,11 +4149,11 @@
 				E853DC7819988C2300F36696 /* PEFliterViewController.m in Sources */,
 				20A8330E19984D4C00FF303C /* PENetWorkingManager.m in Sources */,
 				20A833EF199906EA00FF303C /* PEGroupMemberListView.m in Sources */,
+				E802E694199A20ED00B33C87 /* PEDisShoutViewController.m in Sources */,
 				204E6B421946992000919C5B /* EGORefreshTableHeaderView.m in Sources */,
 				20AD0D3D1987C162008FF639 /* PECreateDetailViewController.m in Sources */,
 				20AD0D3A1987C162008FF639 /* PEFindContactsFriendsViewController.m in Sources */,
 				20AD0D4F1987C162008FF639 /* PEContactTableView.m in Sources */,
-				20A83402199906EA00FF303C /* PEShoutTableViewCell.m in Sources */,
 				20A8336419984D5B00FF303C /* NSData+CBExtension.m in Sources */,
 				20A833F3199906EA00FF303C /* PEDisGroupViewController.m in Sources */,
 				20B91D271991B89300E0B8CC /* PEEditDetailViewController.m in Sources */,
@@ -4177,7 +4178,6 @@
 				204E6B441946992000919C5B /* TMQuiltViewCell.m in Sources */,
 				20A8331719984D4C00FF303C /* PEXMPP.m in Sources */,
 				20A8336519984D5B00FF303C /* NSDictionary+CBExtension.m in Sources */,
-				20A833FD199906EA00FF303C /* PEDisShoutViewController.m in Sources */,
 				20B91D291991B89300E0B8CC /* PEEditOtherView.m in Sources */,
 				20A833ED199906EA00FF303C /* PEGroupDetailViewController.m in Sources */,
 				20FFFA55198B93E7003C8C26 /* PENearTableView.m in Sources */,
@@ -4316,7 +4316,7 @@
 			baseConfigurationReference = 83E9E50E1C5F4E6AA3A40443 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jian HU (5CFRDFR86E)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Junqiu Wu (VDYM3497DJ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pet/Pet-Prefix.pch";
 				INFOPLIST_FILE = "Pet/Pet-Info.plist";
@@ -4352,7 +4352,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "94D5E14B-4831-431A-8BB9-32E9FA210F35";
+				PROVISIONING_PROFILE = "1e52f8e7-9a04-4ce1-9194-5c7b953e9267";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4363,7 +4363,7 @@
 			baseConfigurationReference = 83E9E50E1C5F4E6AA3A40443 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jian HU (5CFRDFR86E)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Junqiu Wu (VDYM3497DJ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pet/Pet-Prefix.pch";
 				INFOPLIST_FILE = "Pet/Pet-Info.plist";
@@ -4399,7 +4399,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "94D5E14B-4831-431A-8BB9-32E9FA210F35";
+				PROVISIONING_PROFILE = "1e52f8e7-9a04-4ce1-9194-5c7b953e9267";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
