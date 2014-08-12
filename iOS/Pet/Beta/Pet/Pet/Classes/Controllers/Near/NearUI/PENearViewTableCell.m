@@ -209,6 +209,9 @@
     
     //by wu
     [detailView addSubview:petForwardImageV];
+    [detailView addSubview:petForwardImageV2];
+    [detailView addSubview:petForwardImageV3];
+    [detailView addSubview:petForwardImageV4];
     
     //person UI setting 用户头像背景
     UIImageView *ownerImage =[[UIImageView alloc]initWithImage:[UIHelper imageName:@"near_cell_owner_bg"]];

@@ -96,6 +96,9 @@
         [petSortImageV removeFromSuperview];
         [petAgeLbl removeFromSuperview];
         [petForwardImageV removeFromSuperview];
+        [petForwardImageV2 removeFromSuperview];
+        [petForwardImageV3 removeFromSuperview];
+        [petForwardImageV4 removeFromSuperview];
         [petSortLbl removeFromSuperview];
         
         //by wu
@@ -142,12 +145,58 @@
     CGSize nameLableSize = [petNameLbl.text sizeWithFont:[UIFont systemFontOfSize:12.0] constrainedToSize:CGSizeMake(200, 1000) lineBreakMode:NSLineBreakByCharWrapping];
     petNameLbl.frame = CGRectMake(petIconBg.frame.origin.x + 36 + 7, petTopBg.frame.origin.y + 5, nameLableSize.width, 13.0f);//这里55影响了其后面的位置
     
+    int x =0;
+    int num =0;
+    
+    
     //pet forward image -名字后面的图标
+    num ++;
     petForwardImageV.contentMode = UIViewContentModeScaleAspectFill;
     petForwardImageV.clipsToBounds = YES;
     //petForwardImageV.frame = CGRectMake(petNameLbl.frame.origin.x + petNameLbl.frame.size.width +6, petNameLbl.frame.origin.y, 13.0f, 13.0f);
-    petForwardImageV.frame = CGRectMake(petNameLbl.frame.origin.x + nameLableSize.width +6, petNameLbl.frame.origin.y, 13.0f, 13.0f);
-    petForwardImageV.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_%@", petForward]];
+    petForwardImageV.frame = CGRectMake(petNameLbl.frame.origin.x + nameLableSize.width +6 +x *19.0f, petNameLbl.frame.origin.y, 13.0f, 13.0f);
+    if ([petForward isEqualToString:@"1"]) {
+        petForwardImageV.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_%d", num]];
+        x ++;
+    } else {
+        petForwardImageV.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_0"]];
+    }
+    
+    num ++;
+    petForwardImageV2.contentMode = UIViewContentModeScaleAspectFill;
+    petForwardImageV2.clipsToBounds = YES;
+    //petForwardImageV.frame = CGRectMake(petNameLbl.frame.origin.x + petNameLbl.frame.size.width +6, petNameLbl.frame.origin.y, 13.0f, 13.0f);
+    petForwardImageV2.frame = CGRectMake(petNameLbl.frame.origin.x + nameLableSize.width +6 +x *19.0f, petNameLbl.frame.origin.y, 13.0f, 13.0f);
+    if ([petForward2 isEqualToString:@"1"]) {
+        petForwardImageV2.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_%d", num]];
+        x ++;
+    } else {
+        petForwardImageV2.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_0"]];
+    }
+    
+    num ++;
+    petForwardImageV3.contentMode = UIViewContentModeScaleAspectFill;
+    petForwardImageV3.clipsToBounds = YES;
+    //petForwardImageV.frame = CGRectMake(petNameLbl.frame.origin.x + petNameLbl.frame.size.width +6, petNameLbl.frame.origin.y, 13.0f, 13.0f);
+    petForwardImageV3.frame = CGRectMake(petNameLbl.frame.origin.x + nameLableSize.width +6 +x *19.0f, petNameLbl.frame.origin.y, 13.0f, 13.0f);
+    if ([petForward3 isEqualToString:@"1"]) {
+        petForwardImageV3.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_%d", num]];
+        x ++;
+    } else {
+        petForwardImageV3.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_0"]];
+    }
+    
+    num ++;
+    petForwardImageV4.contentMode = UIViewContentModeScaleAspectFill;
+    petForwardImageV4.clipsToBounds = YES;
+    //petForwardImageV.frame = CGRectMake(petNameLbl.frame.origin.x + petNameLbl.frame.size.width +6, petNameLbl.frame.origin.y, 13.0f, 13.0f);
+    petForwardImageV4.frame = CGRectMake(petNameLbl.frame.origin.x + nameLableSize.width +6 +x *19.0f, petNameLbl.frame.origin.y, 13.0f, 13.0f);
+    if ([petForward4 isEqualToString:@"1"]) {
+        petForwardImageV4.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_%d", num]];
+        x ++;
+    } else {
+        petForwardImageV4.image =[UIHelper imageName:[NSString stringWithFormat:@"near_pet_forward_0"]];
+    }
     
     //pet sort label ---宠物种类:哈士奇
     [petSortLbl setFont:[UIFont systemFontOfSize:11.0f]];
@@ -264,6 +313,9 @@
     [self addSubview:petIconBgContent];
     [self addSubview:petNameLbl];
     [self addSubview:petForwardImageV];
+    [self addSubview:petForwardImageV2];
+    [self addSubview:petForwardImageV3];
+    [self addSubview:petForwardImageV4];
     [self addSubview:petSortLbl];
     
     [self addSubview:petSortImageV];
