@@ -12,13 +12,19 @@
 @implementation PENearViewWaterCell
 
 @synthesize petImageV, petIconBg, petIconBgContent, petInfoBg, petTopBg;
-@synthesize petSortImageV, petForwardImageV;
+@synthesize petSortImageV;
+
+@synthesize petForwardImageV, petForward;
+@synthesize petForwardImageV2, petForward2;
+@synthesize petForwardImageV3, petForward3;
+@synthesize petForwardImageV4, petForward4;
+
 @synthesize petAgeLbl, petNameLbl, petSortLbl;
 
 @synthesize ownerImageBg, ownerIconBgContent, ownerIconBg, ownerAgeBg;
 @synthesize ownerNameLbl, ownerSignLbl, ownerAgeLbl;
 
-@synthesize petSex, petSort, petForward, ownerSex, ownerBirth;
+@synthesize petSex, petSort, ownerSex, ownerBirth;
 @synthesize heightCut;
 
 @synthesize distanceLabel,timeLabel,view;
@@ -35,6 +41,9 @@
         petIconBgContent =[[UIImageView alloc]init];
         petNameLbl =[[UILabel alloc]init];
         petForwardImageV =[[UIImageView alloc]init];
+        petForwardImageV2 =[[UIImageView alloc]init];
+        petForwardImageV3 =[[UIImageView alloc]init];
+        petForwardImageV4 =[[UIImageView alloc]init];
         petSortLbl =[[UILabel alloc]init];
         petInfoBg =[[UIImageView alloc]init];
         petSortImageV =[[UIImageView alloc]init];
@@ -61,6 +70,9 @@
         ownerBirth =[[NSString alloc] init];
         petSort =[[NSString alloc] init];
         petForward =[[NSString alloc] init];
+        petForward2 =[[NSString alloc] init];
+        petForward3 =[[NSString alloc] init];
+        petForward4 =[[NSString alloc] init];
         
         petName = [[NSString alloc]init];
         ownerDistance = [[NSString alloc]init];

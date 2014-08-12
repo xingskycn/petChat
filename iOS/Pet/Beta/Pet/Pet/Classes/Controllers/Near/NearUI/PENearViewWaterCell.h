@@ -17,6 +17,9 @@
 @property (nonatomic, retain) UIImageView *petInfoBg;
 @property (nonatomic, retain) UIImageView *petSortImageV;
 @property (nonatomic, retain) UIImageView *petForwardImageV;
+@property (nonatomic, retain) UIImageView *petForwardImageV2;
+@property (nonatomic, retain) UIImageView *petForwardImageV3;
+@property (nonatomic, retain) UIImageView *petForwardImageV4;
 
 @property (nonatomic, retain) UILabel *petAgeLbl;
 @property (nonatomic, retain) UILabel *petNameLbl;
@@ -36,6 +39,9 @@
 @property (nonatomic, retain) NSString *ownerBirth;
 @property (nonatomic, retain) NSString *petSort;
 @property (nonatomic, retain) NSString *petForward;
+@property (nonatomic, retain) NSString *petForward2;
+@property (nonatomic, retain) NSString *petForward3;
+@property (nonatomic, retain) NSString *petForward4;
 //by wu
 @property (nonatomic, retain) NSString *petName;
 @property (nonatomic, retain) NSString *ownerDistance;
