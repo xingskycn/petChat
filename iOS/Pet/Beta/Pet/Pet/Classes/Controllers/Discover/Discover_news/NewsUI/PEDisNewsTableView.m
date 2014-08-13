@@ -339,7 +339,7 @@ static int pageIndex =0;
     return dataArray.count+1;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     float result = 0.0;
     if(indexPath.row == 0){
         result = 150.0;
@@ -360,11 +360,8 @@ static int pageIndex =0;
             [imageDataArray addObject:[imageUrlListArray[i] objectForKey:@"url"]];
         }
         [imageDataArray addObject:[petData objectForKey:DISCOVER_NEWS_IMAGE]];
-//        NSLog(@"当前行数的图片数组长度为%d",imageDataArray.count);
-        
-        
+        //        NSLog(@"当前行数的图片数组长度为%d",imageDataArray.count);
         int imagRowCount = (imageDataArray.count+1)/3;
-        
         float height =31+sizeSN.height+9.5+20.5+7+12 ;
         if(imageDataArray.count == 0){
             
@@ -376,41 +373,50 @@ static int pageIndex =0;
             
             height =31+sizeSN.height+9.5+78*imagRowCount+20.5+7+12;
         }
+        //到这里，height的值完全取决于个性签名的高度
         
-//        if([tempSignString isEqualToString:@""] || tempSignString == nil){
-//            sizeSN.height = 17;
-//        }
-//        float height = 164+sizeSN.height;
+        //        if([tempSignString isEqualToString:@""] || tempSignString == nil){
+        //            sizeSN.height = 17;
+        //        }
+        //        float height = 164+sizeSN.height;
         //commenArray有几个为字典的元素
         NSMutableArray *commentArray = [[NSMutableArray alloc]init];
         commentArray = [petData objectForKey:@"comments"];
         if(commentArray.count >0){
             for (int i = 0;i<commentArray.count;i++){
                 
+                NSString *commentString =[[commentArray objectAtIndex:i]objectForKey:@"content"];
+                CGSize sizeComment = [commentString sizeWithFont:[UIFont systemFontOfSize:10] constrainedToSize:CGSizeMake(200, 1000) lineBreakMode:NSLineBreakByCharWrapping];
+                height +=sizeComment.height;
                 NSMutableArray *replyCommentArray = [[commentArray objectAtIndex:i]objectForKey:@"reList"];
+                for(int j = 0;j< replyCommentArray.count;j++)
+                {
+                    NSString *replycommentString = [[replyCommentArray objectAtIndex:j]objectForKey:@"comment"];
+                    CGSize sizeReplycomment = [replycommentString sizeWithFont:[UIFont systemFontOfSize:10] constrainedToSize:CGSizeMake(200, 1000) lineBreakMode:NSLineBreakByCharWrapping];
+                    height +=sizeReplycomment.height;
+                }
                 //注意：count值的叠加
                 newsReplyCount +=replyCommentArray.count;
             }
         }
         
         int n = commentArray.count;
- 
-        height +=40*(n+newsReplyCount)+10.5;//175.5+
-        
+        height +=28*(n+newsReplyCount)+10.5;//175.5+ height +=40*(n+newsReplyCount)+10.5
         result = height;
-
+        
     }
-//     NSLog(@"当前cell高度%f",result);
+    //     NSLog(@"当前cell高度%f",result);
     return result;
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  if(indexPath.row == 0){
+    if(indexPath.row == 0){
         
         UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
         
-       //主题图片上的名字label
+        //主题图片上的名字label
         UILabel *ownerNameLable = [[UILabel alloc]init];
         ownerNameLable.font = [UIFont systemFontOfSize:16];
         //给用户名label赋值：服务端
@@ -465,16 +471,10 @@ static int pageIndex =0;
         
         PEDisNewsViewTableCell *cell = [[PEDisNewsViewTableCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PEDisNewsViewTableCell" AndData:newsImageListArray AndString:signString];
         
-//        PEDisNewsViewTableCell *cell =(PEDisNewsViewTableCell *)[tableView dequeueReusableCellWithIdentifier:@"PEDisNewsViewTableCell"];
-//        if(cell == nil){
-//            
-//            cell = [[PEDisNewsViewTableCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PEDisNewsViewTableCell" AndData:newsImageListArray AndString:signString];
-//        }
-
-         cell.cID =indexPath.row;
-         cell.newsCellButtonClickDelegate =self;
+        cell.cID =indexPath.row;
+        cell.newsCellButtonClickDelegate =self;
         
-         if(indexPath.row == 1){
+        if(indexPath.row == 1){
             UIImage *image = nil;
             cell.friendLineImageViewTwo.image = image;
             cell.friendLineImageViewTwo.hidden = YES;
@@ -484,7 +484,7 @@ static int pageIndex =0;
             cell.friendLineImageViewTwo.image = lineImage;
         }
         
-
+        
         [cell.friendAvatarImageView setImageWithURL:[NSURL URLWithString:[cellDataDict objectForKey:DISCOVER_NEWS_USERICON]] placeholderImage:[UIHelper imageName:@"news_friendAvatar"]];
         
         NSString *nameString = [cellDataDict objectForKey:DISCOVER_NEWS_USERNAME];
@@ -511,7 +511,7 @@ static int pageIndex =0;
         }
         newsAgreeCount = [[cellDataDict objectForKey:DISCOVER_NEWS_AGREECOUNT]intValue];
         cell.favCountLable.text = [NSString stringWithFormat:@"%d",newsAgreeCount];
-//        cell.markCountLabel.text = [cellDataDict objectForKey:DISCOVER_NEWS_AGREECOUNT];
+        //        cell.markCountLabel.text = [cellDataDict objectForKey:DISCOVER_NEWS_AGREECOUNT];
         cell.pid =[cellDataDict objectForKey:DISCOVER_NEWS_NEWSID];
         
         [cell.favButton addTarget:self action:@selector(newsFavButtonIsPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -537,7 +537,7 @@ static int pageIndex =0;
             height = 31+sizeSN.height+9.5+78+20.5+12+7;
             
         }else{
-           height =31+sizeSN.height+9.5+78*imageCountRow+20.5+12+7;
+            height =31+sizeSN.height+9.5+78*imageCountRow+20.5+12+7;
             
         }
         
@@ -561,8 +561,8 @@ static int pageIndex =0;
                     tempReplyCount +=array.count;
                     
                 }else{
-
-                   
+                    
+                    
                     
                 }
                 
@@ -571,7 +571,7 @@ static int pageIndex =0;
         
         cell.markCountLabel.text = [NSString stringWithFormat:@"%d",tempReplyCount+commentArray.count];//显示评论和回复
         newsCount = 0;
-    /************************************开始显示评论和回复*********************************************/
+        /************************************开始显示评论和回复*********************************************/
         for (int i =0; i <commentArray.count; i++){
             //从评论数组里取出字典
             NSDictionary *commentDict =[commentArray objectAtIndex:i];
@@ -583,12 +583,7 @@ static int pageIndex =0;
             UIView *view =[[UIView alloc]initWithFrame:CGRectMake(54, newsCommentY, 254, 40)];
             view.backgroundColor = [UIColor colorWithRed:245./255. green:245./255. blue:245./255. alpha:1.];
             
-            //没用一条评论或者回复，就会添加这个button
-            UIButton *responseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [responseBtn addTarget:self action:@selector(responseBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
-            responseBtn.frame = CGRectMake(54, newsCommentY, 254, 40);
-            responseBtn.tag = 10000*(indexPath.row +1)+100*(i+1);//可以取出第几行的第几条评论
-           
+            
             //评论人头像
             UIImageView *headImageView = [[UIImageView alloc]initWithFrame:CGRectMake(14, 5, 30, 30)];
             [headImageView setImageWithURL:[NSURL URLWithString:[commentDict objectForKey:DISCOVER_NEWS_COMMENTUSERIMAGE]] placeholderImage:[UIHelper imageName:@"news_friendAvatar"]];
@@ -603,11 +598,22 @@ static int pageIndex =0;
             NSString *commentNameString = [commentDict objectForKey:DISCOVER_NEWS_PETNEWSCOMMENTUSERNAME];
             nameLabel.text = commentNameString;
             //内容
-            UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 23, 205, 12)];
+            CGSize contentStringSize = [contentString sizeWithFont:[UIFont systemFontOfSize:10] constrainedToSize:CGSizeMake(200, 1000) lineBreakMode:NSLineBreakByCharWrapping];
+            float contentStrHeight = contentStringSize.height;
+            UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 23, 205, contentStrHeight)];
+            view.frame = CGRectMake(54, newsCommentY, 254, 28+contentStrHeight);
             contentLabel.textColor =[UIHelper colorWithHexString:@"#6f6f6f"];
+            contentLabel.numberOfLines = 0;
             contentLabel.font =[UIFont systemFontOfSize:10];
             contentLabel.textAlignment =NSTextAlignmentLeft;
             contentLabel.text = contentString;
+            
+            
+            //没用一条评论或者回复，就会添加这个button
+            UIButton *responseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [responseBtn addTarget:self action:@selector(responseBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
+            responseBtn.frame = CGRectMake(54, newsCommentY, 254, 28+contentStrHeight);
+            responseBtn.tag = 10000*(indexPath.row +1)+100*(i+1);//可以取出第几行的第几条评论
             //回复时间
             UILabel *replyTimeLabel = [[UILabel alloc]init];
             replyTimeLabel.frame = CGRectMake(198, 8, 45, 10);
@@ -629,8 +635,8 @@ static int pageIndex =0;
             
             UIImageView *lineImgeView = [[UIImageView alloc]init];
             lineImgeView.image = [UIHelper imageName:@"shout_lineImage"];
-            lineImgeView.frame = CGRectMake(14, 39.5, 232, 0.5);
-            
+            //            lineImgeView.frame = CGRectMake(14, 39.5, 232, 0.5);
+            lineImgeView.frame = CGRectMake(14, 27.5+contentStrHeight, 232, 0.5);
             [view addSubview:headImageView];
             [view addSubview:nameLabel];
             [view addSubview:contentLabel];
@@ -639,32 +645,23 @@ static int pageIndex =0;
             [cell addSubview:view];
             //评论view上面的button
             [cell addSubview:responseBtn];
-            newsCommentY = newsCommentY +40;
-            newsTotalHeight = newsTotalHeight +40;
+            newsCommentY = newsCommentY +28+contentStrHeight;
+            newsTotalHeight = newsTotalHeight +28+contentStrHeight;
             [cell setBackgroundImagViewHeight:newsTotalHeight];
             
-              for (int j = 0; j<newsReplyArray.count; j++){
+            for (int j = 0; j<newsReplyArray.count; j++){
                 
                 NSDictionary *replyCommentDic= [newsReplyArray objectAtIndex:j];
+                NSString *replycommentString =[replyCommentDic objectForKey:@"comment"];
                 //每有一条评论或者回复，就会添加这个view:宽高给定值40
                 UIView *view =[[UIView alloc]initWithFrame:CGRectMake(54, newsTotalHeight, 254, 40)];
                 view.backgroundColor = [UIColor colorWithRed:245./255. green:245./255. blue:245./255. alpha:1.];
                 
-                  
-                  //没用一条评论或者回复，就会添加这个button
-                UIButton *responseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-                [responseBtn addTarget:self action:@selector(responseBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
-                responseBtn.frame = CGRectMake(54, newsTotalHeight, 254, 40);
-//                responseBtn.tag = i+(indexPath.row+1)*10000;
-                responseBtn.tag = 10000*(indexPath.row +1) +100*(i+1)+newsCount;
-                  
-                  
                 //回复人头像
                 UIImageView *headImageView = [[UIImageView alloc]initWithFrame:CGRectMake(14, 5, 30, 30)];
                 [headImageView setImageWithURL:[NSURL URLWithString:[replyCommentDic objectForKey:DISCIVER_NEWS_REPLYUSERIMAGE]] placeholderImage:[UIHelper imageName:@"news_friendAvatar"]];
-                  headImageView.layer.cornerRadius = 15;
-                  headImageView.clipsToBounds = YES;
-//                headImageView.image = [UIHelper imageName:@"news_friendAvatar"];
+                headImageView.layer.cornerRadius = 15;
+                headImageView.clipsToBounds = YES;
                 //名字
                 UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 6, 150, 13)];
                 nameLabel.textColor =[UIColor colorWithRed:157./255. green:199./255. blue:206./255. alpha:1.0];
@@ -673,12 +670,22 @@ static int pageIndex =0;
                 nameLabel.textAlignment =NSTextAlignmentLeft;
                 nameLabel.text = [replyCommentDic objectForKey:@"userName"];
                 //内容
-                UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 23, 205, 12)];
+                CGSize replycommentStringSize = [replycommentString sizeWithFont:[UIFont systemFontOfSize:10] constrainedToSize:CGSizeMake(200, 1000) lineBreakMode:NSLineBreakByCharWrapping];
+                float replyStrHeight = replycommentStringSize.height;
+                UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 23, 205, replyStrHeight)];
+                view.frame = CGRectMake(54, newsTotalHeight, 254, 28+replyStrHeight);
                 contentLabel.textColor =[UIHelper colorWithHexString:@"#6f6f6f"];
                 contentLabel.font =[UIFont systemFontOfSize:10];
+                contentLabel.numberOfLines = 0;
                 contentLabel.textAlignment =NSTextAlignmentLeft;
                 NSString *replyString = [replyCommentDic objectForKey:@"comment"];
                 contentLabel.text = [NSString stringWithFormat:@"%@回复%@:%@",[replyCommentDic objectForKey:@"userName"],commentNameString,replyString] ;
+                
+                //没用一条评论或者回复，就会添加这个button
+                UIButton *responseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                [responseBtn addTarget:self action:@selector(responseBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
+                responseBtn.frame = CGRectMake(54, newsTotalHeight, 254, 28+replyStrHeight);
+                responseBtn.tag = 10000*(indexPath.row +1) +100*(i+1)+newsCount;
                 
                 //回复时间
                 UILabel *replyTimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(198, 8, 45, 10)];
@@ -701,8 +708,8 @@ static int pageIndex =0;
                 
                 UIImageView *lineImgeView = [[UIImageView alloc]init];
                 lineImgeView.image = [UIHelper imageName:@"shout_lineImage"];
-                lineImgeView.frame = CGRectMake(14, 39.5, 232, 0.5);
-                
+                //                lineImgeView.frame = CGRectMake(14, 39.5, 232, 0.5);
+                lineImgeView.frame = CGRectMake(14, 27.5+replyStrHeight, 232, 0.5);
                 [view addSubview:headImageView];
                 [view addSubview:nameLabel];
                 [view addSubview:contentLabel];
@@ -710,15 +717,16 @@ static int pageIndex =0;
                 [view addSubview:lineImgeView];
                 [cell addSubview:view];
                 [cell addSubview:responseBtn];
-                newsTotalHeight = newsTotalHeight+40;
+                newsTotalHeight = newsTotalHeight+28+replyStrHeight;
+                newsCommentY = newsCommentY +28+replyStrHeight;
                 newsCount +=1;
-                height +=40;
+                height +=replyStrHeight;
                 //这是到达回复最后一条的高度
                 //每加一次view，线条的高度
                 //将cell里面的白色背景图拉长：增加一条，背景就增长
                 [cell setBackgroundImagViewHeight:newsTotalHeight];
             }
-            newsCommentY = newsCommentY +newsReplyArray.count *40;
+            //            newsCommentY = newsCommentY +newsReplyArray.count *40;
         }
         return cell;
         
