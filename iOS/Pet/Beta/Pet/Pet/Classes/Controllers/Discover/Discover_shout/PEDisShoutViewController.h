@@ -44,6 +44,8 @@
 @property(nonatomic,retain)NSString *shoutComments;//哪条评论
 @property(nonatomic,assign)NSInteger navTag;
 @property(nonatomic,retain)NSString *userID;
+@property(nonatomic,retain)NSString *userName;
+@property(nonatomic,retain)NSString *petID;
 
 @property BOOL isShowKeyBord;//是否显示键盘标示 默认为NO
 @property BOOL isFace;//是否显示表情的标示

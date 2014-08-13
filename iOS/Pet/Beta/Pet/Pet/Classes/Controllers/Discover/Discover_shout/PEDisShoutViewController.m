@@ -30,7 +30,7 @@ typedef enum {
 @synthesize upImageView,centerImageView,downImageView;
 @synthesize faceButton,tempPid;
 @synthesize shoutCommentId,shoutComments,navTag;
-@synthesize userID;
+@synthesize userID,userName,petID;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -377,8 +377,9 @@ typedef enum {
     detailView.petID = @"24155";
     detailView.ownerID = @"15678";
     }else{
-        detailView.petID = @"24155";
+        detailView.petID = petID;
         detailView.ownerID = userID;
+        detailView.title = userName;
     }
     [self.navigationController pushViewController:detailView animated:YES];
 }

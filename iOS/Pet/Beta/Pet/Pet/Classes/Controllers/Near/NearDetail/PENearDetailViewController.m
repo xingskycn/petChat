@@ -1342,6 +1342,8 @@
     PEDisShoutViewController *sCtr = [[PEDisShoutViewController alloc]init];
     NSString *tempUserId = [data objectForKey:NEAR_DEFAIL_USERID];
     sCtr.userID = tempUserId;
+    sCtr.petID = [data objectForKey:NEAR_DETAIL_PETID];
+    sCtr.userName = [data objectForKey:NEAR_DETAIL_USERNAME];
     sCtr.navTag = 1;//控制导航右侧的按钮 //20140809
     [self.navigationController pushViewController:sCtr animated:YES];
 }
