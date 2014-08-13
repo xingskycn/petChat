@@ -15,7 +15,6 @@
 @end
 
 @implementation PEDisNewsViewController
-@synthesize userID;
 @synthesize myTableView;
 @synthesize tableDataArray;
 @synthesize toolView,faceView,scrollView,pageControl;
@@ -23,7 +22,7 @@
 @synthesize faceButton,tempPid;
 @synthesize newsResponeCommenTxtField,newsCommentsID;
 @synthesize replyCellIndex,replyCommentIndex;
-@synthesize photoBtn,navTag;
+@synthesize photoBtn,navTag,userName,petID,userID;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -475,12 +474,13 @@
     
     PENearDetailViewController *detailView = [[PENearDetailViewController alloc]init];
     if(navTag == 0){
-    detailView.title = [dic objectForKey:DB_COLUMN_NEAR_USERNAME];
-    detailView.petID = @"24155";
-    detailView.ownerID = @"15678";
+       detailView.title = [dic objectForKey:DB_COLUMN_NEAR_USERNAME];
+       detailView.petID = @"24155";
+       detailView.ownerID = @"15678";
     }else{
-        detailView.petID = @"24155";
+        detailView.petID = petID;
         detailView.ownerID = userID;
+        detailView.title = userName;
     }
     [self.navigationController pushViewController:detailView animated:YES];
     

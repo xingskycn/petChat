@@ -2341,10 +2341,10 @@
 		20A833B6199906EA00FF303C /* Discover_news */ = {
 			isa = PBXGroup;
 			children = (
+				20A833B7199906EA00FF303C /* News_sendNewsView */,
 				E802E685199A207700B33C87 /* PEDisNewsViewController.xib */,
 				E802E686199A207700B33C87 /* PEDisNewsViewController.m */,
 				E802E687199A207700B33C87 /* PEDisNewsViewController.h */,
-				20A833B7199906EA00FF303C /* News_sendNewsView */,
 				20A833BE199906EA00FF303C /* NewsUI */,
 			);
 			path = Discover_news;

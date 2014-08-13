@@ -1325,6 +1325,8 @@
     PEDisNewsViewController *nCtr = [[PEDisNewsViewController alloc]init];
     NSString *tempUserId = [data objectForKey:NEAR_DEFAIL_USERID];
     nCtr.userID =tempUserId;
+    nCtr.petID = [data objectForKey:NEAR_DETAIL_PETID];
+    nCtr.userName = [data objectForKey:NEAR_DETAIL_USERNAME];
     nCtr.navTag = 1;//20140809
     [self.navigationController pushViewController:nCtr animated:YES];
     

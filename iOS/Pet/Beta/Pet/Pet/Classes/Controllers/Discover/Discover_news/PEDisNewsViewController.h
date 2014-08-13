@@ -19,7 +19,7 @@
 @property(nonatomic,retain)PEDisNewsTableView * myTableView;
 @property(nonatomic,retain)NSMutableArray *tableDataArray;
 
-@property(nonatomic, retain)NSString *userID;
+
 //toolView
 @property(nonatomic,retain)UIView *toolView;
 //表情
@@ -49,7 +49,8 @@
 @property(nonatomic,assign)NSInteger replyCellIndex;
 @property(nonatomic,assign)NSInteger replyCommentIndex;
 @property(nonatomic,assign)NSInteger navTag;
-
-
+@property(nonatomic,retain)NSString *userID;
+@property(nonatomic,retain)NSString *userName;
+@property(nonatomic,retain)NSString *petID;
 
 @end
