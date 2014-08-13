@@ -738,7 +738,7 @@ static int pageIndex =0;
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    NSLog(@"table: %ld", indexPath.row);
+    NSLog(@"table: %d", indexPath.row);
     //=======点击某一行的时候把委托交给别人
     [self.newsTableViewDelegate didSelectNewsTable:indexPath.row];
 }

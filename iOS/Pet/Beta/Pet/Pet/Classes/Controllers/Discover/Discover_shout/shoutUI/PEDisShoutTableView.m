@@ -383,16 +383,21 @@ static int pageIndex =0;
         
         height =31+sizeSN.height+9.5+78*shoutImagRowCount+20.5+7+12;
     }
-    
     //commenArray有几个为字典的元素
     NSMutableArray *commentArray = [[NSMutableArray alloc]init];
     commentArray =[petData objectForKey:@"comments"];
     if(commentArray.count >0){
         for (int i = 0;i<commentArray.count;i++){
-         
-          NSMutableArray *replyCommentArray = [[commentArray objectAtIndex:i]objectForKey:@"reList"];
-
-            //注意：count值的叠加
+            NSString *commentString =[[commentArray objectAtIndex:i]objectForKey:@"content"];
+            CGSize sizeComment = [commentString sizeWithFont:[UIFont systemFontOfSize:10] constrainedToSize:CGSizeMake(200, 1000) lineBreakMode:NSLineBreakByCharWrapping];
+            height +=sizeComment.height;
+            NSMutableArray *replyCommentArray = [[commentArray objectAtIndex:i]objectForKey:@"reList"];
+            for(int j = 0;j< replyCommentArray.count;j++)
+            {
+                NSString *replycommentString = [[replyCommentArray objectAtIndex:j]objectForKey:@"comment"];
+                CGSize sizeReplycomment = [replycommentString sizeWithFont:[UIFont systemFontOfSize:10] constrainedToSize:CGSizeMake(200, 1000) lineBreakMode:NSLineBreakByCharWrapping];
+                height +=sizeReplycomment.height;
+            }
             replyCount +=replyCommentArray.count;
       }
    }
@@ -400,7 +405,7 @@ static int pageIndex =0;
     NSInteger n = commentArray.count;
   
    //添加view的起始位置+添加n个view的高度+cell间隔
-    height += 40*(n+replyCount)+14.5;
+    height += 28*(n+replyCount)+14.5;
     
     NSLog(@"当前cell高度%f",height);
     
@@ -422,12 +427,6 @@ static int pageIndex =0;
     NSString *tempSignString = [cellData objectForKey:DISCOVER_SHOUT_DETAIL];
    
     PEShoutTableViewCell *cell = [[PEShoutTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PEShoutTableViewCell" AndData:newsImageListArray AndString:tempSignString];
-    
-//          PEShoutTableViewCell *cell =(PEShoutTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"PEShoutTableViewCell"];
-//            if(cell == nil){
-//  
-//              cell = [[PEShoutTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PEShoutTableViewCell" AndData:newsImageListArray AndString:tempSignString];
-//         }
     //将图片点击事件的委托交到当前视图对象
     cell.newsCellButtonClickDelegate = self;
 
@@ -546,11 +545,7 @@ static int pageIndex =0;
         UIView *view =[[UIView alloc]initWithFrame:CGRectMake(54, commentY, 254, 40)];
        
         view.backgroundColor = [UIColor colorWithRed:245./255. green:245./255. blue:245./255. alpha:1.];
-        //没用一条评论或者回复，就会添加这个button
-        UIButton *responseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [responseBtn addTarget:self action:@selector(responseBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
-        responseBtn.frame = CGRectMake(54, commentY, 254, 40);
-        responseBtn.tag = 10000*(indexPath.row +1)+100*(i+1);//可以取出第几行的第几条评论
+
         //评论人头像
         UIImageView *headImageView = [[UIImageView alloc]initWithFrame:CGRectMake(14, 5, 30, 30)];
         [headImageView setImageWithURL:[NSURL URLWithString:[commentDict objectForKey:DISCOVER_SHOUT_COMMNETUSERIMAGE]] placeholderImage:[UIHelper imageName:@"news_friendAvatar"]];
@@ -566,11 +561,20 @@ static int pageIndex =0;
         NSString *commentNameString = [commentDict objectForKey:DISCOVER_SHOUT_SHOUTCOMMENTNAME];
         nameLabel.text = commentNameString;
         //内容
-        UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 23, 205, 12)];
+        CGSize contentStringSize = [contentString sizeWithFont:[UIFont systemFontOfSize:10] constrainedToSize:CGSizeMake(200, 1000) lineBreakMode:NSLineBreakByCharWrapping];
+        float contentStrHeight = contentStringSize.height;
+        UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 23, 205, contentStrHeight)];
+        view.frame = CGRectMake(54, commentY, 254, 28+contentStrHeight);
         contentLabel.textColor =[UIHelper colorWithHexString:@"#6f6f6f"];
+        contentLabel.numberOfLines = 0;
         contentLabel.font =[UIFont systemFontOfSize:10];
         contentLabel.textAlignment =NSTextAlignmentLeft;
         contentLabel.text = contentString;
+        //没用一条评论或者回复，就会添加这个button
+        UIButton *responseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [responseBtn addTarget:self action:@selector(responseBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
+        responseBtn.frame = CGRectMake(54, commentY, 254, 28+contentStrHeight);
+        responseBtn.tag = 10000*(indexPath.row +1)+100*(i+1);//可以取出第几行的第几条评论
         //回复时间
         UILabel *replyTimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(198, 8, 45, 10)];
         replyTimeLabel.textColor =[UIHelper colorWithHexString:@"#8e8e8e"];
@@ -592,7 +596,7 @@ static int pageIndex =0;
       
         UIImageView *lineImgeView = [[UIImageView alloc]init];
         lineImgeView.image = [UIHelper imageName:@"shout_lineImage"];
-        lineImgeView.frame = CGRectMake(14, 39.5, 232, 0.5);
+        lineImgeView.frame = CGRectMake(14, 27.5+contentStrHeight, 232, 0.5);
         
         [view addSubview:headImageView];
         [view addSubview:nameLabel];
@@ -602,23 +606,19 @@ static int pageIndex =0;
         [cell addSubview:view];
         //评论view上面的button
         [cell addSubview:responseBtn];
-         commentY = commentY +40;
-        totalHeight = totalHeight +40;
+         commentY = commentY +28+contentStrHeight;
+        totalHeight = totalHeight +28+contentStrHeight;
         [cell setBackgroundImagViewHeight:totalHeight];
 
         for (int j = 0; j<replyArray.count; j++){
             
             
             NSDictionary *replyCommentDic= [replyArray objectAtIndex:j];
-            
+            NSString *replycommentString = [replyCommentDic objectForKey:@"comment"];
             //每有一条评论或者回复，就会添加这个view:宽高给定值40
             UIView *view =[[UIView alloc]initWithFrame:CGRectMake(54, totalHeight, 254, 40)];
             view.backgroundColor = [UIColor colorWithRed:245./255. green:245./255. blue:245./255. alpha:1.];
-            //没用一条评论或者回复，就会添加这个button
-            UIButton *responseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [responseBtn addTarget:self action:@selector(responseBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
-            responseBtn.frame = CGRectMake(54, totalHeight, 254, 40);
-            responseBtn.tag = 10000*(indexPath.row +1) +100*(i+1)+newsCount;
+
             //回复人头像
             UIImageView *headImageView = [[UIImageView alloc]initWithFrame:CGRectMake(14, 5, 30, 30)];
             [headImageView setImageWithURL:[NSURL URLWithString:[replyCommentDic objectForKey:DISCOVER_SHOUT_REPLYUSERIMAGE]] placeholderImage:[UIHelper imageName:@"news_friendAvatar"]];
@@ -633,12 +633,21 @@ static int pageIndex =0;
             nameLabel.textAlignment =NSTextAlignmentLeft;
             nameLabel.text = [replyCommentDic objectForKey:@"userName"];
             //内容
-            UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 23, 205, 12)];
+            CGSize replycommentStringSize = [replycommentString sizeWithFont:[UIFont systemFontOfSize:10] constrainedToSize:CGSizeMake(200, 1000) lineBreakMode:NSLineBreakByCharWrapping];
+            float replyStrHeight = replycommentStringSize.height;
+            UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(50, 23, 205, replyStrHeight)];
+            view.frame = CGRectMake(54, totalHeight, 254, 28+replyStrHeight);
             contentLabel.textColor =[UIHelper colorWithHexString:@"#6f6f6f"];
             contentLabel.font =[UIFont systemFontOfSize:10];
+            contentLabel.numberOfLines = 0;
             contentLabel.textAlignment =NSTextAlignmentLeft;
-            NSString *replyString = [[replyArray objectAtIndex:j] objectForKey:@"comment"];
+            NSString *replyString = [replyCommentDic objectForKey:@"comment"];
             contentLabel.text = [NSString stringWithFormat:@"%@回复%@:%@",[replyCommentDic objectForKey:@"userName"],commentNameString,replyString] ;
+            //没用一条评论或者回复，就会添加这个button
+            UIButton *responseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [responseBtn addTarget:self action:@selector(responseBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
+            responseBtn.frame = CGRectMake(54, totalHeight, 254, 28+replyStrHeight);
+            responseBtn.tag = 10000*(indexPath.row +1) +100*(i+1)+newsCount;
           
             //回复时间
             UILabel *replyTimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(198, 8, 45, 10)];
@@ -661,7 +670,7 @@ static int pageIndex =0;
             
             UIImageView *lineImgeView = [[UIImageView alloc]init];
             lineImgeView.image = [UIHelper imageName:@"shout_lineImage"];
-            lineImgeView.frame = CGRectMake(14, 39.5, 232, 0.5);
+            lineImgeView.frame = CGRectMake(14, 27.5+replyStrHeight, 232, 0.5);
             
             [view addSubview:headImageView];
             [view addSubview:nameLabel];
@@ -670,20 +679,14 @@ static int pageIndex =0;
             [view addSubview:lineImgeView];
             [cell addSubview:view];
             [cell addSubview:responseBtn];
-            totalHeight = totalHeight+40;
+            totalHeight = totalHeight+28+replyStrHeight;
             
-            height +=40;
+            height +=28+replyStrHeight;
             //这是到达回复最后一条的高度
             //每加一次view，线条的高度
             //将cell里面的白色背景图拉长：增加一条，背景就增长
            [cell setBackgroundImagViewHeight:totalHeight];
         }
-        commentY = commentY +replyArray.count *40;
-       
-        //这是到达回复最后一条的高度
-        //每加一次view，线条的高度
-        //将cell里面的白色背景图拉长：增加一条，背景就增长
-//        [cell setBackgroundImagViewHeight:totalHeight];
         
     }
     return cell;
@@ -709,7 +712,6 @@ static int pageIndex =0;
         [Common showAlert:@"请先登录"];
         return;
     }
-    
     NSInteger tag = button.tag;
     NSInteger indexPathRow = tag/10000-1;//取cell的索引值
     NSInteger commentIndex = (tag-10000*(indexPathRow+1))/100-1;//取cell的第几条评论
@@ -797,7 +799,5 @@ static int pageIndex =0;
     NSDictionary *petData = [dataArray objectAtIndex:i];
     [shoutDelegte shoutFriendBtnPressed:petData];  
 }
-
-
 
 @end
