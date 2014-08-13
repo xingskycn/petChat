@@ -66,7 +66,7 @@
     
     //视频icon
     [vedioPetIconV setFrame:CGRectMake(vedioNumLbl.frame.size.width + 26.5, 31.0f, 61.0f, 61.0f)];
-    [vedioPetIconV setImage:[UIHelper imageName:@"Video_test"]]; //nearDetail_vedio_icon_bg
+//    [vedioPetIconV setImage:[UIHelper imageName:@"Video_test"]]; //nearDetail_vedio_icon_bg 20140809
     playImageView.backgroundColor = [UIColor clearColor];
     playImageView.image = [UIHelper imageName:@"vedio_play"];
     playImageView.userInteractionEnabled = YES;

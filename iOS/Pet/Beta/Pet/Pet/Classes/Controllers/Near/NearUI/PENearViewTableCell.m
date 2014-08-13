@@ -87,7 +87,6 @@
     [timeLabel setFrame:CGRectMake(170.5+sizeDL.width+5, 6.0f, sizeTL.width, sizeTL.height)];
     
     
-    
     //pet UI setting ---白色大背景图
     UIImage *img =[UIHelper imageName:@"near_cell_bg"];
     [img stretchableImageWithLeftCapWidth:100 topCapHeight:0.0f];

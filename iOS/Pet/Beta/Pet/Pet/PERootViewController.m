@@ -87,6 +87,7 @@ typedef enum {
 
 
 #pragma mark - CREATE INTRO VIEW
+//第一次进来的四张图片
 - (void)showIntroWithCrossDissolve {
     EAIntroPage *page1 = [EAIntroPage page];
 //    page1.title = @"PetChat 01";
@@ -109,9 +110,7 @@ typedef enum {
     page4.bgImage = [UIImage imageNamed:@"ad4.png"];
     
     EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2,page3,page4]];
-    
     [intro.skipButton setHidden:YES];
-    
     [intro setDelegate:self];
     [intro showInView:self.view animateDuration:0.0];
 }

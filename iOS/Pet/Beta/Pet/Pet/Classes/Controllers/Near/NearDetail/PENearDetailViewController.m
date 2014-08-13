@@ -384,8 +384,8 @@
        if([videoNameString isEqualToString:@""] || videoNameString == nil){
         vedioView.vedioTitleLbl.text = @"最新视频";
     }
-        vedioView.vedioPetIconV.image = [self getVideoPreViewImage];
-        [self getVideoPreViewImage];
+        vedioView.vedioPetIconV.image = [Common getVideoPreViewImage:[vedioDic objectForKey:NEAR_DETAIL_VEDIO_URL]];
+        
     }
     
     
