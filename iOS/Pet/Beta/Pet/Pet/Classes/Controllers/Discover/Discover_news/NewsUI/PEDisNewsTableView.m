@@ -824,7 +824,7 @@ static int pageIndex =0;
 //点赞button点击事件
 - (void)newsFavButtonIsPressed:(UIButton *)sender
 {
-//    sender.enabled = NO;//20140809
+    sender.enabled = NO;//20140809
     NSInteger i = sender.tag+ButtonBaseTag;
     NSDictionary *petData = [dataArray objectAtIndex:i-1];
     NSString *tempPid = [petData objectForKey:DISCOVER_NEWS_NEWSID];

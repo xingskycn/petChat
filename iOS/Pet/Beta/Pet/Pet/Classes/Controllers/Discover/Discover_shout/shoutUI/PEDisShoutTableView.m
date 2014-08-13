@@ -772,7 +772,7 @@ static int pageIndex =0;
     if(isLogin == NO){
         [Common showAlert:@"请先登录"];
     }
-//    sender.enabled = NO;//20140809
+    sender.enabled = NO;//20140809
     NSInteger i = sender.tag-ButtonBaseTag;
     NSDictionary *petData = [dataArray objectAtIndex:i];
     NSString *tempPid = [petData objectForKey:DISCOVER_SHOUT_ID];
@@ -785,7 +785,6 @@ static int pageIndex =0;
     }
     [self.shoutDelegte praiseButtonClick:tempPid AndAgreeStatus:tempAgreeStatus];
 //    NSLog(@"aaaaaaaaaaaaa%@",tempPid);
-   
 }
 
 //宠物头像点击事件
@@ -794,7 +793,6 @@ static int pageIndex =0;
     if(isLogin == NO){
         [Common showAlert:@"请先登录"];
     }
-    
     NSInteger i = sender.tag - ButtonBaseTag;
     NSDictionary *petData = [dataArray objectAtIndex:i];
     [shoutDelegte shoutFriendBtnPressed:petData];  

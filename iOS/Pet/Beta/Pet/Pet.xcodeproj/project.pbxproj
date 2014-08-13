@@ -4320,7 +4320,7 @@
 			baseConfigurationReference = 83E9E50E1C5F4E6AA3A40443 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jian HU (5CFRDFR86E)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Junqiu Wu (VDYM3497DJ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pet/Pet-Prefix.pch";
 				INFOPLIST_FILE = "Pet/Pet-Info.plist";
@@ -4356,7 +4356,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "94D5E14B-4831-431A-8BB9-32E9FA210F35";
+				PROVISIONING_PROFILE = "1e52f8e7-9a04-4ce1-9194-5c7b953e9267";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4367,7 +4367,7 @@
 			baseConfigurationReference = 83E9E50E1C5F4E6AA3A40443 /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jian HU (5CFRDFR86E)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Junqiu Wu (VDYM3497DJ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pet/Pet-Prefix.pch";
 				INFOPLIST_FILE = "Pet/Pet-Info.plist";
@@ -4403,7 +4403,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "94D5E14B-4831-431A-8BB9-32E9FA210F35";
+				PROVISIONING_PROFILE = "1e52f8e7-9a04-4ce1-9194-5c7b953e9267";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};

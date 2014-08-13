@@ -219,8 +219,6 @@
                     [photosImageView addSubview:imgV];
                      photosImageView.delegate = self;
                 }
-                
-               
                 [self addSubview:photosImageView];
            
             }
