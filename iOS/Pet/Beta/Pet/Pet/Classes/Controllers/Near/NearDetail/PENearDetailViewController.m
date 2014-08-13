@@ -1020,6 +1020,7 @@
     NSString *tempUserId = [data objectForKey:NEAR_DEFAIL_USERID];
     vedioListView.videoListTableView.tempUserID =tempUserId;
     vedioListView.navTag = 1;
+    vedioListView.userID = tempUserId;
     [self.navigationController pushViewController:vedioListView animated:YES];
 }
 

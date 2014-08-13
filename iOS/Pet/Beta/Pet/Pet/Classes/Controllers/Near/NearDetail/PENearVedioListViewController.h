@@ -42,6 +42,7 @@
 @property(nonatomic,assign)NSInteger replyCommentIndex;
 
 @property(nonatomic,assign)NSInteger navTag;
+@property(nonatomic,retain)NSString *userID;
 
 
 @end

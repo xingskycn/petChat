@@ -10,7 +10,7 @@
 #import "UIHelper.h"
 @implementation PEDisVedioListTableCell
 @synthesize cID;
-@synthesize friendAvatarImageView,passPhotoImageView,passPhotoImageViewTwo,bgImageViewUp,bgImageViewCenter,bgImageViewDown;
+@synthesize friendAvatarImageView,friendAvaterBtn,passPhotoImageView,passPhotoImageViewTwo,bgImageViewUp,bgImageViewCenter,bgImageViewDown;
 @synthesize friendLineImageViewOne,friendLineImageViewTwo;
 @synthesize friendNameLabel,signNameLabel,distanceLabel,timeLabel,markCountLabel,favCountLable,datalabel,one;
 @synthesize markButton,favButton;
@@ -33,6 +33,7 @@
         }
         //1.好友头像
         friendAvatarImageView = [[UIImageView alloc]init];
+        friendAvaterBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         
         //2.好友名
         friendNameLabel = [[UILabel alloc]init];
@@ -99,6 +100,9 @@
         friendAvatarImageView.frame = CGRectMake(5, 3, 34, 34);
         friendAvatarImageView.layer.cornerRadius =17.0f;
         friendAvatarImageView.clipsToBounds =YES;
+        
+        friendAvaterBtn.frame = CGRectMake(0, 0, 39, 39);
+        
         
         friendNameLabel.backgroundColor = [UIColor clearColor];
         friendNameLabel.textColor = [UIHelper colorWithHexString:@"#000000"];
@@ -193,6 +197,7 @@
         [self addSubview:bgImageViewCenter];
         [self addSubview:bgImageViewDown];
         [self addSubview:friendAvatarImageView];
+        [self addSubview:friendAvaterBtn];
         [self addSubview:friendNameLabel];
         [self addSubview:friendAgeLabel];
         [self addSubview:friendSexImageView];
@@ -226,7 +231,8 @@
                 photosImageView = [[img alloc]init];
                 photosImageView.frame = CGRectMake(62.5+83*n, 40.5+sizeSN.height+83*m, 78, 78);//62.5
                 photosImageView.vedioUrl = videoString;
-                photosImageView.image = [UIHelper imageName:@"Video_test"];
+//                photosImageView.image = [UIHelper imageName:@"Video_test"];
+                photosImageView.image = [Common getVideoPreViewImage:videoString];
                 photosImageView.delegate = self;
                 
                 UIImageView *imgV =[[UIImageView alloc] initWithFrame:CGRectInset(photosImageView.bounds, 24.25f, 24.25f)];
@@ -258,7 +264,8 @@
             photosImageView = [[img alloc]init];
             photosImageView.frame = CGRectMake(62.5, 40.5+sizeSN.height, 78, 78);
             photosImageView.vedioUrl = videoString;
-            photosImageView.image = [UIHelper imageName:@"Video_test"];
+//            photosImageView.image = [UIHelper imageName:@"Video_test"];
+            photosImageView.image = [Common getVideoPreViewImage:videoString];
             photosImageView.delegate = self;
             
             UIImageView *imgV =[[UIImageView alloc] initWithFrame:CGRectInset(photosImageView.bounds, 24.25f, 24.25f)];

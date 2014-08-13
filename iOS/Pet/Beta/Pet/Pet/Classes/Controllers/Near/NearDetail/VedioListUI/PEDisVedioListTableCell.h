@@ -24,6 +24,8 @@
 @property int cID;
 @property (nonatomic, retain)NSString *pid;
 @property (nonatomic, retain)UIImageView *friendAvatarImageView;//好友头像
+@property(nonatomic,retain)UIButton *friendAvaterBtn;
+
 @property (nonatomic, retain)UIButton *passPhotoImageView;//上传的照片1
 @property (nonatomic, retain)UIButton *passPhotoImageViewTwo;//上传的照片2
 @property (nonatomic, retain)UIImageView *bgImageViewUp;//白色背景气泡向上
@@ -32,9 +34,7 @@
 @property (nonatomic, retain)UIImageView *friendLineImageViewOne;//好友头像之间的连线1
 @property (nonatomic, retain)UIImageView *friendLineImageViewTwo;//好友头像之间的连线2
 @property (nonatomic, retain)UIImageView *friendSexImageView;//好友的性别
-
 @property (nonatomic,retain)UIView *rightView;//右边封装的界面视图（高度是可变的）
-
 @property(nonatomic,retain)UILabel *friendNameLabel;//好友名字
 @property(nonatomic,retain)UILabel *friendAgeLabel;//好友年龄
 @property(nonatomic,retain)UILabel *signNameLabel;//个性签名
@@ -73,8 +73,8 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier AndData:(NSMutableArray *)dataArray AndString:(NSString *)signString;
 
--(void)setSexImageViewForString:(NSString *)string;
--(void)setBackgroundImagViewHeight:(float)height;
+- (void)setSexImageViewForString:(NSString *)string;
+- (void)setBackgroundImagViewHeight:(float)height;
 - (void)setNameAndAgeLocatonWith:(NSString *)nameString Sign:(NSString *)signString AndAgreeStatus:(NSString *)agreeStatus AndArray:(NSMutableArray *)imageListArray;
 
 

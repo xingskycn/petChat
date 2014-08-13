@@ -35,9 +35,7 @@ static int pageIndex =0;
         
         [self createHeaderView];
         [self performSelector:@selector(testFinishedLoadData) withObject:nil afterDelay:0.0f];
-        
-        
-      
+
     }
     return self;
 }
@@ -459,59 +457,19 @@ static int pageIndex =0;
             [newsImageListArray addObject:[imageUrlListArray[i] objectForKey:@"url"]];
         }
          [newsImageListArray addObject:[cellDataDict objectForKey:VIDEO_LIST_VIDEO_URL]];
-         NSLog(@"当前行数的视频数组长度为%ld",newsImageListArray.count);
+         NSLog(@"当前行数的视频数组长度为%d",newsImageListArray.count);
          NSString *signString =[cellDataDict objectForKey:VIDEO_LIST_USERSIGN];
         
-        PEDisVedioListTableCell *cell = [[PEDisVedioListTableCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PEDisNewsViewTableCell" AndData:newsImageListArray AndString:signString];
+        static NSString *cellID = @"videoCell";
         
+//        PEDisVedioListTableCell *cell = [[PEDisVedioListTableCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PEDisNewsViewTableCell" AndData:newsImageListArray AndString:signString];
+        PEDisVedioListTableCell *cell = (PEDisVedioListTableCell *)[tableView dequeueReusableCellWithIdentifier:cellID];
+        if(cell == nil){
+            cell = [[PEDisVedioListTableCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID AndData:newsImageListArray AndString:signString];
+        }
         //个性签名label赋值
         cell.signNameLabel.text = signString;
         CGSize sizeSN = [signString sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(200, 1000) lineBreakMode:NSLineBreakByCharWrapping];
-        
-//        int h = newsImageListArray.count;
-//        //显示的图片
-//        if(h >=2)
-//        {
-//            
-//            for(int i = 0;i< h;i++)
-//            {
-//                int m = i/3;//行数,从1开始
-//                int n = i%3;//该行有多少个
-//                
-//                
-//                UIButton *playVedioBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//                playVedioBtn.frame = CGRectMake(62.5+83*n, 40.5+sizeSN.height+83*m, 78, 78);
-//                [playVedioBtn addTarget:self action:@selector(playVedioBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
-//                playVedioBtn.tag = i + 1000*indexPath.row;
-//                
-//                UIImageView *imgV =[[UIImageView alloc] initWithFrame:CGRectInset(playVedioBtn.bounds, 24.25f, 24.25f)];
-//                imgV.image =[UIHelper imageName:@"vedio_play"];
-//                imgV.userInteractionEnabled =YES;
-//                [playVedioBtn addSubview:imgV];
-//                 [cell addSubview:playVedioBtn];
-//                
-//            }
-//
-//            
-//        }
-//        else if (h == 1)
-//        {
-//            UIButton *playVedioBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//            playVedioBtn.frame = CGRectMake(62.5, 40.5+sizeSN.height, 78, 78);
-//            [playVedioBtn addTarget:self action:@selector(playVedioBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
-//            playVedioBtn.tag = 0+1000*indexPath.row;
-//            UIImageView *imgV =[[UIImageView alloc] initWithFrame:CGRectInset(playVedioBtn.bounds, 24.25f, 24.25f)];
-//            imgV.image =[UIHelper imageName:@"vedio_play"];
-//            imgV.userInteractionEnabled =YES;
-//            [playVedioBtn addSubview:imgV];
-//            [cell addSubview:playVedioBtn];
-//            
-//        }
-//        else if (h == 0){
-//            //没有图片的时候，所有控件的高度减小84
-//            NSLog(@"当前数组长度为空");
-//
-//        }
 
         
         cell.cID =indexPath.row;
@@ -555,10 +513,12 @@ static int pageIndex =0;
         
         [cell.favButton addTarget:self action:@selector(newsFavButtonIsPressed:) forControlEvents:UIControlEventTouchUpInside];
         [cell.markButton addTarget:self action:@selector(newsMarkButtonIsPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.friendAvaterBtn addTarget:self action:@selector(friendAvaterBtnIsPressed:) forControlEvents:UIControlEventTouchUpInside];
         
-        //便于点赞和评论时取出标识符
+        //便于点赞和评论,点击好友头像时取出标识符
         cell.favButton .tag = indexPath.row -ButtonBaseTag;
         cell.markButton.tag = indexPath.row -ButtonBaseTag;
+        cell.friendAvaterBtn.tag = indexPath.row -ButtonBaseTag;
         
         cell.backgroundColor =[UIColor clearColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -856,6 +816,12 @@ static int pageIndex =0;
 
 - (void)playVedioClick:(NSString *)videoString {
     [newsTableViewDelegate videoPlayBtnClick:videoString];
+}
+
+- (void)friendAvaterBtnIsPressed:(UIButton *)sender{
+     NSInteger i = sender.tag +ButtonBaseTag;
+     NSDictionary *petData = [dataArray objectAtIndex:i-1];
+    [newsTableViewDelegate videoFriendAvaterBtnPressed:petData];
 }
 
 @end

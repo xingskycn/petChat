@@ -13,6 +13,7 @@
 #import "PEMobile.h"
 #import "PENetWorkingManager.h"
 #import "Common.h"
+#import "PENearDetailViewController.h"
 @interface PENearVedioListViewController ()
 
 @end
@@ -24,7 +25,7 @@
 @synthesize faceButton,tempPid;
 @synthesize newsResponeCommenTxtField,newsCommentsID;
 @synthesize replyCellIndex,replyCommentIndex;
-@synthesize navTag;
+@synthesize navTag,userID;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -53,8 +54,7 @@
     [bgV setFrame:CGRectMake(0.0f, 0.0f, 320.0f, 568.0f)];
     [self.view addSubview:bgV];
     
-    
-    
+
     self.navigationItem.titleView = nil;
     UIView* titleView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 120, 25)];
     
@@ -419,6 +419,20 @@
     commenTxtField.alpha = 1.0f;
     newsResponeCommenTxtField.alpha = 0.0f;
     [commenTxtField becomeFirstResponder];
+}
+
+- (void)videoFriendAvaterBtnPressed:(NSDictionary *)dic{
+    PENearDetailViewController *detailView = [[PENearDetailViewController alloc]init];
+    if(navTag == 0){
+        detailView.title = [dic objectForKey:DB_COLUMN_NEAR_USERNAME];
+        detailView.petID = @"24155";
+        detailView.ownerID = @"15678";
+    }else{
+        detailView.petID = @"24155";
+        detailView.ownerID = userID;
+        detailView.title = [dic objectForKey:DB_COLUMN_NEAR_USERNAME];
+    }
+    [self.navigationController pushViewController:detailView animated:YES];
 }
 
 #pragma mark -
