@@ -25,7 +25,7 @@
 @synthesize faceButton,tempPid;
 @synthesize newsResponeCommenTxtField,newsCommentsID;
 @synthesize replyCellIndex,replyCommentIndex;
-@synthesize navTag,userID;
+@synthesize navTag,userID,petID,userName;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -424,13 +424,14 @@
 - (void)videoFriendAvaterBtnPressed:(NSDictionary *)dic{
     PENearDetailViewController *detailView = [[PENearDetailViewController alloc]init];
     if(navTag == 0){
+
         detailView.title = [dic objectForKey:DB_COLUMN_NEAR_USERNAME];
         detailView.petID = @"24155";
         detailView.ownerID = @"15678";
     }else{
-        detailView.petID = @"24155";
+        detailView.petID = petID;
         detailView.ownerID = userID;
-        detailView.title = [dic objectForKey:DB_COLUMN_NEAR_USERNAME];
+        detailView.title = userName;
     }
     [self.navigationController pushViewController:detailView animated:YES];
 }

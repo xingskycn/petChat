@@ -67,6 +67,7 @@
 @property(nonatomic,retain)NSDictionary *vedioDic;
 @property(nonatomic,retain)NSDictionary *shoutDic;
 @property(nonatomic,retain)NSDictionary *newsDic;
+@property(nonatomic,retain)NSDictionary *resultDic;
 
 @property (nonatomic, retain) PEPhotoScrollView *photoSV;
 @property (nonatomic, retain) PENearDetailListView *listView;

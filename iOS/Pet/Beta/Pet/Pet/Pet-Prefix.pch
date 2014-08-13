@@ -439,6 +439,8 @@ typedef enum {
 #define NEAR_DETAIL_SHOUTINFO_COUNT @"shoutCount"
 #define NEAR_DETAIL_SHOUTINFO_IMAGEURL @"imageUrl"
 #define NEAR_DETAIL_SHOUTINFO_CONTENT @"content"
+#define NEAR_DETAIL_PETID             @"petID"
+#define NEAR_DETAIL_USERNAME          @"userName"
 
 
 //=========8-2 视频列表界面key

@@ -43,6 +43,8 @@
 
 @property(nonatomic,assign)NSInteger navTag;
 @property(nonatomic,retain)NSString *userID;
+@property(nonatomic,retain)NSString *petID;
+@property(nonatomic,retain)NSString *userName;
 
 
 @end

@@ -34,7 +34,7 @@
 @synthesize sendBtn,loveBtn,hateBtn,sheet;
 @synthesize imageView1,imageView2,tabVV,isLogin,reportAlter;
 @synthesize fliterView,fliterViewTwo,reportField,reportFieldLabel;
-@synthesize shoutDic,newsDic;
+@synthesize shoutDic,newsDic,resultDic;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -46,6 +46,7 @@
         vedioDic = [[NSDictionary alloc]init];
         shoutDic = [[NSDictionary alloc]init];
         newsDic = [[NSDictionary alloc]init];
+        resultDic = [[NSDictionary alloc]init];
     }
     return self;
 }
@@ -102,7 +103,7 @@
     [[PENetWorkingManager sharedClient] nearDetailDataRequest:requestDict completion:^(NSDictionary *results, NSError *error) {
         if (results) {
             NSLog(@"%@", results);
-            
+            resultDic = results;
             data =[[results objectForKey:NEAR_DETAIL_DATA] objectAtIndex:0];
             //====是否已经关注：添加关注后该值要发生变化
             //====是否已经拉黑：显示的图片要切换
@@ -1021,6 +1022,8 @@
     vedioListView.videoListTableView.tempUserID =tempUserId;
     vedioListView.navTag = 1;
     vedioListView.userID = tempUserId;
+    vedioListView.userName =[data objectForKey:NEAR_DETAIL_USERNAME];
+    vedioListView.petID = [data objectForKey:NEAR_DETAIL_PETID];
     [self.navigationController pushViewController:vedioListView animated:YES];
 }
 
